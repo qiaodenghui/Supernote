@@ -1,0 +1,3272 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        "MyScript.IInk"
+    </assembly>
+    <members>
+        <member name="M:MyScript.IInk.Graphics.Style.ApplyTo(MyScript.IInk.Graphics.ICanvas)">
+            <summary>
+Apply changed style attributes to the specified target canvas.
+</summary>
+            <param name="canvas">the target canvas.</param>
+            <see cref="M:MyScript.IInk.Graphics.Style.GetChangeFlags" />
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Style.ClearChangeFlags">
+            <summary>
+Clears the change flags.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Style.SetChangeFlags(System.UInt32)">
+            <summary>
+Sets the change flags.
+</summary>
+            <param name="flags">the set of style flags.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Style.GetChangeFlags">
+            <summary>
+Returns the set of style attributes changed since construction or last call
+to {@link #clearChangeFlags()}.
+</summary>
+            <returns>the set of style flags.</returns>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.DropShadowColor">
+            <summary>
+The drop shadow color.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.DropShadowRadius">
+            <summary>
+The drop shadow blur radius.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.DropShadowYOffset">
+            <summary>
+The drop shadow vertical offset.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.DropShadowXOffset">
+            <summary>
+The drop shadow horizontal offset.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.FontWeight">
+            <summary>
+The font weight.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.FontVariant">
+            <summary>
+The font variant.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.FontStyle">
+            <summary>
+The font data.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.FontSize">
+            <summary>
+The font size.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.FontLineHeight">
+            <summary>
+The font line height.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.FontFamily">
+            <summary>
+The font family.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.FillRule">
+            <summary>
+The fill rule.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.FillColor">
+            <summary>
+The fill color.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.StrokeDashOffset">
+            <summary>
+The distance into the dash pattern to start the dash.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.StrokeDashArray">
+            <summary>
+The pattern of dashes and gaps used to stroke paths.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.StrokeMiterLimit">
+            <summary>
+The stroke miter limit.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.StrokeLineJoin">
+            <summary>
+The stroke line join.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.StrokeLineCap">
+            <summary>
+The stroke line cap.
+</summary>
+            <param name="strokeLineCap">the stroke line cap.</param>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.StrokeWidth">
+            <summary>
+The stroke width.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Style.StrokeColor">
+            <summary>
+The stroke color.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Style.Clear">
+            <summary>
+Resets the style properties to their default value.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Style.#ctor">
+            <summary>
+Default constructor.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.IStrokerFactory.CreateStroker">
+            <summary>
+Creates a new stroker instance.
+</summary>
+            <returns>the newly created stroker.</returns>
+        </member>
+        <member name="T:MyScript.IInk.Graphics.IStrokerFactory">
+            <summary>
+The IStrokerFactory interface is responsible to create `IStroker` instances.
+</summary>
+            <since>1.4</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.GetAvailableSelectionTypes(MyScript.IInk.ContentSelection)">
+            <summary>
+Returns the available types for a selection.
+</summary>
+            <param name="selection">the content selection on which to get the types.</param>
+            <returns>an array of the the available selection types.</returns>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <exception cref="T:System.Exception">when selection is not valid.</exception>
+            <since>2.0.1</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.SetSelectionType(MyScript.IInk.ContentSelection,System.String,System.Boolean)">
+            <summary>
+Sets a selection to the specified type.
+</summary>
+            <param name="selection">the content selection on which to set the type.</param>
+            <param name="type">the content type to set. <see cref="M:MyScript.IInk.Editor.GetAvailableSelectionTypes(MyScript.IInk.ContentSelection)" />.</param>
+            <param name="forceSingleBlock">
+                <c>true</c> to force converting the selection to a single block, <c>false</c> otherwise.</param>
+            <exception cref="T:System.ArgumentException">when the type is not supported.</exception>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <exception cref="T:System.Exception">when selection is not valid.</exception>
+            <exception cref="T:System.Exception">when selection is not compatible with the type.</exception>
+            <since>2.0.1</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.GetAvailableSelectionModes">
+            <summary>
+Returns the available selection modes for the active content selection associated with this editor.
+</summary>
+            <returns>an array of the the available selection modes.</returns>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.SetSelectionMode(MyScript.IInk.ContentSelectionMode)">
+            <summary>
+Sets the specified selection mode to the active content selection associated with this editor.
+</summary>
+            <param name="mode">the selection mode to set on the active content selection.</param>
+            <exception cref="T:System.ArgumentException">when the mode is not supported.</exception>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <exception cref="T:System.Exception">when editor has no active selection.</exception>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.GetSelectionMode">
+            <summary>
+Returns the selection mode of the active content selection associated with this editor.
+</summary>
+            <returns>the selection mode of the current content selection.</returns>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.SetTextFormat(MyScript.IInk.IContentSelection,&lt;unknown type&gt;)">
+            <summary>
+Applies Format to all text blocks in selection.
+</summary>
+            <param name="selection">the content selection on which to apply the format.</param>
+            <param name="format">the text format value.</param>
+            <exception cref="T:System.ArgumentException">when selection is <c>null</c>.</exception>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.GetSupportedTextFormats(MyScript.IInk.IContentSelection)">
+            <summary>
+Returns the supported text formats for specified content selection.
+</summary>
+            <param name="selection">the selection to request.</param>
+            <returns>an array of the supported text formats.</returns>
+            <exception cref="T:System.ArgumentException">when selection is <c>null</c>.</exception>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.ApplyStyle(MyScript.IInk.ContentSelection,System.String)">
+            <summary>
+Applies CSS style properties to a content selection.
+</summary>
+            <param name="selection">the content selection on which to apply the style.</param>
+            <param name="style">the CSS style properties to apply.</param>
+            <exception cref="T:System.ArgumentException">when selection is <c>null</c>.</exception>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.Transform(MyScript.IInk.ContentSelection,MyScript.IInk.Graphics.Transform)">
+            <summary>
+Transforms a selection.
+</summary>
+            <param name="selection">the content selection on which to apply the transformation.</param>
+            <param name="transform">the transformation to apply.</param>
+            <exception cref="T:System.ArgumentException">when selection is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">when transform is not valid for this operation.</exception>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <exception cref="T:System.Exception">when the transform is not allowed on the content selection.</exception>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.GetTransformStatus(MyScript.IInk.ContentSelection,MyScript.IInk.Graphics.Transform)">
+            <summary>
+Checks if a transformation is allowed on a content selection.
+</summary>
+            <param name="selection">the content selection on which to check the transformation.</param>
+            <param name="transform">the transformation to check.</param>
+            <returns>an error code from a combination of enum <c>TransformError</c>.</returns>
+            <exception cref="T:System.ArgumentException">when transform is <c>null</c>.</exception>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.GetIncludedBlocks(MyScript.IInk.IContentSelection)">
+            <summary>
+Returns the content block ids included in the specified content selection.
+</summary>
+            <param name="selection">the content selection on which to get the included block ids.</param>
+            <returns>an array that contains all the content block ids included in the content selection.</returns>
+            <exception cref="T:System.ArgumentException">when selection is <c>null</c>.</exception>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.GetIntersectingBlocks(MyScript.IInk.IContentSelection)">
+            <summary>
+Returns the content block ids intersecting with the specified content selection.
+</summary>
+            <param name="selection">the content selection on which to get the intersecting block ids.</param>
+            <returns>an array that contains all the content block ids intersecting with the content selection.</returns>
+            <exception cref="T:System.ArgumentException">when selection is <c>null</c>.</exception>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.HitSelection(System.Single,System.Single)">
+            <summary>
+Returns the active content selection at the given position, or <c>null</c> if there is
+no active content selection at that position.
+</summary>
+            <param name="x">the hit position x coordinate (view coordinates in pixel).</param>
+            <param name="y">the hit position y coordinate (view coordinates in pixel).</param>
+            <returns>the content selection below the hit position (i.e. the active content selection), otherwise <c>null</c>.</returns>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.SetSelection(MyScript.IInk.IContentSelection)">
+            <summary>
+Sets the specified content selection as the active content selection in this editor.
+</summary>
+@note it unsets the active content selection if the specified content selection is empty or <c>null</c>.
+<param name="selection">the content selection to set as active.</param><exception cref="T:System.Exception">when editor is not associated with a part.</exception><since>2.0</since></member>
+        <member name="M:MyScript.IInk.Editor.GetSelection">
+            <summary>
+Returns the content selection associated with this editor.
+</summary>
+@note this content selection is empty if the editor has nothing selected.
+<returns>the current content selection.</returns><exception cref="T:System.Exception">when editor is not associated with a part.</exception><since>2.0</since></member>
+        <member name="M:MyScript.IInk.Editor.HasSelection">
+            <summary>
+Tells if this editor has an active content selection.
+</summary>
+            <returns>
+                <c>true</c> if the editor has an active content selection, otherwise <c>false</c>.</returns>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.DrawStroke(MyScript.IInk.PointerEvent[],MyScript.IInk.Graphics.ICanvas)">
+            <summary>
+Draws pointer events, with current editor style settings, on the given canvas.
+</summary>
+            <param name="events">the list of events.</param>
+            <param name="canvas">the canvas on which editor should send the drawing commands.</param>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <exception cref="T:System.ArgumentException">when the list of events is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">when renderer configuration is invalid.</exception>
+            <exception cref="T:System.ArgumentException">when a pointer event contains incorrect data.</exception>
+            <exception cref="T:System.InvalidOperationException">when events sequence is invalid.</exception>
+            <since>1.5.1</since>
+        </member>
+        <member name="P:MyScript.IInk.Editor.Configuration">
+            <summary>
+Returns the configuration associated with this editor.
+</summary>
+            <returns>the editor configuration.</returns>
+        </member>
+        <member name="M:MyScript.IInk.Editor.IsScrollAllowed">
+            <summary>
+Checks whether scrolling on the part is allowed at this time.
+</summary>
+@note this applies for example when the editor is resizing or moving an
+object.
+<returns><c>true</c> if scrolling is allowed, otherwise <c>false</c>.</returns></member>
+        <member name="M:MyScript.IInk.Editor.WaitForIdle">
+            <summary>
+Waits until part modification operations are over.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Editor.IsIdle">
+            <summary>
+Checks whether part modification operations are over.
+</summary>
+            <returns>
+                <c>true</c> if no operation is ongoing on the part, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:MyScript.IInk.Editor.Paste(System.Single,System.Single)">
+            <summary>
+Pastes the content of the internal clipboard at a given position.
+Internal clipboard is filled by calling <c>copy()</c>. If internal clipboard is
+empty, this does nothing.
+</summary>
+@note following limitation applies: the part managed by this editor must
+be a "Text Document" and clipboard must contain a single block, that is
+not a "Container", from a "Text Document".
+<param name="x">the target pasted block x coordinate (view coordinates in pixel).</param><param name="y">the target pasted block y coordinate (view coordinates in pixel).</param><exception cref="T:System.Exception">when editor is not associated with a part.</exception><exception cref="T:System.Exception">when content of the clipboard cannot be pasted on
+the part.</exception></member>
+        <member name="M:MyScript.IInk.Editor.Copy(MyScript.IInk.IContentSelection)">
+            <summary>
+Copies a selection to the internal clipboard.
+</summary>
+            <param name="selection">the selection to copy, <c>null</c> means full part.</param>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <exception cref="T:System.Exception">when selection cannot be copied.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Editor.Import_(MyScript.IInk.MimeType,System.String,MyScript.IInk.IContentSelection,MyScript.IInk.ParameterSet)">
+            <summary>
+Imports data into the part or a selection.
+</summary>
+            <param name="mimeType">the mime type that specifies the format of <c>data</c>.</param>
+            <param name="data">the data to import.</param>
+            <param name="selection">the target selection, or <c>null</c> to let editor detect the target.</param>
+            <param name="overrideConfiguration">the extra configuration used when importing.</param>
+            <exception cref="T:System.Exception">when the specified mime type is not supported.</exception>
+            <exception cref="T:System.Exception">when <c>data</c> could not be imported.</exception>
+            <exception cref="T:System.ArgumentException">when <c>overrideConfiguration</c> is invalid.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Editor.Import_(MyScript.IInk.MimeType,System.String,MyScript.IInk.IContentSelection)">
+            <summary>
+Imports data into the part or a selection.
+</summary>
+            <param name="mimeType">the mime type that specifies the format of <c>data</c>.</param>
+            <param name="data">the data to import.</param>
+            <param name="selection">the target selection, or <c>null</c> to let editor detect the target.</param>
+            <exception cref="T:System.Exception">when the specified mime type is not supported.</exception>
+            <exception cref="T:System.Exception">when <c>data</c> could not be imported.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Editor.GetSupportedImportMimeTypes(MyScript.IInk.IContentSelection)">
+            <summary>
+Returns the supported import formats for specified content.
+</summary>
+            <param name="selection">the selection to request, <c>null</c> means full part.</param>
+            <returns>an array of the supported mime types.</returns>
+        </member>
+        <member name="M:MyScript.IInk.Editor.Export_(MyScript.IInk.IContentSelection,System.String,MyScript.IInk.MimeType,MyScript.IInk.IImagePainter,MyScript.IInk.ParameterSet)">
+            <summary>
+Exports the specified content.
+</summary>
+@note the method is named <c>export_</c> because the C++ standard defines
+<c>export</c> as a keyword.
+<param name="selection">the selection to export, <c>null</c> means export full part.</param><param name="outputFile">the file to export to.</param><param name="mimeType">the mime type that specifies the output format.</param><param name="imagePainter">an image painter that is required for some output
+formats. If you know that the specified output format does not require it
+you can leave it null.</param><param name="overrideConfiguration">the extra configuration used when exporting.</param><exception cref="T:System.ArgumentException">when <c>outputFile</c> is invalid.</exception><exception cref="T:System.ArgumentException">when there is nothing to export.</exception><exception cref="T:System.Exception">when the specified mime type is not supported.</exception><exception cref="T:System.Exception">when imagePainter saveImage() fails.</exception><exception cref="T:System.Exception">when an I/O operation fails.</exception><exception cref="T:System.Exception">when there are some ongoing
+operations on the part that prevent export, see <c>IsIdle()</c>.</exception><exception cref="T:System.ArgumentException">when <c>overrideConfiguration</c> is invalid.</exception><since>2.0</since></member>
+        <member name="M:MyScript.IInk.Editor.Export_(MyScript.IInk.IContentSelection,System.String,MyScript.IInk.IImagePainter,MyScript.IInk.ParameterSet)">
+            <summary>
+Exports the specified content.
+</summary>
+@note the method is named <c>export_</c> because the C++ standard defines
+<c>export</c> as a keyword.
+<param name="selection">the selection to export, <c>null</c> means export full part.</param><param name="outputFile">the file to export to.</param><param name="imagePainter">an image painter that is required for some output
+formats. If you know that the specified output format does not require it
+you can leave it null.</param><param name="overrideConfiguration">the extra configuration used when exporting.</param><exception cref="T:System.ArgumentException">when <c>outputFile</c> is invalid.</exception><exception cref="T:System.Exception">when the mime type cannot be determined from the
+output file name.</exception><exception cref="T:System.ArgumentException">when there is nothing to export.</exception><exception cref="T:System.Exception">when imagePainter does not create the expected file.</exception><exception cref="T:System.Exception">when an I/O operation fails.</exception><exception cref="T:System.Exception">when there are some ongoing
+operations on the part that prevent export, see <c>IsIdle()</c>.</exception><exception cref="T:System.ArgumentException">when <c>overrideConfiguration</c> is invalid.</exception><since>2.0</since></member>
+        <member name="M:MyScript.IInk.Editor.Export_(MyScript.IInk.IContentSelection,MyScript.IInk.MimeType,MyScript.IInk.ParameterSet)">
+            <summary>
+Exports the specified content.
+</summary>
+@note the method is named <c>export_</c> because the C++ standard defines
+<c>export</c> as a keyword.
+<param name="selection">the selection to export, <c>null</c> means export full part.</param><param name="mimeType">the mime type that specifies the output format.</param><param name="overrideConfiguration">the extra configuration used when exporting.</param><returns>the exported content.</returns><exception cref="T:System.ArgumentException">when there is nothing to export.</exception><exception cref="T:System.Exception">when the specified mime type is not supported.</exception><exception cref="T:System.Exception">when an I/O operation fails.</exception><exception cref="T:System.Exception">when there are some ongoing
+operations on the part that prevent export, see <c>IsIdle()</c>.</exception><exception cref="T:System.ArgumentException">when <c>overrideConfiguration</c> is invalid.</exception><since>2.0</since></member>
+        <member name="M:MyScript.IInk.Editor.Export_(MyScript.IInk.IContentSelection,System.String,MyScript.IInk.MimeType,MyScript.IInk.IImagePainter)">
+            <summary>
+Exports the specified content.
+</summary>
+@note the method is named <c>export_</c> because the C++ standard defines
+<c>export</c> as a keyword.
+<param name="selection">the selection to export, <c>null</c> means export full part.</param><param name="outputFile">the file to export to.</param><param name="mimeType">the mime type that specifies the output format.</param><param name="imagePainter">an image painter that is required for some output
+formats. If you know that the specified output format does not require it
+you can leave it null.</param><exception cref="T:System.ArgumentException">when <c>outputFile</c> is invalid.</exception><exception cref="T:System.Exception">when the specified mime type is not supported.</exception><exception cref="T:System.Exception">when imagePainter saveImage() fails.</exception><exception cref="T:System.Exception">when an I/O operation fails.</exception><exception cref="T:System.Exception">when there are some ongoing
+operations on the part that prevent export, see <c>IsIdle()</c>.</exception></member>
+        <member name="M:MyScript.IInk.Editor.Export_(MyScript.IInk.IContentSelection,System.String,MyScript.IInk.IImagePainter)">
+            <summary>
+Exports the specified content.
+</summary>
+@note the method is named <c>export_</c> because the C++ standard defines
+<c>export</c> as a keyword.
+<param name="selection">the selection to export, <c>null</c> means export full part.</param><param name="outputFile">the file to export to.</param><param name="imagePainter">an image painter that is required for some output
+formats. If you know that the specified output format does not require it
+you can leave it null.</param><exception cref="T:System.ArgumentException">when <c>outputFile</c> is invalid.</exception><exception cref="T:System.Exception">when the mime type cannot be determined from the
+output file name.</exception><exception cref="T:System.Exception">when imagePainter does not create the expected file.</exception><exception cref="T:System.Exception">when an I/O operation fails.</exception><exception cref="T:System.Exception">when there are some ongoing
+operations on the part that prevent export, see <c>IsIdle()</c>.</exception></member>
+        <member name="M:MyScript.IInk.Editor.Export_(MyScript.IInk.IContentSelection,MyScript.IInk.MimeType)">
+            <summary>
+Exports the specified content.
+</summary>
+@note the method is named <c>export_</c> because the C++ standard defines
+<c>export</c> as a keyword.
+<param name="selection">the selection to export, <c>null</c> means export full part.</param><param name="mimeType">the mime type that specifies the output format.</param><returns>the exported content.</returns><exception cref="T:System.Exception">when the specified mime type is not supported.</exception><exception cref="T:System.Exception">when an I/O operation fails.</exception><exception cref="T:System.Exception">when there are some ongoing
+operations on the part that prevent export, see <c>IsIdle()</c>.</exception></member>
+        <member name="M:MyScript.IInk.Editor.GetSupportedExportMimeTypes(MyScript.IInk.IContentSelection)">
+            <summary>
+Returns the supported export formats for specified content.
+</summary>
+            <param name="selection">the selection to request, <c>null</c> means full part.</param>
+            <returns>an array of the supported mime types.</returns>
+        </member>
+        <member name="M:MyScript.IInk.Editor.Convert(MyScript.IInk.IContentSelection,&lt;unknown type&gt;)">
+            <summary>
+Converts the specified content to digital form.
+</summary>
+            <param name="selection">the selection to convert, <c>null</c> means convert full
+part.</param>
+            <param name="targetState">the target conversion state for the selection.</param>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <exception cref="T:System.ArgumentException">when the target conversion state is not reachable from
+the current state of the specified selection.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Editor.GetSupportedTargetConversionStates(MyScript.IInk.IContentSelection)">
+            <summary>
+Returns the supported target conversion states for the specified content.
+</summary>
+            <param name="selection">the selection to request, <c>null</c> means full part.</param>
+            <returns>an array of the supported target conversion states.</returns>
+        </member>
+        <member name="M:MyScript.IInk.Editor.HitBlock(System.Single,System.Single)">
+            <summary>
+Return the block at the given position, or <c>null</c> if there is no block
+at that position.
+</summary>
+            <param name="x">the hit position x coordinate (view coordinates in pixel).</param>
+            <param name="y">the hit position y coordinate (view coordinates in pixel).</param>
+            <returns>the block below hit position, or <c>null</c> if no block was found.</returns>
+        </member>
+        <member name="M:MyScript.IInk.Editor.Erase(MyScript.IInk.IContentSelection)">
+            <summary>
+Erases a content selection from the part.
+</summary>
+            <param name="selection">the content selection to erase.</param>
+            <exception cref="T:System.ArgumentException">when selection is <c>null</c>.</exception>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.AddImage(System.Single,System.Single,System.String,MyScript.IInk.MimeType)">
+            <summary>
+Adds a new image to the part.
+</summary>
+@note in a "Text Document" part, this method creates a new "Drawing" block in which
+the image will be added.
+<param name="x">the approximative x position of the new block (view coordinates in pixel).</param><param name="y">the approximative y position of the new block (view coordinates in pixel).</param><param name="inputFile">the file to add.</param><param name="mimeType">the mime type that specifies the format of <c>inputFile</c>.</param><returns>the block associated with the newly added image. In a ContentPart of type "Text Document",
+this will be a block of type "Drawing".</returns><exception cref="T:System.ArgumentException">when <c>mimeType</c> is not an image type.</exception><exception cref="T:System.Exception">when editor is not associated with a part.</exception><exception cref="T:System.Exception">when a block already exists at this position, and
+is not a "Container" block.</exception><exception cref="T:System.Exception">when empty space around position is too small for
+a new block.</exception><exception cref="T:System.Exception">when an I/O operation fails.</exception></member>
+        <member name="M:MyScript.IInk.Editor.AddBlock(System.Single,System.Single,System.String,MyScript.IInk.MimeType,System.String)">
+            <summary>
+Adds a new block to the part and fills it with data.
+</summary>
+            <param name="x">the approximative x position of the new block (view coordinates in pixel).</param>
+            <param name="y">the approximative y position of the new block (view coordinates in pixel).</param>
+            <param name="type">the type of the new block.</param>
+            <param name="mimeType">the mime type that specifies the format of <c>data</c>.</param>
+            <param name="data">the data to put in the new block.</param>
+            <returns>block the newly added block.</returns>
+            <exception cref="T:System.ArgumentException">when type is not supported by current part type.</exception>
+            <exception cref="T:System.Exception">when editor is not configured.</exception>
+            <exception cref="T:System.Exception">when a block already exists at this position, and
+is not a "Container" block.</exception>
+            <exception cref="T:System.Exception">when empty space around position is too small for
+a new block.</exception>
+            <exception cref="T:System.Exception">when the content of <c>data</c> could not be added to
+the new block.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Editor.AddBlock(System.Single,System.Single,System.String)">
+            <summary>
+Adds a new block to the part.
+</summary>
+            <param name="x">the approximative x position of the new block (view coordinates in pixel).</param>
+            <param name="y">the approximative y position of the new block (view coordinates in pixel).</param>
+            <param name="type">the type of the new block.</param>
+            <returns>block the newly added block.</returns>
+            <exception cref="T:System.ArgumentException">when type is not supported by current part type.</exception>
+            <exception cref="T:System.Exception">when editor is not configured.</exception>
+            <exception cref="T:System.Exception">when a block already exists at this position, and
+is not a "Container" block.</exception>
+            <exception cref="T:System.Exception">when empty space around position is too small for
+a new block.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Editor.GetSupportedAddBlockDataMimeTypes(System.String)">
+            <summary>
+Returns the supported formats for adding a new block with data.
+</summary>
+            <param name="type">the type of the new block.</param>
+            <returns>an array of the supported mime types.</returns>
+        </member>
+        <member name="P:MyScript.IInk.Editor.SupportedAddBlockTypes">
+            <summary>
+The types of blocks that can be added to the part.
+@note new blocks can be added only to a content part with "Text Document"
+type: "Text" blocks are automatically created but other blocks must be
+added via addBlock(). Blocks cannot be added on other types of part.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Editor.IsEmpty(MyScript.IInk.IContentSelection)">
+            <summary>
+Checks whether a selection is empty.
+</summary>
+            <param name="selection">the selection to check, <c>null</c> means check the full
+part.</param>
+            <returns>
+                <c>true</c> if selection is empty or invalid or editor is not
+associated with a part, otherwise <c>false</c>.</returns>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.GetBlockById(System.String)">
+            <summary>
+Returns the content block associated with a given <c>id</c>.
+</summary>
+            <param name="id">the identifier of the block.</param>
+            <returns>the content block associated with <c>id</c> or <c>null</c> if there is no
+such block in the current part.</returns>
+        </member>
+        <member name="M:MyScript.IInk.Editor.GetRootBlock">
+            <summary>
+Returns the content block at the root of the current part.
+</summary>
+            <returns>the root content block.</returns>
+        </member>
+        <member name="M:MyScript.IInk.Editor.set_Theme(System.String)">
+            <summary />
+            <exception cref="T:System.ArgumentException">when the style sheet is invalid.</exception>
+        </member>
+        <member name="P:MyScript.IInk.Editor.Theme">
+            <summary>
+The rendering theme style sheet, in CSS format.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Editor.ClampViewOffset(MyScript.IInk.Graphics.Point)">
+            <summary>
+Clamps the supplied view offset to the area that ensures standard scrolling
+behavior. For "Text" and "Text Document" it allows scrolling one screen outside
+of the view box downward. For other part types it allows scrolling one screen
+outside of the view box in each direction.
+</summary>
+            <param name="viewOffset">the view offset to clamp (document coordinates in mm).</param>
+        </member>
+        <member name="P:MyScript.IInk.Editor.ViewHeight">
+            <summary>
+The height of the view (view coordinates in pixel).
+</summary>
+            <since>1.3</since>
+        </member>
+        <member name="P:MyScript.IInk.Editor.ViewWidth">
+            <summary>
+The width of the view (view coordinates in pixel).
+</summary>
+            <since>1.3</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.SetViewSize(System.Int32,System.Int32)">
+            <summary>
+Sets the size of the view.
+</summary>
+            <param name="width">the view width (view coordinates in pixel).</param>
+            <param name="height">the view height (view coordinates in pixel).</param>
+            <exception cref="T:System.ArgumentException">when width or height is negative.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Editor.PointerEvents(MyScript.IInk.PointerEvent[],System.Boolean)">
+            <summary>
+Sends a series of pointer events.
+</summary>
+@note this method can be used to perform batch recognition by representing
+the sequence of digital ink strokes as a series of pointer events and
+sending them with the gesture processing disabled.
+<param name="events">the list of events (view coordinates in pixel).</param><param name="processGestures">tells whether to process gestures or not.</param><exception cref="T:System.ArgumentException">when the list of events is <c>null</c>.</exception><exception cref="T:System.ArgumentException">when a pointer event contains incorrect data.</exception><exception cref="T:System.Exception">when event sequence is not allowed.</exception></member>
+        <member name="M:MyScript.IInk.Editor.PointerEvents(MyScript.IInk.PointerEvent[])">
+            <summary>
+Sends a series of pointer events.
+</summary>
+            <param name="events">the list of events.</param>
+            <exception cref="T:System.ArgumentException">when the list of events is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">when a pointer event contains incorrect data.</exception>
+            <exception cref="T:System.InvalidOperationException">when event sequence is not allowed.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Editor.PointerCancel(System.Int32)">
+            <summary>
+Cancels an ongoing pointer trace.
+</summary>
+            <param name="pointerId">the id of the pointer.</param>
+        </member>
+        <member name="M:MyScript.IInk.Editor.PointerUp(System.Single,System.Single,System.Int64,System.Single,MyScript.IInk.PointerType,System.Int32)">
+            <summary>
+Registers a pointer up event.
+</summary>
+            <param name="x">pointer event x coordinate (view coordinates in pixel).</param>
+            <param name="y">pointer event y coordinate (view coordinates in pixel).</param>
+            <param name="t">pointer event timestamp, in ms since Unix EPOCH.</param>
+            <param name="f">normalized pressure.</param>
+            <param name="pointerType">the type of input.</param>
+            <param name="pointerId">the id of the pointer.</param>
+            <exception cref="T:System.ArgumentException">when pointerType is invalid.</exception>
+            <exception cref="T:System.ArgumentException">when x or y is not a number.</exception>
+            <exception cref="T:System.ArgumentException">when t exceeds year 9999.</exception>
+            <exception cref="T:System.ArgumentException">when f is not a number or is negative.</exception>
+            <exception cref="T:System.InvalidOperationException">when <c>pointerDown()</c> has not been called before.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Editor.PointerMove(System.Single,System.Single,System.Int64,System.Single,MyScript.IInk.PointerType,System.Int32)">
+            <summary>
+Registers a pointer move event.
+</summary>
+            <param name="x">pointer event x coordinate (view coordinates in pixel).</param>
+            <param name="y">pointer event y coordinate (view coordinates in pixel).</param>
+            <param name="t">pointer event timestamp, in ms since Unix EPOCH.</param>
+            <param name="f">normalized pressure.</param>
+            <param name="pointerType">the type of input.</param>
+            <param name="pointerId">the id of the pointer.</param>
+            <exception cref="T:System.ArgumentException">when pointerType is invalid.</exception>
+            <exception cref="T:System.ArgumentException">when x or y is not a number.</exception>
+            <exception cref="T:System.ArgumentException">when t exceeds year 9999.</exception>
+            <exception cref="T:System.ArgumentException">when f is not a number or is negative.</exception>
+            <exception cref="T:System.InvalidOperationException">when <c>pointerDown()</c> has not been called before.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Editor.PointerDown(System.Single,System.Single,System.Int64,System.Single,MyScript.IInk.PointerType,System.Int32)">
+            <summary>
+Registers a pointer down event.
+</summary>
+            <param name="x">pointer event x coordinate (view coordinates in pixel).</param>
+            <param name="y">pointer event y coordinate (view coordinates in pixel).</param>
+            <param name="t">pointer event timestamp, in ms since Unix EPOCH.</param>
+            <param name="f">normalized pressure.</param>
+            <param name="pointerType">the type of input.</param>
+            <param name="pointerId">the id of the pointer.</param>
+            <returns>the render item identifier of the starting stroke if any, otherwise <c>null</c>.</returns>
+            <exception cref="T:System.ArgumentException">when pointerType is invalid.</exception>
+            <exception cref="T:System.ArgumentException">when x or y is not a number.</exception>
+            <exception cref="T:System.ArgumentException">when t exceeds year 9999.</exception>
+            <exception cref="T:System.ArgumentException">when f is not a number or is negative.</exception>
+            <exception cref="T:System.InvalidOperationException">when <c>pointerDown()</c> has already been called.</exception>
+            <exception cref="T:System.Exception">in "Text Document" parts, when no view size is set.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Editor.GetUndoRedoIdAt(System.Int32)">
+            <summary>
+Returns the id of an undo or redo action, based on its position in the stack index.
+Valid stack index values range from (current stack index - possible undo count) to (current stack index + possible redo count - 1).
+</summary>
+            <param name="stackIndex">the index in the stack of the undo/redo action to retrieve.</param>
+            <returns>the id of the undo/redo operation at the specific index in the undo/redo stack.</returns>
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+            <exception cref="T:System.ArgumentException">when stackIndex is not a number or is negative.</exception>
+            <since>1.2</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.get_PossibleRedoCount">
+            <summary />
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+        </member>
+        <member name="P:MyScript.IInk.Editor.PossibleRedoCount">
+            <summary>
+The number of operations that can be redone.
+</summary>
+            <since>1.2</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.get_PossibleUndoCount">
+            <summary />
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+        </member>
+        <member name="P:MyScript.IInk.Editor.PossibleUndoCount">
+            <summary>
+The number of operations that can be undone (&lt;= stackIndex).
+</summary>
+            <since>1.1</since>
+        </member>
+        <member name="M:MyScript.IInk.Editor.get_UndoStackIndex">
+            <summary />
+            <exception cref="T:System.Exception">when editor is not associated with a part.</exception>
+        </member>
+        <member name="P:MyScript.IInk.Editor.UndoStackIndex">
+            <summary>
+The number of operations performed on this part, since content part was opened.
+</summary>
+@note the undo stack is partially purged from time to time to control memory consumption.
+The number of possible undo operations at a given time is `PossibleUndoCount`,
+while the total number of operations since content part was opened is `UndoStackIndex`.
+<since>1.1</since></member>
+        <member name="M:MyScript.IInk.Editor.Redo">
+            <summary>
+Redo the last action reverted by <c>undo</c> on part.
+</summary>
+            <exception cref="T:System.Exception">when redo operations failed.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Editor.CanRedo">
+            <summary>
+Tells whether redo can be performed on the part or not
+</summary>
+            <returns>
+                <c>true</c> if redo can be performed, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:MyScript.IInk.Editor.Undo">
+            <summary>
+Undo the last action on part.
+</summary>
+            <exception cref="T:System.Exception">when undo operations failed.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Editor.CanUndo">
+            <summary>
+Tells whether undo can be performed on the part or not
+</summary>
+            <returns>
+                <c>true</c> if undo can be performed, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:MyScript.IInk.Editor.Clear">
+            <summary>
+Removes all content from the part.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Editor.set_Part(MyScript.IInk.ContentPart)">
+            <summary />
+            <exception cref="T:System.Exception">when no <c>IFontMetricsProvider</c> is set
+(@see SetFontMetricsProvider).</exception>
+            <exception cref="T:System.Exception">when this part is already bound.</exception>
+            <exception cref="T:System.Exception">when this editor cannot be configured.</exception>
+        </member>
+        <member name="P:MyScript.IInk.Editor.Part">
+            <summary>
+The part managed by this editor.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Editor.ToolController">
+            <summary>
+Returns the <c>ToolController</c> associated with this editor.
+</summary>
+            <returns>the tool controller.</returns>
+            <since>2.0</since>
+        </member>
+        <member name="P:MyScript.IInk.Editor.Renderer">
+            <summary>
+Returns the <c>Renderer</c> associated with this editor.
+</summary>
+            <returns>the renderer.</returns>
+        </member>
+        <member name="P:MyScript.IInk.Editor.Engine">
+            <summary>
+Returns the <c>Engine</c> to which this editor is attached.
+</summary>
+            <returns>the engine.</returns>
+        </member>
+        <member name="M:MyScript.IInk.Editor.SetFontMetricsProvider(MyScript.IInk.Text.IFontMetricsProvider)">
+            <summary>
+Sets a font metrics provider to this editor.
+</summary>
+            <param name="fontMetricsProvider">a <c>IFontMetricsProvider</c>.</param>
+        </member>
+        <member name="M:MyScript.IInk.Editor.RemoveListener(MyScript.IInk.IEditorListener)">
+            <summary>
+Removes the specified listener from this editor.
+</summary>
+            <param name="listener">the listener to be removed.</param>
+        </member>
+        <member name="M:MyScript.IInk.Editor.AddListener(MyScript.IInk.IEditorListener)">
+            <summary>
+Adds the specified listener to this editor.
+</summary>
+            <param name="listener">the listener to be added.</param>
+        </member>
+        <member name="T:MyScript.IInk.ContentSelectionMode">
+            <summary>
+Describes the selection modes.
+</summary>
+            <since>2.0</since>
+        </member>
+        <member name="F:MyScript.IInk.ContentSelectionMode.REFLOW">
+            <summary>
+Active selection's mode is Reflow.
+</summary>
+        </member>
+        <member name="F:MyScript.IInk.ContentSelectionMode.RESIZE">
+            <summary>
+Active selection's mode is Resize.
+</summary>
+        </member>
+        <member name="F:MyScript.IInk.ContentSelectionMode.ITEM">
+            <summary>
+Active selection's mode is Item.
+</summary>
+        </member>
+        <member name="F:MyScript.IInk.ContentSelectionMode.LASSO">
+            <summary>
+Active selection's mode is Lasso.
+</summary>
+        </member>
+        <member name="F:MyScript.IInk.ContentSelectionMode.NONE">
+            <summary>
+No active selection.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.TextFormat">
+            <summary>
+Predefined Text Box formats.
+</summary>
+            <since>2.0</since>
+        </member>
+        <member name="F:&lt;unknown type&gt;.PARAGRAPH">
+            <summary>
+Paragraph format.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.H2">
+            <summary>
+Header 2 format.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.H1">
+            <summary>
+Header 1 format.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.TransformError">
+            <summary>
+Error code returned checking if a transformation is allowed on a content selection.
+(@see GetTransformStatus).
+</summary>
+            <since>2.0</since>
+        </member>
+        <member name="F:&lt;unknown type&gt;.HAS_TRANSLATION">
+            <summary>
+The transform has a translation component.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.HAS_SHEAR">
+            <summary>
+The transform has a shear component.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.HAS_NEGATIVE_SCALE">
+            <summary>
+The transform has a negative scale component.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.HAS_SCALE">
+            <summary>
+The transform has a scale component.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.HAS_ROTATION">
+            <summary>
+The transform has a rotation component.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.BAD_NUMERIC">
+            <summary>
+The transform has a bad numeric value (infinite or NaN).
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.NON_INVERTIBLE">
+            <summary>
+The transform is non invertible.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.INVALID">
+            <summary>
+The transform is invalid (cannot be decomposed).
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.GUIDES">
+            <summary>
+The content selection has guides.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DRAWING_BLOCKS">
+            <summary>
+The content selection contains drawing blocks.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.MATH_BLOCKS">
+            <summary>
+The content selection contains math blocks.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.TEXT_BLOCKS">
+            <summary>
+The content selection contains text blocks.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.BEAUTIFIED_BLOCKS">
+            <summary>
+The content selection contains beautified blocks.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.MULTIPLE_BLOCKS">
+            <summary>
+The content selection contains multiple blocks.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.PARTIAL_BLOCKS">
+            <summary>
+The content selection contains blocks partially selected.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.NULL_SELECTION">
+            <summary>
+The content selection is <c>null</c></summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.UNSUPPORTED">
+            <summary>
+The transform is not supported on this content selection (internal error).
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.ALLOWED">
+            <summary>
+The transform is allowed.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.PointerEvent.Id(System.Int32)">
+            <summary>
+Update the event pointer id.
+</summary>
+            <param name="pointerId">the pointer id value.</param>
+            <returns>this.</returns>
+        </member>
+        <member name="M:MyScript.IInk.PointerEvent.Type(MyScript.IInk.PointerType)">
+            <summary>
+Update the event pointer type.
+</summary>
+            <param name="pointerType">the pointert type.</param>
+            <returns>this.</returns>
+        </member>
+        <member name="M:MyScript.IInk.PointerEvent.Force(System.Single)">
+            <summary>
+Update the event pressure.
+</summary>
+            <param name="f">the presure value.</param>
+            <returns>this.</returns>
+        </member>
+        <member name="M:MyScript.IInk.PointerEvent.Timestamp(System.Int64)">
+            <summary>
+Update the event timestamp.
+</summary>
+            <param name="t">the timestamp value.</param>
+            <returns>this.</returns>
+        </member>
+        <member name="M:MyScript.IInk.PointerEvent.Up(System.Single,System.Single)">
+            <summary>
+Update this event to a "up" event.
+</summary>
+            <param name="x">the x coordinate location.</param>
+            <param name="y">the y coordinate location.</param>
+            <returns>this.</returns>
+        </member>
+        <member name="M:MyScript.IInk.PointerEvent.Move(System.Single,System.Single)">
+            <summary>
+Update this event to a "move" event.
+</summary>
+            <param name="x">the x coordinate location.</param>
+            <param name="y">the y coordinate location.</param>
+            <returns>this.</returns>
+        </member>
+        <member name="M:MyScript.IInk.PointerEvent.Down(System.Single,System.Single)">
+            <summary>
+Update this event to a "down" event.
+</summary>
+            <param name="x">the x coordinate location.</param>
+            <param name="y">the y coordinate location.</param>
+            <returns>this.</returns>
+        </member>
+        <member name="P:MyScript.IInk.PointerEvent.PointerId">
+            <summary>
+The pointer id value.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.PointerEvent.PointerType">
+            <summary>
+The pointer type.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.PointerEvent.F">
+            <summary>
+The pressure value.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.PointerEvent.T">
+            <summary>
+The event timestamp.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.PointerEvent.Y">
+            <summary>
+The event y coordinate.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.PointerEvent.X">
+            <summary>
+The event x coordinate.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.PointerEvent.EventType">
+            <summary>
+The event type.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.PointerEvent.#ctor(MyScript.IInk.PointerEventType,System.Single,System.Single,System.Int64,System.Single,MyScript.IInk.PointerType,System.Int32)">
+            <summary>
+Creates a pointer event.
+</summary>
+            <param name="eventType">the event type.</param>
+            <param name="x">the x coordinate location.</param>
+            <param name="y">the y coordinate location.</param>
+            <param name="t">the timestamp value.</param>
+            <param name="f">the pressure value.</param>
+            <param name="pointerType">the pointer type.</param>
+            <param name="pointerId">the pointer id value.</param>
+            <since>1.4</since>
+        </member>
+        <member name="T:MyScript.IInk.PointerEvent">
+            <summary>
+Represents a pointer event.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.PointerEventType">
+            <summary>
+Describes the types of pointer event that can be provided to the editor.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.PointerType">
+            <summary>
+Describes the types of pointer that can be used for input.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.ToolController.SetToolStyleClasses(MyScript.IInk.PointerTool,System.String)">
+            <summary>
+Sets the style classes associated with a pointer tool.
+Note: style properties provided via <c>SetToolStyle()</c> may override the styling associated with the style classes provided here.
+</summary>
+            <param name="tool">the pointer tool.</param>
+            <param name="styleClasses">the style class names, separated by spaces.</param>
+            <exception cref="T:System.ArgumentException">when <c>tool</c> is unknown.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ToolController.GetToolStyleClasses(MyScript.IInk.PointerTool)">
+            <summary>
+Returns the style classes associated with a pointer tool.
+</summary>
+            <param name="tool">the pointer tool.</param>
+            <exception cref="T:System.ArgumentException">when <c>tool</c> is unknown.</exception>
+            <returns>the style classes associated with this pointer tool.</returns>
+        </member>
+        <member name="M:MyScript.IInk.ToolController.SetToolStyle(MyScript.IInk.PointerTool,System.String)">
+            <summary>
+Sets the CSS style properties associated with a pointer tool.
+</summary>
+            <param name="tool">the pointer tool.</param>
+            <param name="style">the tool CSS style properties.</param>
+            <exception cref="T:System.ArgumentException">when <c>tool</c> is unknown.</exception>
+            <exception cref="T:System.Exception">when a pointer event sequence is in progress with a different tool (eg, Eraser).</exception>
+        </member>
+        <member name="M:MyScript.IInk.ToolController.GetToolStyle(MyScript.IInk.PointerTool)">
+            <summary>
+Returns the CSS style properties associated with a pointer tool.
+</summary>
+            <param name="tool">the pointer tool.</param>
+            <exception cref="T:System.ArgumentException">when <c>tool</c> is unknown.</exception>
+            <returns>the CSS style properties associated with this pointer tool.</returns>
+        </member>
+        <member name="M:MyScript.IInk.ToolController.SetToolForType(MyScript.IInk.PointerType,MyScript.IInk.PointerTool)">
+            <summary>
+Sets the tool associated with a pointer type.
+</summary>
+            <param name="type">the pointer type.</param>
+            <param name="tool">the pointer tool.</param>
+            <exception cref="T:System.ArgumentException">when <c>type</c> is unknown.</exception>
+            <exception cref="T:System.ArgumentException">when <c>tool</c> is unknown.</exception>
+            <exception cref="T:System.Exception">when a pointer event sequence is in progress with this pointer type.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ToolController.GetToolForType(MyScript.IInk.PointerType)">
+            <summary>
+Returns the tool associated with a pointer type.
+</summary>
+            <param name="type">the pointer type.</param>
+            <exception cref="T:System.ArgumentException">when <c>type</c> is unknown.</exception>
+            <returns>the pointer tool associated with this type.</returns>
+        </member>
+        <member name="T:MyScript.IInk.ToolController">
+            <summary>
+The ToolController manages pointer tools configuration.
+</summary>
+            <since>2.0</since>
+        </member>
+        <member name="T:MyScript.IInk.PointerTool">
+            <summary>
+Describes the tools that the pointer types can be associated with.
+</summary>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.IPath.ClosePath">
+            <summary>
+Close the current subpath by drawing a straight line from the current point
+to current subpath's initial point.
+</summary>
+            <para>See <a href="https://www.w3.org/TR/SVG/paths.html#PathDataClosePathCommand">https://www.w3.org/TR/SVG/paths.html#PathDataClosePathCommand</a>.</para>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.IPath.ArcTo(System.Single,System.Single,System.Single,System.Boolean,System.Boolean,System.Single,System.Single)">
+            <summary>
+Draws an elliptical arc from the current point to (x, y). The size and
+orientation of the ellipse are defined by two radii (rx, ry) and an
+x-axis-rotation, which indicates how the ellipse as a whole is rotated
+relative to the current coordinate system. The center (cx, cy) of the
+ellipse is calculated automatically to satisfy the constraints imposed by
+the other parameters.
+</summary>
+            <para>See <a href="https://www.w3.org/TR/SVG/paths.html#PathDataEllipticalArcCommands">https://www.w3.org/TR/SVG/paths.html#PathDataEllipticalArcCommands</a>.</para>
+            <param name="rx">the x-axis radius (must be positive).</param>
+            <param name="ry">the y-axis radius (must be positive).</param>
+            <param name="phi">the x-axis rotation angle.</param>
+            <param name="fA">the large-arc flag.</param>
+            <param name="fS">the sweep-arc flag.</param>
+            <param name="x">the x coordinate of the last point.</param>
+            <param name="y">the y coordinate of the last point.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.IPath.QuadTo(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+Draws a quadratic Bezier curve from the current point to (x,y) using
+(x1,y1) as the control point.
+</summary>
+            <para>See <a href="https://www.w3.org/TR/SVG/paths.html#PathDataQuadraticBezierCommands">https://www.w3.org/TR/SVG/paths.html#PathDataQuadraticBezierCommands</a>.</para>
+            <param name="x1">the x coordinate of the control point.</param>
+            <param name="y1">the y coordinate of the control point.</param>
+            <param name="x">the x coordinate of the final point of the curve.</param>
+            <param name="y">the y coordinate of the final point of the curve.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.IPath.CurveTo(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+Draws a cubic Bezier curve from the current point to (x,y) using (x1,y1) as
+the control point at the beginning of the curve and (x2,y2) as the control
+point at the end of the curve.
+</summary>
+            <para>See <a href="https://www.w3.org/TR/SVG/paths.html#PathDataCurveCommands">https://www.w3.org/TR/SVG/paths.html#PathDataCurveCommands</a>.</para>
+            <param name="x1">the x coordinate of the control point at the beginning of the curve.</param>
+            <param name="y1">the y coordinate of the control point at the beginning of the curve.</param>
+            <param name="x2">the x coordinate of the control point at the end of the curve.</param>
+            <param name="y2">the y coordinate of the control point at the end of the curve.</param>
+            <param name="x">the x coordinate of the final point of the curve.</param>
+            <param name="y">the y coordinate of the final point of the curve.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.IPath.LineTo(System.Single,System.Single)">
+            <summary>
+Draws a line from the current point to the given (x,y) coordinate which
+becomes the new current point.
+</summary>
+            <para>See <a href="https://www.w3.org/TR/SVG/paths.html#PathDataLinetoCommands">https://www.w3.org/TR/SVG/paths.html#PathDataLinetoCommands</a>.</para>
+            <param name="x">the x coordinate to draw a line to.</param>
+            <param name="y">the y coordinate to draw a line to.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.IPath.MoveTo(System.Single,System.Single)">
+            <summary>
+Starts a new subpath at the given (x,y) coordinate.
+</summary>
+            <para>See <a href="https://www.w3.org/TR/SVG/paths.html#PathDataMovetoCommands">https://www.w3.org/TR/SVG/paths.html#PathDataMovetoCommands</a>.</para>
+            <param name="x">the x coordinate to move to.</param>
+            <param name="y">the y coordinate to move to.</param>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.IPath.UnsupportedOperations">
+            <summary>
+Lists the operations not supported by the implementation of IPath.
+</summary>
+            <returns>a list of unsupported operations.</returns>
+        </member>
+        <member name="T:MyScript.IInk.Graphics.IPath">
+            <summary>
+The path interface, for building a path as described in the SVG
+specifications.
+</summary>
+            <para>See <a href="https://www.w3.org/TR/SVG/paths.html">https://www.w3.org/TR/SVG/paths.html</a>.</para>
+        </member>
+        <member name="T:MyScript.IInk.Graphics.PathOperation">
+            <summary>
+Lists the path operation types.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Renderer.UnregisterStroker(System.String)">
+            <summary>
+Unregister custom stroker factory.
+</summary>
+            <param name="name">the stroker factory.</param>
+            <since>1.4</since>
+        </member>
+        <member name="M:MyScript.IInk.Renderer.RegisterStroker(System.String,MyScript.IInk.Graphics.IStrokerFactory)">
+            <summary>
+Registers a custom stroker factory.
+</summary>
+            <param name="name">the value of the -myscript-pen-brush css property that
+selects this stroker.</param>
+            <param name="factory">the user provided stroker factory.</param>
+            <exception cref="T:System.ArgumentException">when <c>factory</c> is <c>null</c>.</exception>
+            <since>1.4</since>
+        </member>
+        <member name="M:MyScript.IInk.Renderer.DrawCaptureStrokes(System.Int32,System.Int32,System.Int32,System.Int32,MyScript.IInk.Graphics.ICanvas)">
+            <summary>
+Requests drawing of a region of the Capture layer.
+</summary>
+            <param name="x">top left x coordinate of the region to draw (view coordinates in pixel).</param>
+            <param name="y">top left y coordinate of the region to draw (view coordinates in pixel).</param>
+            <param name="width">width of the region to draw (view coordinates in pixel).</param>
+            <param name="height">height of the region to draw (view coordinates in pixel).</param>
+            <param name="canvas">target canvas.</param>
+            <exception cref="T:System.ArgumentException">when <c>canvas</c> is <c>null</c>.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Renderer.DrawModel(System.Int32,System.Int32,System.Int32,System.Int32,MyScript.IInk.Graphics.ICanvas)">
+            <summary>
+Requests drawing of a region of the Model layer.
+</summary>
+            <param name="x">top left x coordinate of the region to draw (view coordinates in pixel).</param>
+            <param name="y">top left y coordinate of the region to draw (view coordinates in pixel).</param>
+            <param name="width">width of the region to draw (view coordinates in pixel).</param>
+            <param name="height">height of the region to draw (view coordinates in pixel).</param>
+            <param name="canvas">target canvas.</param>
+            <exception cref="T:System.ArgumentException">when <c>canvas</c> is <c>null</c>.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Renderer.CommitModelDraw(System.UInt64)">
+            <summary>
+Indicates that an asynchronous drawing of the Model Layer is over.
+</summary>
+            <param name="id">the identifier of the drawing request, as returned by
+<c>drawModelAsync()</c>.</param>
+        </member>
+        <member name="M:MyScript.IInk.Renderer.DrawModelAsync(System.Int32,System.Int32,System.Int32,System.Int32,MyScript.IInk.Graphics.ICanvas)">
+            <summary>
+Requests asynchronous drawing of a region of the Model layer.
+Completion of the drawing operation must be indicated by a call to
+<c>commitModelDraw()</c>.
+</summary>
+            <param name="x">top left x coordinate of the region to draw (view coordinates in pixel).</param>
+            <param name="y">top left y coordinate of the region to draw (view coordinates in pixel).</param>
+            <param name="width">width of the region to draw (view coordinates in pixel).</param>
+            <param name="height">height of the region to draw (view coordinates in pixel).</param>
+            <param name="canvas">target canvas.</param>
+            <returns>the identifier of the drawing request.</returns>
+            <exception cref="T:System.ArgumentException">when <c>canvas</c> is <c>null</c>.</exception>
+        </member>
+        <member name="P:MyScript.IInk.Renderer.RenderTarget">
+            <summary>
+The target to which this renderer draws.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Renderer.GetViewTransform">
+            <summary>
+Returns the view to part's coordinate transform.
+</summary>
+            <returns>the view transform.</returns>
+        </member>
+        <member name="P:MyScript.IInk.Renderer.ViewOffset">
+            <summary>
+The view offset (view coordinates in pixel).
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Renderer.ZoomAt(MyScript.IInk.Graphics.Point,System.Single)">
+            <summary>
+Increase zoom by a factor around a given point.
+</summary>
+            <param name="p">point around which to adjust the view (view coordinates in pixel).</param>
+            <param name="factor">the zoom modification factor.</param>
+            <exception cref="T:System.ArgumentException">when <c>factor</c> is not a number or is negative.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Renderer.Zoom(System.Single)">
+            <summary>
+Increase zoom by a factor.
+</summary>
+            <param name="factor">the zoom modification factor.</param>
+            <exception cref="T:System.ArgumentException">when <c>factor</c> is not a number or is negative.</exception>
+        </member>
+        <member name="P:MyScript.IInk.Renderer.ViewScale">
+            <summary>
+The current zoom view scale.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Renderer.GetPixelSize">
+            <summary>
+The size of a pixel, in millimeters.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Renderer.DpiY">
+            <summary>
+The vertical DPI resolution of the renderer.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Renderer.DpiX">
+            <summary>
+The horizontal DPI resolution of the renderer.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Renderer.RemoveListener(MyScript.IInk.IRendererListener)">
+            <summary>
+Removes the specified listener from this renderer.
+</summary>
+            <param name="listener">the listener to be removed.</param>
+            <exception cref="T:System.ArgumentException">when <c>listener</c> is <c>null</c>.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Renderer.AddListener(MyScript.IInk.IRendererListener)">
+            <summary>
+Adds the specified listener to this renderer.
+</summary>
+            <param name="listener">the listener to be added.</param>
+            <exception cref="T:System.ArgumentException">when <c>listener</c> is <c>null</c>.</exception>
+        </member>
+        <member name="T:MyScript.IInk.Renderer">
+            <summary>
+The Renderer implements content rendering of parts.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Engine.CreateRecognitionAssetsBuilder">
+            <summary>
+Creates a new RecognitionAssetsBuilder.
+</summary>
+            <returns> the newly created RecognitionAssetsBuilder.</returns>
+            <since>1.2.4</since>
+        </member>
+        <member name="M:MyScript.IInk.Engine.CreateParameterSet">
+            <summary>
+Creates an empty parameter set.
+</summary>
+            <returns>the newly created parameter set.</returns>
+            <since>1.2</since>
+        </member>
+        <member name="P:MyScript.IInk.Engine.SupportedPartTypes">
+            <summary>
+Lists the part types supported by this engine.
+</summary>
+            <returns>the list of supported part types.</returns>
+        </member>
+        <member name="M:MyScript.IInk.Engine.DeletePackage(System.String)">
+            <summary>
+Deletes the specified package.
+</summary>
+            <param name="fileName">the package file.</param>
+            <exception cref="T:System.Exception">if an I/O operation fails.</exception>
+            <exception cref="T:System.ArgumentException">if a package associated with
+the same fileName is already opened.</exception>
+            <since>1.2</since>
+        </member>
+        <member name="M:MyScript.IInk.Engine.OpenPackage(System.String)">
+            <summary>
+Opens the specified package using the EXISTING package open option.
+</summary>
+@note: make sure to close the returned object.
+<param name="fileName">the package file.</param><returns>the package.</returns><exception cref="T:System.Exception">if an I/O operation fails.</exception><exception cref="T:System.Exception">if a package with associated fileName
+does not exist.</exception></member>
+        <member name="M:MyScript.IInk.Engine.OpenPackage(System.String,MyScript.IInk.PackageOpenOption)">
+            <summary>
+Opens the specified package.
+</summary>
+@note: make sure to close the returned object.
+<param name="fileName">the package file.</param><param name="openOption"> the open option used to open the package file.</param><returns>the package.</returns><exception cref="T:System.Exception">if an I/O operation fails.</exception><exception cref="T:System.Exception">when <c>openOption</c> is <c>EXISTING</c>,
+if a package with associated fileName does not exist.</exception><exception cref="T:System.Exception">when <c>openOption</c> is <c>CREATE_NEW</c>,
+if a package with associated fileName already exists.</exception><exception cref="T:System.ArgumentException">when <c>openOption</c> is <c>CREATE_NEW</c>,
+if a package associated with the same fileName is already opened.</exception><since>1.2</since></member>
+        <member name="M:MyScript.IInk.Engine.CreatePackage(System.String)">
+            <summary>
+Creates a new package.
+</summary>
+            <param name="fileName">the package file.</param>
+            <returns>the package.</returns>
+            <exception cref="T:System.Exception">if an I/O operation fails.</exception>
+            <exception cref="T:System.Exception">if a package with associated fileName already exists.</exception>
+            <exception cref="T:System.ArgumentException">if a package associated with the same fileName
+is already opened, it can be accessed via a call to openPackage().</exception>
+        </member>
+        <member name="M:MyScript.IInk.Engine.CreateEditor(MyScript.IInk.Renderer,MyScript.IInk.ToolController)">
+            <summary>
+Creates a new editor.
+</summary>
+            <param name="renderer">the renderer to be used to display editor's content.</param>
+            <param name="toolController">the tool controller to be used to manage tools.</param>
+            <returns>the newly created editor.</returns>
+            <exception cref="T:System.ArgumentException">when <c>renderer</c> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">when <c>toolController</c> is <c>null</c>.</exception>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Engine.CreateEditor(MyScript.IInk.Renderer)">
+            <summary>
+Creates a new editor.
+</summary>
+            <param name="renderer">the renderer to be used to display editor's content.</param>
+            <returns>the newly created editor, with default tool controller.</returns>
+            <exception cref="T:System.ArgumentException">when <c>renderer</c> is <c>null</c>.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Engine.CreateToolController">
+            <summary>
+Creates a new tool controller.
+</summary>
+            <returns>the newly created tool controller.</returns>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Engine.CreateRenderer(System.Single,System.Single,MyScript.IInk.IRenderTarget)">
+            <summary>
+Creates a new renderer.
+</summary>
+            <param name="dpiX">the physical horizontal resolution of the display in dots per
+inch.</param>
+            <param name="dpiY">the physical vertical resolution of the display in dots per
+inch.</param>
+            <param name="target">the render target.</param>
+            <returns>the newly created renderer.</returns>
+            <exception cref="T:System.ArgumentException">if <c>dpiX</c> is not a number or is negative.</exception>
+            <exception cref="T:System.ArgumentException">if <c>dpiY</c> is not a number or is negative.</exception>
+        </member>
+        <member name="P:MyScript.IInk.Engine.Configuration">
+            <summary>
+Returns the configuration associated with this engine.
+</summary>
+            <returns>the engine configuration.</returns>
+        </member>
+        <member name="M:MyScript.IInk.Engine.Create(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte[])">
+            <summary>
+Creates a new engine.
+</summary>
+            <param name="certificateBytes">the certificate bytes that identifies you as a valid
+MyScript technology integrator.</param>
+            <returns>the newly created engine.</returns>
+            <exception cref="T:System.ArgumentException">when the given application certificate is
+invalid.</exception>
+            <exception cref="T:System.Exception">when an internal error occured.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Engine.Create(System.Byte[])">
+            <summary>
+Creates a new engine.
+</summary>
+            <param name="certificateBytes">the certificate bytes that identifies you as a valid
+MyScript technology integrator.</param>
+            <returns>the newly created engine.</returns>
+            <exception cref="T:System.ArgumentException">when the given application certificate is
+invalid.</exception>
+            <exception cref="T:System.Exception">when an internal error occured.</exception>
+        </member>
+        <member name="T:MyScript.IInk.Engine">
+            <summary>
+Represents the iink runtime environment.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.PackageOpenOption">
+            <summary>
+Describes the different options given when opening a package.
+</summary>
+            <since>1.2</since>
+        </member>
+        <member name="F:MyScript.IInk.PackageOpenOption.TRUNCATE_EXISTING">
+            <summary>
+If the package already exists then its content is discarded.
+</summary>
+        </member>
+        <member name="F:MyScript.IInk.PackageOpenOption.CREATE_NEW">
+            <summary>
+Create a new package, failing if it already exists.
+</summary>
+        </member>
+        <member name="F:MyScript.IInk.PackageOpenOption.CREATE">
+            <summary>
+Create a new package if it does not exist.
+</summary>
+        </member>
+        <member name="F:MyScript.IInk.PackageOpenOption.EXISTING">
+            <summary>
+Open an existing package.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.ContentPart.Metadata">
+            <summary>
+The package's metadata as a parameter set.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.ContentPart.Language">
+            <summary>
+Returns the language of this part.
+</summary>
+            <returns>the part language locale identifier, empty if not set yet (will be set by <see cref="!:Editor.Part" />).</returns>
+            <exception cref="T:System.Exception">when part does not support text recognition (i.e. for types Math and Drawing).</exception>
+            <since>2.0</since>
+        </member>
+        <member name="P:MyScript.IInk.ContentPart.ViewBox">
+            <summary>
+Returns the view box, the smallest axis align rectangle containing this
+part content.
+</summary>
+            <returns>the view box (document coordinates in mm).</returns>
+        </member>
+        <member name="P:MyScript.IInk.ContentPart.Type">
+            <summary>
+Returns the type of this part.
+</summary>
+            <returns>the part type.</returns>
+        </member>
+        <member name="P:MyScript.IInk.ContentPart.Id">
+            <summary>
+Returns the identifier of this part.
+</summary>
+            <returns>the part identifier.</returns>
+        </member>
+        <member name="P:MyScript.IInk.ContentPart.Package">
+            <summary>
+Returns the package that contains this part.
+</summary>
+            <returns>the package.</returns>
+        </member>
+        <member name="M:MyScript.IInk.ContentPart.ShallowCopy">
+            <summary>
+Returns a shallow copy of this part.
+</summary>
+            <returns>the content part.</returns>
+        </member>
+        <member name="T:MyScript.IInk.ContentPart">
+            <summary>
+A part stores one content item. It is structured into several blocks that
+consist of semantically meaningful sub sections of content. A part can be
+interpreted as a hierarchy of blocks.
+</summary>
+            <see cref="T:MyScript.IInk.ContentPackage" />
+        </member>
+        <member name="M:MyScript.IInk.Text.IFontMetricsProvider.GetGlyphMetrics(MyScript.IInk.Text.Text,MyScript.IInk.Text.TextSpan[])">
+            <summary>
+Get the detailed glyph metrics from the label according to the platform.
+</summary>
+            <param name="text">the text.</param>
+            <param name="spans">an array of glyph intervals with associated style.</param>
+            <returns>the glyph metrics.</returns>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Text.IFontMetricsProvider.SupportsGlyphMetrics">
+            <summary>
+Determine whether implementation supports <c>GetGlyphMetrics()</c>.
+</summary>
+            <returns>
+                <c>true</c> if <c>GetGlyphMetrics()</c> is implemented, otherwise <c>false</c>.</returns>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.Text.IFontMetricsProvider.GetFontSizePx(MyScript.IInk.Graphics.Style)">
+            <summary>
+Returns the size of the specified font in pixels. On input the font size is
+expressed in logical units as specified by the platform.
+</summary>
+            <param name="style">the style that specifies the font.</param>
+            <returns>the size of the font in pixels.</returns>
+        </member>
+        <member name="M:MyScript.IInk.Text.IFontMetricsProvider.GetCharacterBoundingBoxes(MyScript.IInk.Text.Text,MyScript.IInk.Text.TextSpan[])">
+            <summary>
+Returns the bounding box of each glyph of the specified text as if it were
+displayed at 0,0 using the specified styles.
+</summary>
+            <param name="text">the text.</param>
+            <param name="spans">an array of glyph intervals with associated style.</param>
+            <returns>the bounding boxes.</returns>
+        </member>
+        <member name="T:MyScript.IInk.Text.IFontMetricsProvider">
+            <summary>
+Interface providing fontified text typesetting operations.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Point.#ctor(System.Single,System.Single)">
+            <summary>
+Constructor.
+</summary>
+            <param name="x">the x coordinate of the point.</param>
+            <param name="y">the y coordinate of the point.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Point.#ctor">
+            <summary>
+Default constructor.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Point.Y">
+            <summary>
+The y position of the point.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Point.X">
+            <summary>
+The x position of the point.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.Graphics.Point">
+            <summary>
+Represents a point on the 2D plane.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.IConfigurationListener.ConfigurationChanged(MyScript.IInk.Configuration)">
+            <summary>
+Invoked when the configuration has changed.
+</summary>
+            <param name="configuration">the configuration that has changed.</param>
+        </member>
+        <member name="T:MyScript.IInk.IConfigurationListener">
+            <summary>
+The listener interface for receiving configuration change events.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.IImagePainter.CreateCanvas">
+            <summary>
+Creates a Canvas to draw the image.
+</summary>
+            <returns>a Canvas to draw on the image.</returns>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.IImagePainter.SaveImage(System.String)">
+            <summary>
+Invoked once image drawing is over.
+Requests saving the image to disk.
+</summary>
+            <param name="path">the image destination.</param>
+        </member>
+        <member name="M:MyScript.IInk.IImagePainter.PrepareImage(System.Int32,System.Int32,System.Single)">
+            <summary>
+Invoked before starting to draw an image.
+This call is meant to enable preparation of the image destination in memory
+(e.g. memory allocation).
+</summary>
+            <param name="width">the image width.</param>
+            <param name="height">the image height.</param>
+            <param name="dpi">the resolution of the image in dots per inch.</param>
+        </member>
+        <member name="T:MyScript.IInk.IImagePainter">
+            <summary>
+The ImagePainter converts rendering data into images in view e.g. for
+integration into .docx exports.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.ContentBlock.Parent">
+            <summary>
+Returns the parent of this block.
+</summary>
+            <returns>the parent of this block, or <c>null</c> if this block is the root block.</returns>
+            <exception cref="T:System.Exception">when block is invalid.</exception>
+            <since>1.4</since>
+        </member>
+        <member name="P:MyScript.IInk.ContentBlock.Attributes">
+            <summary>
+Returns the block's attributes as a JSON string.
+</summary>
+            <returns>the attributes.</returns>
+            <exception cref="T:System.Exception">when block is invalid.</exception>
+            <since>1.1</since>
+        </member>
+        <member name="P:MyScript.IInk.ContentBlock.ConversionState">
+            <summary>
+Returns the current conversion state of this block as a bitwise or
+combination of ConversionState values.
+</summary>
+            <returns>the conversion state combination.</returns>
+            <exception cref="T:System.Exception">when block is invalid.</exception>
+        </member>
+        <member name="P:MyScript.IInk.ContentBlock.Children">
+            <summary>
+Returns the children of this block. The returned array is a copy of the
+list of child blocks, which makes it safe against concurrent changes.
+</summary>
+            <returns>an array of the child blocks.</returns>
+            <exception cref="T:System.Exception">when block is invalid.</exception>
+        </member>
+        <member name="P:MyScript.IInk.ContentBlock.Box">
+            <summary>
+Returns the box that represents the position of this block.
+</summary>
+            <returns>the box (document coordinates in mm).</returns>
+            <exception cref="T:System.Exception">when block is invalid.</exception>
+        </member>
+        <member name="P:MyScript.IInk.ContentBlock.RenderingId">
+            <summary>
+Returns an identifier that can be used to match corresponding calls to
+{@link ICanvas#startGroup(String, Rectangle, boolean)}.
+</summary>
+            <returns>the rendering identifier.</returns>
+            <exception cref="T:System.Exception">when block is invalid.</exception>
+        </member>
+        <member name="P:MyScript.IInk.ContentBlock.Id">
+            <summary>
+The identifier of this block.
+</summary>
+            <returns>the identifier.</returns>
+            <exception cref="T:System.Exception">when block is invalid.</exception>
+        </member>
+        <member name="P:MyScript.IInk.ContentBlock.Type">
+            <summary>
+The type of this block.
+</summary>
+            <exception cref="T:System.Exception">when block is invalid.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ContentBlock.IsValid">
+            <summary>
+Tells whether this block is still valid. A block becomes invalid when it is
+removed or when the currently edited part changes (see
+{@link IEditorListener#partChanged(ContentPart)}.
+</summary>
+            <returns>
+                <c>true</c> if this block is valid.</returns>
+        </member>
+        <member name="P:MyScript.IInk.ContentBlock.Part">
+            <summary>
+Returns the part that contains this block.
+</summary>
+            <returns>the content part.</returns>
+            <exception cref="T:System.Exception">when block is invalid.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ContentBlock.ShallowCopy">
+            <summary>
+Returns a shallow copy of this block.
+</summary>
+            <returns>the content block.</returns>
+        </member>
+        <member name="T:MyScript.IInk.ContentBlock">
+            <summary>
+Represents a block of content. The tree of content blocks provides the
+hierarchical structure of a content part into semantic units.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Rectangle.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+Constructor.
+</summary>
+            <param name="x">the x coordinate of the top left point.</param>
+            <param name="y">the y coordinate of the top left point.</param>
+            <param name="width">the width.</param>
+            <param name="height">the height.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Rectangle.#ctor">
+            <summary>
+Default constructor.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Rectangle.Height">
+            <summary>
+The height of the rectangle.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Rectangle.Width">
+            <summary>
+The width of the rectangle.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Rectangle.Y">
+            <summary>
+The y position of the top edge of the rectangle.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Rectangle.X">
+            <summary>
+The x position of the left edge of the rectangle.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.Graphics.Rectangle">
+            <summary>
+Represents an axis aligned rectangle on the 2D plane.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.ContentSelection.ConversionState">
+            <summary>
+Returns the current conversion state of this selection as a bitwise or
+combination of ConversionState values.
+</summary>
+            <returns>the conversion state combination.</returns>
+            <exception cref="T:System.Exception">when selection is invalid.</exception>
+        </member>
+        <member name="P:MyScript.IInk.ContentSelection.Box">
+            <summary>
+Returns the box that represents the position of this selection.
+</summary>
+            <returns>the box (document coordinates in mm).</returns>
+            <exception cref="T:System.Exception">when selection is invalid.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ContentSelection.IsValid">
+            <summary>
+Tells whether this selection is still valid. A selection becomes invalid when it is
+removed or when the currently edited part changes (see
+{@link IEditorListener#partChanged(ContentPart)}.
+</summary>
+            <returns>
+                <c>true</c> if this selection is valid.</returns>
+        </member>
+        <member name="P:MyScript.IInk.ContentSelection.Part">
+            <summary>
+Returns the part that contains this selection.
+</summary>
+            <returns>the content part.</returns>
+            <exception cref="T:System.Exception">when selection is invalid.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ContentSelection.ShallowCopy">
+            <summary>
+Returns a shallow copy of this selection.
+</summary>
+            <returns>the content selection.</returns>
+        </member>
+        <member name="T:MyScript.IInk.ContentSelection">
+            <summary>
+Represents a selection of content.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.MimeTypeF.IsImage(MyScript.IInk.MimeType)">
+            <summary>
+Tells whether the specified MIME type is an image MIME type.
+</summary>
+            <param name="mimeType">the MIME type.</param>
+            <returns>
+                <c>true</c> if the MIME type is an image MIME type, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:MyScript.IInk.MimeTypeF.IsTextual(MyScript.IInk.MimeType)">
+            <summary>
+Tells whether the specified MIME type is textual.
+</summary>
+            <param name="mimeType">the MIME type.</param>
+            <returns>
+                <c>true</c> if the MIME type is textual, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:MyScript.IInk.MimeTypeF.GetFileExtensions(MyScript.IInk.MimeType)">
+            <summary>
+Returns a comma separated list of file extensions.
+</summary>
+            <param name="mimeType">the MIME type.</param>
+            <returns>the file extensions, or <c>null</c></returns>
+        </member>
+        <member name="M:MyScript.IInk.MimeTypeF.GetTypeName(MyScript.IInk.MimeType)">
+            <summary>
+Returns the name of the media type, in the form "type/subtype".
+</summary>
+            <param name="mimeType">the MIME type.</param>
+            <returns>the name of the media type.</returns>
+        </member>
+        <member name="M:MyScript.IInk.MimeTypeF.GetName(MyScript.IInk.MimeType)">
+            <summary>
+Returns a descriptive name in English.
+</summary>
+            <param name="mimeType">the MIME type.</param>
+            <returns>the descriptive name.</returns>
+        </member>
+        <member name="T:MyScript.IInk.MimeType">
+            <summary>
+Represents a MIME type.
+</summary>
+            <para>See <a href="http://www.iana.org/assignments/media-types/index.html">http://www.iana.org/assignments/media-types/index.html</a>.</para>
+        </member>
+        <member name="F:MyScript.IInk.MimeType.OFFICE_CLIPBOARD">
+            <summary>Microsoft Office Clipboard format (Art::GVML ClipFormat).</summary>
+            <since>1.1</since>
+        </member>
+        <member name="F:MyScript.IInk.MimeType.PPTX">
+            <summary>Open XML presentation (application/vnd.openxmlformats-officedocument.presentationml.presentation).</summary>
+        </member>
+        <member name="F:MyScript.IInk.MimeType.DOCX">
+            <summary>Open XML word processing document (application/vnd.openxmlformats-officedocument.wordprocessingml.document).</summary>
+        </member>
+        <member name="F:MyScript.IInk.MimeType.PDF">
+            <summary>Portable Document Format (application/pdf).</summary>
+        </member>
+        <member name="F:MyScript.IInk.MimeType.GIF">
+            <summary>GIF Image (image/gif).</summary>
+        </member>
+        <member name="F:MyScript.IInk.MimeType.PNG">
+            <summary>PNG Image (image/png).</summary>
+        </member>
+        <member name="F:MyScript.IInk.MimeType.JPEG">
+            <summary>JPEG Image (image/jpeg).</summary>
+        </member>
+        <member name="F:MyScript.IInk.MimeType.JIIX">
+            <summary>Json Interactive Ink eXchange format (application/vnd.myscript.jiix).</summary>
+        </member>
+        <member name="F:MyScript.IInk.MimeType.SVG">
+            <summary>Scalable Vector Graphics (image/svg+xml).</summary>
+        </member>
+        <member name="F:MyScript.IInk.MimeType.MUSICXML">
+            <summary>Music Extensible Markup Language (application/vnd.recordare.musicxml+xml).</summary>
+        </member>
+        <member name="F:MyScript.IInk.MimeType.GRAPHML">
+            <summary>Graph Markup Language (application/graphml+xml).</summary>
+        </member>
+        <member name="F:MyScript.IInk.MimeType.LATEX">
+            <summary>LaTeX (application/x-latex).</summary>
+        </member>
+        <member name="F:MyScript.IInk.MimeType.MATHML">
+            <summary>Mathematical Markup Language (application/mathml+xml).</summary>
+        </member>
+        <member name="F:MyScript.IInk.MimeType.HTML">
+            <summary>HyperText Markup Language (text/html)</summary>
+        </member>
+        <member name="F:MyScript.IInk.MimeType.TEXT">
+            <summary>Plain text (text/plain).</summary>
+        </member>
+        <member name="M:MyScript.IInk.IEditorListener.ActiveBlockChanged(MyScript.IInk.Editor,System.String)">
+            <summary>
+Invoked when the active block has changed.
+The active block is usually the last modified text block.
+</summary>
+            <param name="editor">the editor.</param>
+            <param name="blockId">the identifier of the active block.</param>
+        </member>
+        <member name="M:MyScript.IInk.IEditorListener.SelectionChanged(MyScript.IInk.Editor)">
+            <summary>
+Invoked when the selection has changed. The selection can be retrieved by
+calling <c>GetSelection</c> on the editor.
+</summary>
+            <param name="editor">the editor.</param>
+            <since>2.0</since>
+        </member>
+        <member name="M:MyScript.IInk.IEditorListener.OnError(MyScript.IInk.Editor,System.String,MyScript.IInk.EditorError,System.String)">
+            <summary>
+Invoked when an error has occurred.
+</summary>
+            <param name="editor">the editor.</param>
+            <param name="blockId">the identifier of the block on which this error has occurred.</param>
+            <param name="error">the error code.</param>
+            <param name="message">the error message.</param>
+            <since>1.5</since>
+        </member>
+        <member name="M:MyScript.IInk.IEditorListener.ContentChanged(MyScript.IInk.Editor,System.String[])">
+            <summary>
+Invoked when the content has changed.
+</summary>
+            <param name="editor">the editor.</param>
+            <param name="blockIds">the identifiers of the modified blocks.</param>
+        </member>
+        <member name="M:MyScript.IInk.IEditorListener.PartChanged(MyScript.IInk.Editor)">
+            <summary>
+Invoked when the part associated with the listened editor has changed.
+</summary>
+            <param name="editor">the editor.</param>
+        </member>
+        <member name="T:MyScript.IInk.IEditorListener">
+            <summary>
+The listener interface for receiving editor events.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.EditorError">
+            <summary>
+Represents an Editor error code.
+</summary>
+        </member>
+        <member name="F:MyScript.IInk.EditorError.GESTURE_NOTIFICATION_UNABLE_TO_APPLY">
+            <summary>Gesture notification, unable to apply.</summary>
+        </member>
+        <member name="F:MyScript.IInk.EditorError.GESTURE_NOTIFICATION_CANNOT_MOVE_ABOVE_FIRSTLINE">
+            <summary>Gesture notification, cannot move above first line.</summary>
+        </member>
+        <member name="F:MyScript.IInk.EditorError.GESTURE_NOTIFICATION_NO_WORDS_TO_JOIN">
+            <summary>Gesture notification, no words to join.</summary>
+        </member>
+        <member name="F:MyScript.IInk.EditorError.INK_REJECTED_TOO_LONG">
+            <summary>Ink was rejected, the stroke is too long.</summary>
+        </member>
+        <member name="F:MyScript.IInk.EditorError.INK_REJECTED_OUT_OF_PAGE">
+            <summary>Ink was rejected, the stroke is out of the page bounds.</summary>
+        </member>
+        <member name="F:MyScript.IInk.EditorError.INK_REJECTED_BEFORE_FIRST_COLUMN">
+            <summary>Ink was rejected, the stroke is too far left.</summary>
+        </member>
+        <member name="F:MyScript.IInk.EditorError.INK_REJECTED_SMALL_TYPESET">
+            <summary>Ink was rejected, can not write on DIGITAL_PUBLISH blocks (convert to DIGITAL_EDIT).</summary>
+        </member>
+        <member name="F:MyScript.IInk.EditorError.INK_REJECTED_ABOVE_FIRST_LINE">
+            <summary>Ink was rejected, the stroke is too far above the first line.</summary>
+        </member>
+        <member name="F:MyScript.IInk.EditorError.INK_REJECTED_TOO_BIG">
+            <summary>Ink was rejected, the stroke is too big.</summary>
+        </member>
+        <member name="F:MyScript.IInk.EditorError.INK_REJECTED_TOO_SMALL">
+            <summary>Ink was rejected, the stroke is too small.</summary>
+        </member>
+        <member name="F:MyScript.IInk.EditorError.GENERIC">
+            <summary>Generic error, refer to the `message` parameter for more information.</summary>
+        </member>
+        <member name="T:MyScript.IInk.Graphics.FillRule">
+            <summary>
+Defines the methods used to fill paths and polygons.
+</summary>
+        </member>
+        <member name="F:MyScript.IInk.Graphics.FillRule.EVENODD">
+            <summary>
+Even-odd fill rule.
+</summary>
+        </member>
+        <member name="F:MyScript.IInk.Graphics.FillRule.NONZERO">
+            <summary>
+Non-zero fill rule.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.ContentPackage.Path">
+            <summary>
+The path of this package.
+</summary>
+            <since>2.0</since>
+        </member>
+        <member name="P:MyScript.IInk.ContentPackage.Metadata">
+            <summary>
+The package's metadata as a parameter set.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.ContentPackage.ExtractObject(System.String,System.String)">
+            <summary>
+Extracts an object from the package to a given path.
+</summary>
+            <param name="url">URL of the object.</param>
+            <param name="fileName">destination file.</param>
+            <exception cref="T:System.ArgumentException">when no object named <c>url</c> exists.</exception>
+            <exception cref="T:System.Exception">if an I/O operation fails.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ContentPackage.clonePart(MyScript.IInk.ContentPart)">
+            <summary>
+Adds an existing part to this package.
+</summary>
+@note Part modifications that have not been saved (to temporary directory
+or to an actual package file) will not be imported.
+@note The part can be an existing part from this package or from another
+open package.
+<param name="part">the part to clone into this package.</param><returns>the newly created part.</returns><exception cref="T:System.ArgumentException">the part to clone is not valid.</exception><since>1.2</since></member>
+        <member name="M:MyScript.IInk.ContentPackage.RemovePart(MyScript.IInk.ContentPart)">
+            <summary>
+Removes the specified part.
+</summary>
+            <param name="part">the part to remove.</param>
+            <exception cref="T:System.ArgumentException">when part does not belong to this package.</exception>
+            <since>1.2</since>
+        </member>
+        <member name="M:MyScript.IInk.ContentPackage.CreatePart(System.String)">
+            <summary>
+Appends a new part to this package.
+</summary>
+            <param name="type">the type of part.</param>
+            <returns>the newly created part.</returns>
+            <exception cref="T:System.ArgumentException">when <c>type</c> is not a valid ContentPart type.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ContentPackage.IndexOfPart(MyScript.IInk.ContentPart)">
+            <summary>
+Returns the index of a given part.
+</summary>
+            <param name="part">the part.</param>
+            <returns>the index of the part, or -1 when the part does not belong to this package.</returns>
+        </member>
+        <member name="M:MyScript.IInk.ContentPackage.GetPart(System.String)">
+            <summary>
+Returns the specified part.
+</summary>
+            <param name="id">the identifier of the requested part.</param>
+            <returns>the part.</returns>
+            <exception cref="T:System.ArgumentException">when no part is associated with identifier <c>id</c>.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ContentPackage.GetPart(System.Int32)">
+            <summary>
+Returns the part at the specified index.
+</summary>
+            <param name="index">the index of the requested part.</param>
+            <returns>the requested part.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">when <c>index</c> is out of range.</exception>
+        </member>
+        <member name="P:MyScript.IInk.ContentPackage.PartCount">
+            <summary>
+Returns the number of parts in this document.
+</summary>
+            <returns>the part count.</returns>
+        </member>
+        <member name="M:MyScript.IInk.ContentPackage.SaveAs(System.String)">
+            <summary>
+Saves of all ongoing modifications made to the package, to a new file.
+</summary>
+            <param name="fileName">the new file name.</param>
+            <exception cref="T:System.Exception">if an I/O operation fails.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ContentPackage.Save">
+            <summary>
+Saves of all ongoing modifications made to the package.
+</summary>
+            <exception cref="T:System.Exception">if an I/O operation fails.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ContentPackage.ShallowCopy">
+            <summary>
+Returns a shallow copy of this package.
+</summary>
+            <returns>the content package.</returns>
+        </member>
+        <member name="T:MyScript.IInk.ContentPackage">
+            <summary>
+A package stores the user content as a sorted collection of parts.
+</summary>
+            <see cref="T:MyScript.IInk.ContentPart" />
+        </member>
+        <member name="M:MyScript.IInk.IRendererListener.ViewTransformChanged(MyScript.IInk.Renderer)">
+            <summary>
+Invoked when the view transform has changed.
+</summary>
+            <param name="renderer">the renderer.</param>
+        </member>
+        <member name="T:MyScript.IInk.IRendererListener">
+            <summary>
+The listener interface for receiving renderer events.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.IStroker.Stroke(MyScript.IInk.Graphics.InkPoint[],System.Single,System.Single,MyScript.IInk.Graphics.IPath)">
+            <summary>
+Constructs a visual stroke from input points.
+</summary>
+            <param name="input">the input points.</param>
+            <param name="width">the desired stroke width.</param>
+            <param name="pixelSize">the viewport pixel size.</param>
+            <param name="output">the resulting stroke.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.IStroker.IsFill">
+            <summary>
+Tells whether stroked input should be drawn as a filled shaped or not.
+</summary>
+            <returns>
+                <c>true</c> if strokes are to be filled, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="T:MyScript.IInk.Graphics.IStroker">
+            <summary>
+The IStroker interface converts input points (touch, digital pen, etc) into a
+renderable stroke representation.
+</summary>
+            <since>1.4</since>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.InkPoint.F">
+            <summary>
+The point pressure value.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.InkPoint.T">
+            <summary>
+The point timestamp.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.InkPoint.Y">
+            <summary>
+The point y coordinate.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.InkPoint.X">
+            <summary>
+The point x coordinate.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.Graphics.InkPoint">
+            <summary>
+Represents an ink point.
+</summary>
+            <since>1.4</since>
+        </member>
+        <member name="M:MyScript.IInk.RecognitionAssetsBuilder.Store(System.String)">
+            <summary>
+Save the previously compiled recognition asset.
+</summary>
+            <param name="fileName">the destination file.</param>
+            <exception cref="T:System.Exception">when there is no valid recognition asset to store.</exception>
+            <exception cref="T:System.Exception">when an I/O operation fails</exception>
+        </member>
+        <member name="M:MyScript.IInk.RecognitionAssetsBuilder.GetCompilationErrors">
+            <summary>
+Get the last compilation errors.
+</summary>
+            <returns>a description of the errors that occurred during the last compilation.</returns>
+        </member>
+        <member name="M:MyScript.IInk.RecognitionAssetsBuilder.Compile(System.String,System.String)">
+            <summary>
+Compiles data into a recognition asset.
+</summary>
+            <param name="type">the type of asset that will be generated.</param>
+            <param name="data"> the data to compile.</param>
+            <exception cref="T:System.ArgumentException">when the specified <c>type</c> is not supported.</exception>
+            <exception cref="T:System.Exception">when the content of <c>data</c> could not be compiled into a recognition asset.</exception>
+        </member>
+        <member name="P:MyScript.IInk.RecognitionAssetsBuilder.SupportedRecognitionAssetsTypes">
+            <summary>
+Lists the types of assets that can be generated by this recognition assets builder.
+</summary>
+            <returns>the list of supported recognition assets types.</returns>
+        </member>
+        <member name="T:MyScript.IInk.RecognitionAssetsBuilder">
+            <summary>
+The RecognitionAssetsBuilder implements the tools to generate and save
+recognition assets.
+</summary>
+            <since>1.2.4</since>
+        </member>
+        <member name="P:MyScript.IInk.IContentSelection.ConversionState">
+            <summary>
+Returns the current conversion state of this selection as a bitwise or
+combination of ConversionState values.
+</summary>
+            <returns>the conversion state combination.</returns>
+            <exception cref="T:System.Exception">when selection is invalid.</exception>
+        </member>
+        <member name="P:MyScript.IInk.IContentSelection.Box">
+            <summary>
+Returns the box that represents the position of this selection.
+</summary>
+            <returns>the box (document coordinates in mm).</returns>
+            <exception cref="T:System.Exception">when selection is invalid.</exception>
+        </member>
+        <member name="M:MyScript.IInk.IContentSelection.IsValid">
+            <summary>
+Tells whether this selection is still valid. A selection becomes invalid when it is
+removed or when the currently edited part changes (see
+{@link IEditorListener#partChanged(ContentPart)}.
+</summary>
+            <returns>
+                <c>true</c> if this selection is valid.</returns>
+        </member>
+        <member name="P:MyScript.IInk.IContentSelection.Part">
+            <summary>
+Returns the part that contains this selection.
+</summary>
+            <returns>the content part.</returns>
+            <exception cref="T:System.Exception">when selection is invalid.</exception>
+        </member>
+        <member name="T:MyScript.IInk.IContentSelection">
+            <summary>
+The interface for content selections and blocks.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.ConversionState">
+            <summary>
+Describes the state of the content for a given selection.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DIGITAL_EDIT">
+            <summary>
+Digital content, suitable for edition (normalized font size, expanded graphics).
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DIGITAL_PUBLISH">
+            <summary>
+Digital content, suitable for publication (adaptative font size, fitted graphics).
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.HANDWRITING">
+            <summary>
+Handwritten content (ink).
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.BlendOffscreen(System.UInt32,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,MyScript.IInk.Graphics.Color)">
+            <summary>
+Requests drawing of an offscreen surface (usually a bitmap).
+</summary>
+            <since>1.4</since>
+            <param name="id">the identifier of the surface.</param>
+            <param name="src_x">minimal x coordinate of the offscreen surface (view coordinates in pixel).</param>
+            <param name="src_y">minimal y coordinate of the offscreen surface (view coordinates in pixel).</param>
+            <param name="src_width">width of the offscreen surface (view coordinates in pixel).</param>
+            <param name="src_height">height of the offscreen surface (view coordinates in pixel).</param>
+            <param name="dest_x">minimal x coordinate where to draw this offscreen surface (view coordinates in pixel).</param>
+            <param name="dest_y">minimal y coordinate where to draw this offscreen surface (view coordinates in pixel).</param>
+            <param name="dest_width">width of area where to draw this offscreen surface (view coordinates in pixel).</param>
+            <param name="dest_height">height of area where to draw this offscreen surface (view coordinates in pixel).</param>
+            <param name="color">blend color to use (multiply blending operation, so opaque white color will not affect the bitmap).</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.EndDraw">
+            <summary>
+Indicates that a drawing session ends.
+</summary>
+            <since>1.4</since>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.StartDraw(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+Indicates that a drawing session starts, on a given area.
+Provided area must be cleared within this call.
+</summary>
+            <since>1.4</since>
+            <param name="x">the x coordinate of the top left point of the drawing area (document coordinates in mm).</param>
+            <param name="y">the y coordinate of the top left point of the drawing area (document coordinates in mm).</param>
+            <param name="width">the width of the drawing area.</param>
+            <param name="height">the height of the drawing area.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.DrawText(System.String,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+Requests drawing of text.
+</summary>
+@note the extent of the rendered text as given by xmin, ymin, xmax, and
+ymax is informative and should not be used for the actual rendering.
+<param name="label">the label of the text to draw.</param><param name="x">the x coordinate of the position from where to draw the text (document coordinates in mm).</param><param name="y">the y coordinate of the position from where to draw the text (document coordinates in mm).</param><param name="xmin">minimal x coordinate of the rendered text (document coordinates in mm).</param><param name="ymin">minimal y coordinate of the rendered text (document coordinates in mm).</param><param name="xmax">maximal x coordinate of the rendered text (document coordinates in mm).</param><param name="ymax">maximal y coordinate of the rendered text (document coordinates in mm).</param></member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.DrawObject(System.String,System.String,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+Requests drawing of an object.
+</summary>
+@note the object should be transformed (translation and uniform scale) so
+that it fits centered in the specified viewport rectangle.
+<param name="url">the url of the object.</param><param name="mimeType">the mimeType associated with the object.</param><param name="x">the x coordinate of the top left point of the viewport rectangle (document coordinates in mm).</param><param name="y">the y coordinate of the top left point of the viewport rectangle (document coordinates in mm).</param><param name="width">the width of the viewport rectangle (document coordinates in mm).</param><param name="height">the height of the viewport rectangle (document coordinates in mm).</param></member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.DrawLine(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+Requests drawing of a line segment.
+</summary>
+            <param name="x1">the x coordinate of the first point (document coordinates in mm).</param>
+            <param name="y1">the y coordinate of the first point (document coordinates in mm).</param>
+            <param name="x2">the x coordinate of the last point (document coordinates in mm).</param>
+            <param name="y2">the y coordinate of the last point (document coordinates in mm).</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.DrawRectangle(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+Requests drawing of a rectangle.
+</summary>
+            <param name="x">the x coordinate of the top left point (document coordinates in mm).</param>
+            <param name="y">the y coordinate of the top left point (document coordinates in mm).</param>
+            <param name="width">the width (document coordinates in mm).</param>
+            <param name="height">the height (document coordinates in mm).</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.DrawPath(MyScript.IInk.Graphics.IPath)">
+            <summary>
+Requests drawing of a path.
+</summary>
+            <param name="path">the path to draw (document coordinates in mm).</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.CreatePath">
+            <summary>
+Creates a new general path.
+The renderer will then send commands to this path, and it will be used in
+the call to <c>drawPath</c>.
+</summary>
+@note the <c>drawPath</c> method may be called with a path that was created by
+another instance of canvas, because the renderer maintains a cache of the
+paths that hold the visual representation of ink strokes.
+<returns>the newly created general path.</returns></member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.EndItem(System.String)">
+            <summary>
+Indicates that the drawing of an item ends.
+</summary>
+            <param name="id">the identifier of the group.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.StartItem(System.String)">
+            <summary>
+Indicates that the drawing of an item starts.
+</summary>
+            <param name="id">the identifier of the group.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.EndGroup(System.String)">
+            <summary>
+Indicates that the drawing of a group of elements ends.
+</summary>
+            <param name="id">the identifier of the group.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.StartGroup(System.String,System.Single,System.Single,System.Single,System.Single,System.Boolean)">
+            <summary>
+Indicates that the drawing of a group of elements starts.
+</summary>
+            <param name="id">the identifier of the group.</param>
+            <param name="x">the x coordinate of the top left point of the group box (document coordinates in mm).</param>
+            <param name="y">the y coordinate of the top left point of the group box (document coordinates in mm).</param>
+            <param name="width">the width of the group box (document coordinates in mm).</param>
+            <param name="height">the height of the group box (document coordinates in mm).</param>
+            <param name="clipContent">
+                <c>true</c> if the canvas should use the group box as the
+clipping region until corresponding endGroup(), otherwise <c>false</c>.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.SetFontProperties(System.String,System.Single,System.Single,System.String,System.String,System.Int32)">
+            <summary>
+Sets the font properties.
+</summary>
+            <param name="family">the font family.</param>
+            <param name="lineHeight">the font line height.</param>
+            <param name="size">the font size (document coordinates in mm).</param>
+            <param name="style">the font style.</param>
+            <param name="variant">the font variant.</param>
+            <param name="weight">the font weight.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.SetDropShadow(System.Single,System.Single,System.Single,MyScript.IInk.Graphics.Color)">
+            <summary>
+Configures the drop shadow display.
+</summary>
+            <param name="xOffset">the drop shadow horizontal offset.</param>
+            <param name="yOffset">the drop shadow vertical offset.</param>
+            <param name="radius">the blur radius of the drop shadow.</param>
+            <param name="color">the color of the drop shadow.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.SetFillRule(MyScript.IInk.Graphics.FillRule)">
+            <summary>
+Sets the fill rule.
+</summary>
+            <param name="rule">the fill rule.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.SetFillColor(MyScript.IInk.Graphics.Color)">
+            <summary>
+Sets the fill color.
+</summary>
+            <param name="color">the fill color.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.SetStrokeDashOffset(System.Single)">
+            <summary>
+Sets the distance into the dash pattern to start the dash.
+</summary>
+            <param name="offset">the dash offset (document coordinates in mm).</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.SetStrokeDashArray(System.Single[])">
+            <summary>
+Sets the pattern of dashes and gaps used to stroke paths.
+</summary>
+            <param name="dashArray">the array describing the dashes pattern (document coordinates in mm).</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.SetStrokeMiterLimit(System.Single)">
+            <summary>
+Sets the stroke miter limit.
+</summary>
+            <param name="limit">the stroke miter limit (document coordinates in mm).</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.SetStrokeLineJoin(MyScript.IInk.Graphics.LineJoin)">
+            <summary>
+Sets the stroke line join.
+</summary>
+            <param name="lineJoin">the stroke line join.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.SetStrokeLineCap(MyScript.IInk.Graphics.LineCap)">
+            <summary>
+Sets the stroke line cap.
+</summary>
+            <param name="lineCap">the stroke line cap.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.SetStrokeWidth(System.Single)">
+            <summary>
+Sets the stroke width.
+</summary>
+            <param name="width">the stroke width (document coordinates in mm).</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.ICanvas.SetStrokeColor(MyScript.IInk.Graphics.Color)">
+            <summary>
+Sets the stroke color.
+</summary>
+            <param name="color">the stroke color.</param>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.ICanvas.Transform">
+            <summary>
+The current transform.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.Graphics.ICanvas">
+            <summary>
+The ICanvas interface receives drawing commands.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.ParameterSet.GetSection(System.String)">
+            <summary>
+Returns a parameter set object representing the section associated with
+<c>key</c>. Sections correspond to the hierarchical organization of keys
+according to their dots. For example, if you have keys "a.b.c" and "a.b.d"
+there is a section "a.b" that contains keys "c" and "d", as well as a
+section "a" containing "b.c" and "b.d".
+</summary>
+            <param name="key">the key of the section to obtain.</param>
+            <returns>the section.</returns>
+            <exception cref="T:System.ArgumentException">when <c>key</c> is not found.</exception>
+            <exception cref="T:System.Exception">when entry at <c>key</c> is not a section.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ParameterSet.SetStringArray(System.String,System.String[])">
+            <summary>
+Sets the string array value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to set.</param>
+            <param name="value">the value to set.</param>
+            <exception cref="T:System.Exception">when entry at <c>key</c> exists and is not a string
+array.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ParameterSet.GetStringArray(System.String,System.String[])">
+            <summary>
+Returns the string array value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to obtain.</param>
+            <param name="defaultValue">the value to return when <c>key</c> is not present.</param>
+            <returns>the value.</returns>
+            <exception cref="T:System.Exception">when entry at <c>key</c> is not a string array.</exception>
+            <since>1.4</since>
+        </member>
+        <member name="M:MyScript.IInk.ParameterSet.GetStringArray(System.String)">
+            <summary>
+Returns the string array value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to obtain.</param>
+            <returns>the value.</returns>
+            <exception cref="T:System.ArgumentException">when <c>key</c> is not found.</exception>
+            <exception cref="T:System.Exception">when entry at <c>key</c> is not a string array.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ParameterSet.SetNumber(System.String,System.Double)">
+            <summary>
+Sets the numeric value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to set.</param>
+            <param name="value">the double value to set.</param>
+            <exception cref="T:System.Exception">when entry at <c>key</c> exists and is not a number.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ParameterSet.GetNumber(System.String,System.Double)">
+            <summary>
+Returns the numeric value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to obtain.</param>
+            <param name="defaultValue">the value to return when <c>key</c> is not present.</param>
+            <returns>the value.</returns>
+            <exception cref="T:System.Exception">when entry at <c>key</c> is not a number.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ParameterSet.GetNumber(System.String)">
+            <summary>
+Returns the numeric value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to obtain.</param>
+            <returns>the value.</returns>
+            <exception cref="T:System.ArgumentException">when <c>key</c> is not found.</exception>
+            <exception cref="T:System.Exception">when entry at <c>key</c> is not a number.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ParameterSet.SetBoolean(System.String,System.Boolean)">
+            <summary>
+Sets the boolean value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to set.</param>
+            <param name="value">the boolean value to set.</param>
+            <exception cref="T:System.Exception">when entry at <c>key</c> exists and is not a boolean.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ParameterSet.GetBoolean(System.String,System.Boolean)">
+            <summary>
+Returns the boolean value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to obtain.</param>
+            <param name="defaultValue">the value to return when <c>key</c> is not present.</param>
+            <returns>the value.</returns>
+            <exception cref="T:System.Exception">when entry at <c>key</c> is not a boolean.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ParameterSet.GetBoolean(System.String)">
+            <summary>
+Returns the boolean value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to obtain.</param>
+            <returns>the value.</returns>
+            <exception cref="T:System.ArgumentException">when <c>key</c> is not found.</exception>
+            <exception cref="T:System.Exception">when entry at <c>key</c> is not a boolean.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ParameterSet.SetString(System.String,System.String)">
+            <summary>
+Sets the string value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to set.</param>
+            <param name="value">the string value to set.</param>
+            <exception cref="T:System.Exception">when entry at <c>key</c> exists and is not a string.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ParameterSet.GetString(System.String,System.String)">
+            <summary>
+Returns the string value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to obtain.</param>
+            <param name="defaultValue">the value to return when <c>key</c> is not present.</param>
+            <returns>the value.</returns>
+            <exception cref="T:System.Exception">when entry at <c>key</c> is not a string.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ParameterSet.GetString(System.String)">
+            <summary>
+Returns the string value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to obtain.</param>
+            <returns>the value.</returns>
+            <exception cref="T:System.ArgumentException">when <c>key</c> is not found.</exception>
+            <exception cref="T:System.Exception">when entry at <c>key</c> is not a string.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ParameterSet.Inject(System.String)">
+            <summary>
+Injects JSON content into this parameter set.
+</summary>
+            <param name="jsonText">JSON parameters values.</param>
+            <exception cref="T:System.ArgumentException">when jsonText is not valid JSON.</exception>
+        </member>
+        <member name="M:MyScript.IInk.ParameterSet.ShallowCopy">
+            <summary>
+Returns a shallow copy of this parameter set.
+</summary>
+            <returns>the parameter set.</returns>
+        </member>
+        <member name="T:MyScript.IInk.ParameterSet">
+            <summary>
+Represents a set of parameters values.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Text.TextSpan.Style">
+            <summary>
+The style associated with this span.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Text.TextSpan.EndPosition">
+            <summary>
+The end position in a label of this span, in glyph (i.e. grapheme
+cluster) count.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Text.TextSpan.BeginPosition">
+            <summary>
+The begin position in a label of this span, in glyph (i.e. grapheme
+cluster) count.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.Text.TextSpan">
+            <summary>
+Describes glyphs spans in a label.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.MathUtils.IsNear(System.Double,System.Double)">
+            <summary>
+Compares two values and returns <c>true</c> if they are near each other.
+Tolerance is the the difference between 1.0 and the next representable
+value of the given double-point type.
+</summary>
+            <param name="x">the first value to compare.</param>
+            <param name="y">the second value to compare.</param>
+            <returns>
+                <c>true</c> if <c>x</c> and <c>y</c> are near, false otherwise.</returns>
+        </member>
+        <member name="M:MyScript.IInk.MathUtils.IsNear(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+Compares two values and returns <c>true</c> if they are near each other.
+</summary>
+            <param name="x">the first value to compare.</param>
+            <param name="y">the second value to compare.</param>
+            <param name="absolute_tolerance">the absolute tolerance for the comparison.</param>
+            <param name="relative_tolerance">the relative tolerance for the comparison.</param>
+            <returns>
+                <c>true</c> if <c>x</c> and <c>y</c> are near, false otherwise.</returns>
+        </member>
+        <member name="M:MyScript.IInk.MathUtils.IsNear(System.Single,System.Single)">
+            <summary>
+Compares two values and returns <c>true</c> if they are near each other.
+Tolerance is the the difference between 1.0 and the next representable
+value of the given floating-point type.
+</summary>
+            <param name="x">the first value to compare.</param>
+            <param name="y">the second value to compare.</param>
+            <returns>
+                <c>true</c> if <c>x</c> and <c>y</c> are near, false otherwise.</returns>
+        </member>
+        <member name="M:MyScript.IInk.MathUtils.IsNear(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+Compares two values and returns <c>true</c> if they are near each other.
+</summary>
+            <param name="x">the first value to compare.</param>
+            <param name="y">the second value to compare.</param>
+            <param name="absolute_tolerance">the absolute tolerance for the comparison.</param>
+            <param name="relative_tolerance">the relative tolerance for the comparison.</param>
+            <returns>
+                <c>true</c> if <c>x</c> and <c>y</c> are near, false otherwise.</returns>
+        </member>
+        <member name="M:MyScript.IInk.Text.Text.GetGlyphEndAt(System.Int32)">
+            <summary>
+Returns the end position in the label, in bytes, of a given glyph.
+</summary>
+            <param name="index">the index of the glyph to retrieve, in glyph count.</param>
+            <returns>the starting position on the glyph in the label, in bytes.</returns>
+            <exception cref="T:System.ArgumentException">when <c>index</c> is invalid.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Text.Text.GetGlyphBeginAt(System.Int32)">
+            <summary>
+Returns the starting position in the label, in bytes, of a given glyph.
+</summary>
+            <param name="index">the index of the glyph to retrieve, in glyph count.</param>
+            <returns>the starting position on the glyph in the label, in bytes.</returns>
+            <exception cref="T:System.ArgumentException">when <c>index</c> is invalid.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Text.Text.GetGlyphLabelAt(System.Int32)">
+            <summary>
+Returns the label of the glyph at a given index.
+</summary>
+            <param name="index">the index of the glyph to retrieve, in glyph count.</param>
+            <returns>the label of the glyph at <c>index</c>.</returns>
+            <exception cref="T:System.ArgumentException">when <c>index</c> is invalid.</exception>
+        </member>
+        <member name="P:MyScript.IInk.Text.Text.GlyphCount">
+            <summary>
+The number of glyphs associated with this text.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Text.Text.Label">
+            <summary>
+The label of this text.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.Text.Text">
+            <summary>
+Allows to access the glyphs (i.e. grapheme clusters) within a label.
+</summary>
+@note what is called glyph here, is actually a grapheme cluster. For more
+details refer to http://unicode.org/reports/tr29/
+</member>
+        <member name="T:MyScript.IInk.Graphics.LineJoin">
+            <summary>
+Defines how the joins between connected segments are drawn.
+</summary>
+        </member>
+        <member name="F:MyScript.IInk.Graphics.LineJoin.BEVEL">
+            <summary>
+Bevel join style.
+</summary>
+        </member>
+        <member name="F:MyScript.IInk.Graphics.LineJoin.ROUND">
+            <summary>
+Round join style.
+</summary>
+        </member>
+        <member name="F:MyScript.IInk.Graphics.LineJoin.MITER">
+            <summary>
+Miter join style.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Transform.Apply(MyScript.IInk.Graphics.Point[],System.Int32,System.Int32)">
+            <summary>
+Applies this transform to 2D points (x,y).
+</summary>
+            <param name="points">an array of points.</param>
+            <param name="offset">the offset in the array, to start transforming from.</param>
+            <param name="count">the size of the array.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Transform.Apply(MyScript.IInk.Graphics.Point[])">
+            <summary>
+Applies this transform to 2D points (x,y).
+</summary>
+            <param name="points">an array of points.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Transform.Apply(MyScript.IInk.Graphics.Point)">
+            <summary>
+Applies this transform to 2D point (x,y).
+</summary>
+            <param name="p">the point.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Transform.Apply(System.Single,System.Single)">
+            <summary>
+Applies this transform to 2D point (x,y).
+</summary>
+            <param name="x">the point x coordinate.</param>
+            <param name="y">the point y coordinate.</param>
+            <returns>the transformed point.</returns>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Transform.Rotate(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+Multiplies the transform with a rotation transformation. This is equivalent
+to calling <c>multiply(R)</c>, where <c>R</c> is a <c>Transform</c> represented by the
+following matrix:
+</summary>
+            <pre>
+[   cosA     -sinA    -cosA * x0 + sinA * y0 + x0   ]
+[   sinA      cosA    -sinA * x0 - cosA * y0 + y0   ]
+[   0           0                1                  ]
+</pre>
+            <param name="cosA">the cosinus of rotation angle in radians.</param>
+            <param name="sinA">the sinus of rotation angle in radians.</param>
+            <param name="x0">the x position of the origin point.</param>
+            <param name="y0">the y position of the origin point.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Transform.Rotate(System.Double,System.Double)">
+            <summary>
+Multiplies the transform with a rotation transformation. This is equivalent
+to calling <c>multiply(R)</c>, where <c>R</c> is a <c>Transform</c> represented by the
+following matrix:
+</summary>
+            <pre>
+[   cosA     -sinA    0   ]
+[   sinA      cosA    0   ]
+[   0           0     1   ]
+</pre>
+            <param name="cosA">the cosinus of rotation angle in radians.</param>
+            <param name="sinA">the sinus of rotation angle in radians.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Transform.Rotate(System.Double,System.Double,System.Double)">
+            <summary>
+Multiplies the transform with a rotation transformation. This is equivalent
+to calling <c>multiply(R)</c>, where <c>R</c> is a <c>Transform</c> represented by the
+following matrix:
+</summary>
+            <pre>
+[   cos(a)   -sin(a)    -cos(a) * x0 + sin(a) * y0 + x0   ]
+[   sin(a)    cos(a)    -sin(a) * x0 - cos(a) * y0 + y0   ]
+[   0           0                      1                  ]
+</pre>
+            <param name="a">the rotation angle in radians.</param>
+            <param name="x0">the x position of the origin point.</param>
+            <param name="y0">the y position of the origin point.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Transform.Rotate(System.Double)">
+            <summary>
+Multiplies the transform with a rotation transformation. This is equivalent
+to calling <c>multiply(R)</c>, where <c>R</c> is a <c>Transform</c> represented by the
+following matrix:
+</summary>
+            <pre>
+[   cos(a)   -sin(a)    0   ]
+[   sin(a)    cos(a)    0   ]
+[   0           0       1   ]
+</pre>
+            <param name="a">the rotation angle in radians.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Transform.Scale(System.Double,System.Double)">
+            <summary>
+Multiplies this transform with a scaling transformation. This is equivalent
+to calling <c>multiply(S)</c>, where <c>S</c> is a <c>Transform</c> represented by the
+following matrix:
+</summary>
+            <pre>
+[   sx   0    0   ]
+[   0    sy   0   ]
+[   0    0    1   ]
+</pre>
+            <param name="sx">the scaling factor along the x axis.</param>
+            <param name="sy">the scaling factor along the y axis.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Transform.Scale(System.Double)">
+            <summary>
+Multiplies this transform with a scaling transformation. This is equivalent
+to calling <c>multiply(S)</c>, where <c>S</c> is a <c>Transform</c> represented by the
+following matrix:
+</summary>
+            <pre>
+[   s    0    0   ]
+[   0    s    0   ]
+[   0    0    1   ]
+</pre>
+            <param name="s">the scaling factor.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Transform.Translate(System.Double,System.Double)">
+            <summary>
+Multiplies the transform with a translation transformation. This is
+equivalent to calling <c>multiply(T)</c>, where <c>T</c> is a <c>Transform</c>
+represented by the following matrix:
+</summary>
+            <pre>
+[   1    0    tx  ]
+[   0    1    ty  ]
+[   0    0    1   ]
+</pre>
+            <param name="tx">the translation offset along the x axis.</param>
+            <param name="ty">the translation offset along the y axis.</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Transform.Multiply(MyScript.IInk.Graphics.Transform)">
+            <summary>
+Multiplies this transform by the second transform.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Transform.Invert">
+            <summary>
+Inverts this transform.
+</summary>
+            <exception cref="T:System.Exception">when transform is not invertible</exception>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Transform.TY">
+            <summary>
+The Y coordinate translation element <i>M</i><sub>2,3</sub> of the
+transform matrix.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Transform.YY">
+            <summary>
+The Y coordinate scaling element <i>M</i><sub>2,2</sub> of the transform
+matrix.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Transform.XY">
+            <summary>
+The Y coordinate shearing element <i>M</i><sub>2,1</sub> of the transform
+matrix.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Transform.TX">
+            <summary>
+The X coordinate translation element <i>M</i><sub>1,3</sub> of the
+transform matrix.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Transform.YX">
+            <summary>
+The X coordinate shearing element <i>M</i><sub>1,2</sub> of the transform
+matrix.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Transform.XX">
+            <summary>
+The X coordinate scaling element <i>M</i><sub>1,1</sub> of the transform
+matrix.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.Graphics.Transform">
+            <summary>
+Represents a 2D affine transform, defined as a 3x3 matrix with an implicit
+third raw of <c>[ 0 0 1 ]</c>:
+</summary>
+            <pre>
+[  x' ]   [ xx  yx  tx ]   [ x ]   [ xx * x + yx * y + tx ]
+[  y' ] = [ xy  yy  ty ] * [ y ] = [ xy * x + yy * y + ty ]
+[  1  ]   [  0   0   1 ]   [ 1 ]   [         1            ]
+</pre>
+A transform` is invalid if a value is infinite or not a number, or if the
+matrix is not invertible (when its determinant <c>(xx * yy - yx * xy)</c> is zero).
+</member>
+        <member name="M:MyScript.IInk.Configuration.GetSection(System.String)">
+            <summary>
+Returns a parameter set object representing the section associated with
+<c>key</c>. Sections correspond to the hierarchical organization of keys
+according to their dots. For example, if you have keys "a.b.c" and "a.b.d"
+there is a section "a.b" that contains keys "c" and "d", as well as a
+section "a" containing "b.c" and "b.d".
+</summary>
+            <param name="key">the key of the section to obtain.</param>
+            <returns>the section.</returns>
+            <exception cref="T:System.ArgumentException">when <c>key</c> is not found.</exception>
+            <exception cref="T:System.Exception">when entry at <c>key</c> is not a section.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Configuration.SetStringArray(System.String,System.String[])">
+            <summary>
+Sets the string array value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to set.</param>
+            <param name="value">the value to set.</param>
+            <exception cref="T:System.Exception">when entry at <c>key</c> exists and is not a string
+array.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Configuration.GetStringArray(System.String)">
+            <summary>
+Returns the string array value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to obtain.</param>
+            <returns>the value.</returns>
+            <exception cref="T:System.ArgumentException">when <c>key</c> is not found.</exception>
+            <exception cref="T:System.Exception">when entry at <c>key</c> is not a string array.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Configuration.SetNumber(System.String,System.Double)">
+            <summary>
+Sets the numeric value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to set.</param>
+            <param name="value">the double value to set.</param>
+            <exception cref="T:System.Exception">when entry at <c>key</c> exists and is not a number.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Configuration.GetNumber(System.String,System.Double)">
+            <summary>
+Returns the numeric value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to obtain.</param>
+            <param name="defaultValue">the value to return when <c>key</c> is not present.</param>
+            <returns>the value.</returns>
+            <since>1.1</since>
+        </member>
+        <member name="M:MyScript.IInk.Configuration.GetNumber(System.String)">
+            <summary>
+Returns the numeric value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to obtain.</param>
+            <returns>the value.</returns>
+            <exception cref="T:System.ArgumentException">when <c>key</c> is not found.</exception>
+            <exception cref="T:System.Exception">when entry at <c>key</c> is not a number.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Configuration.SetBoolean(System.String,System.Boolean)">
+            <summary>
+Sets the boolean value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to set.</param>
+            <param name="value">the boolean value to set.</param>
+            <exception cref="T:System.Exception">when entry at <c>key</c> exists and is not a boolean.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Configuration.GetBoolean(System.String,System.Boolean)">
+            <summary>
+Returns the boolean value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to obtain.</param>
+            <param name="defaultValue">the value to return when <c>key</c> is not present.</param>
+            <returns>the value.</returns>
+            <since>1.1</since>
+        </member>
+        <member name="M:MyScript.IInk.Configuration.GetBoolean(System.String)">
+            <summary>
+Returns the boolean value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to obtain.</param>
+            <returns>the value.</returns>
+            <exception cref="T:System.ArgumentException">when <c>key</c> is not found.</exception>
+            <exception cref="T:System.Exception">when entry at <c>key</c> is not a boolean.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Configuration.SetString(System.String,System.String)">
+            <summary>
+Sets the string value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to set.</param>
+            <param name="value">the string value to set.</param>
+            <exception cref="T:System.Exception">when entry at <c>key</c> exists and is not a string.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Configuration.GetString(System.String,System.String)">
+            <summary>
+Returns the string value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to obtain.</param>
+            <param name="defaultValue">the value to return when <c>key</c> is not present.</param>
+            <returns>the value.</returns>
+            <since>1.1</since>
+        </member>
+        <member name="M:MyScript.IInk.Configuration.GetString(System.String)">
+            <summary>
+Returns the string value associated with <c>key</c>.
+</summary>
+            <param name="key">the key of the value to obtain.</param>
+            <returns>the value.</returns>
+            <exception cref="T:System.ArgumentException">when <c>key</c> is not found.</exception>
+            <exception cref="T:System.Exception">when entry at <c>key</c> is not a string.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Configuration.Inject(System.String)">
+            <summary>
+Injects JSON content into this parameter set.
+</summary>
+            <param name="jsonText">JSON parameters values.</param>
+            <exception cref="T:System.ArgumentException">when jsonText is not valid JSON.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Configuration.RemoveListener(MyScript.IInk.IConfigurationListener)">
+            <summary>
+Removes the specified listener from this configuration.
+</summary>
+            <param name="listener">the listener to be removed.</param>
+            <exception cref="T:System.ArgumentException">when <c>listener</c> is <c>null</c>.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Configuration.AddListener(MyScript.IInk.IConfigurationListener)">
+            <summary>
+Adds the specified listener to this configuration.
+</summary>
+            <param name="listener">the listener to be added.</param>
+            <exception cref="T:System.ArgumentException">when <c>listener</c> is <c>null</c>.</exception>
+        </member>
+        <member name="M:MyScript.IInk.Configuration.ShallowCopy">
+            <summary>
+Returns a shallow copy of this configuration.
+</summary>
+            <returns>the configuration.</returns>
+        </member>
+        <member name="T:MyScript.IInk.Configuration">
+            <summary>
+Represents the configuration values of the iink runtime environment.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.Graphics.LineCap">
+            <summary>
+Defines how the ends of segments are drawn.
+</summary>
+        </member>
+        <member name="F:MyScript.IInk.Graphics.LineCap.SQUARE">
+            <summary>
+Square end style.
+</summary>
+        </member>
+        <member name="F:MyScript.IInk.Graphics.LineCap.ROUND">
+            <summary>
+Round end style.
+</summary>
+        </member>
+        <member name="F:MyScript.IInk.Graphics.LineCap.BUTT">
+            <summary>
+Butt end style.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Text.GlyphMetrics.BoundingBox">
+            <summary>
+The glyph bounding box.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Text.GlyphMetrics.RightSideBearing">
+            <summary>
+The glyph right side bearing.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Text.GlyphMetrics.LeftSideBearing">
+            <summary>
+The glyph left side bearing.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.Text.GlyphMetrics">
+            <summary>
+Describes the position of a converted glyph.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Color.A_f">
+            <summary>
+Returns the normalised aslpha channel value.
+</summary>
+            <returns>the alpha channel value.</returns>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Color.B_f">
+            <summary>
+Returns the normalised blue channel value.
+</summary>
+            <returns>the blue channel value.</returns>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Color.G_f">
+            <summary>
+Returns the normalised green channel value.
+</summary>
+            <returns>the green channel value.</returns>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Color.R_f">
+            <summary>
+The normalized red channel value.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Color.A">
+            <summary>
+The alpha channel value.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Color.B">
+            <summary>
+The blue channel value.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Color.G">
+            <summary>
+The green channel value.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Color.R">
+            <summary>
+The red channel value.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Color.RGBA">
+            <summary>
+The color value packed as 32bit.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Color.#ctor(System.Int32,System.Int32,System.Int32,System.Single)">
+            <summary>
+Constructor.
+</summary>
+            <param name="r">the red channel value (= 0..255).</param>
+            <param name="g">the green channel value (= 0..255).</param>
+            <param name="b">the blue channel value (= 0..255).</param>
+            <param name="a">the alpha channel value (= 0..1).</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Color.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+Constructor.
+</summary>
+            <param name="r">the red channel value (= 0..255).</param>
+            <param name="g">the green channel value (= 0..255).</param>
+            <param name="b">the blue channel value (= 0..255).</param>
+            <param name="a">the alpha channel value (= 0..255).</param>
+        </member>
+        <member name="M:MyScript.IInk.Graphics.Color.#ctor(System.UInt32)">
+            <summary>
+Constructor.
+</summary>
+            <param name="rgba">the color value packed as 32bit.</param>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Color.BLACK">
+            <summary>
+The opaque black color.
+</summary>
+        </member>
+        <member name="P:MyScript.IInk.Graphics.Color.NONE">
+            <summary>
+The transparent black color.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.Graphics.Color">
+            <summary>
+Red green blue alpha color representation.
+</summary>
+        </member>
+        <member name="M:MyScript.IInk.IRenderTarget.CreateOffscreenRenderCanvas(System.UInt32)">
+            <summary>
+Creates a Canvas that draws onto the offscreen render surface associated
+with a given identifier.
+</summary>
+            <since>2.0</since>
+            <param name="surfaceId">the identifier of the surface to be drawn.</param>
+            <returns>a Canvas to draw on the requested surface.</returns>
+        </member>
+        <member name="M:MyScript.IInk.IRenderTarget.ReleaseOffscreenRenderSurface(System.UInt32)">
+            <summary>
+Requests the release of the offscreen render surface associated with a
+given identifier.
+</summary>
+            <since>2.0</since>
+            <param name="surfaceId">the identifier of the surface to release.</param>
+        </member>
+        <member name="M:MyScript.IInk.IRenderTarget.CreateOffscreenRenderSurface(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+Requests the creation of an offscreen render surface (e.g. a bitmap), and
+returns a unique identifier for that surface.
+@note createOffscreenRenderCanvas() will be called with this identifier, to
+request drawing of the associated surface.
+</summary>
+            <since>2.0</since>
+            <param name="width">the width of the surface to create (view coordinates in pixel).</param>
+            <param name="height">the height of the surface to create (view coordinates in pixel).</param>
+            <param name="alphaMask">request creation of an alpha mask. Only the alpha channel
+is relevant. The actual red, green and blue channel values are given by
+the blend color.</param>
+            <returns>the identifier of the created surface.</returns>
+        </member>
+        <member name="M:MyScript.IInk.IRenderTarget.GetPixelDensity">
+            <summary>
+Returns the target pixel density.
+</summary>
+            <since>2.0</since>
+            <returns>Returns the pixel density.</returns>
+        </member>
+        <member name="M:MyScript.IInk.IRenderTarget.SupportsOffscreenRendering">
+            <summary>
+Indicates whether this render target supports offscreen rendering.
+</summary>
+            <since>2.0</since>
+            <returns>
+                <c>true</c> if offscreen rendering is supported, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:MyScript.IInk.IRenderTarget.Invalidate(MyScript.IInk.Renderer,System.Int32,System.Int32,System.Int32,System.Int32,&lt;unknown type&gt;)">
+            <summary>
+Invalidates a specified rectangle area on the given set of layers. The
+rectangle area is specified in pixel coordinates.
+</summary>
+            <param name="renderer">the renderer to which this render target has been bound.</param>
+            <param name="x">the x position of the rectangle area (view coordinates in pixel).</param>
+            <param name="y">the y position of the rectangle area (view coordinates in pixel).</param>
+            <param name="width">the width of the rectangle area (view coordinates in pixel).</param>
+            <param name="height">the height of the rectangle area (view coordinates in pixel).</param>
+            <param name="layers">the set of layers to invalidate.</param>
+        </member>
+        <member name="M:MyScript.IInk.IRenderTarget.Invalidate(MyScript.IInk.Renderer,&lt;unknown type&gt;)">
+            <summary>
+Invalidates the given set of layers.
+</summary>
+            <param name="renderer">the renderer to which this render target has been bound.</param>
+            <param name="layers">the set of layers to invalidate.</param>
+        </member>
+        <member name="T:MyScript.IInk.IRenderTarget">
+            <summary>
+Represents a render target for the iink renderer.
+</summary>
+        </member>
+        <member name="T:MyScript.IInk.LayerType">
+            <summary>
+Represents the type of a layer
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.CAPTURE">
+            <summary>
+The layer that renders capture strokes.
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.MODEL">
+            <summary>
+The layer that renders the model.
+</summary>
+        </member>
+    </members>
+</doc>
