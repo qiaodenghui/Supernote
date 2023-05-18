@@ -1,0 +1,2 @@
+# Supernote
+Supernote Desktop Aplication
