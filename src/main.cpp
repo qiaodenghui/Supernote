@@ -3,11 +3,9 @@
 #include <QLocale>
 #include <QQmlApplicationEngine>
 #include <QTranslator>
-
-#include "check.h"
 #include "noteinfo.h"
 #include "noteview.h"
-// #include "test.h"
+
 int main(int argc, char *argv[]) {
 
   // 防止拖动时闪烁
@@ -27,8 +25,7 @@ int main(int argc, char *argv[]) {
   }
 
   QQmlApplicationEngine engine;
-  Check check;
-  engine.rootContext()->setContextProperty("check", &check);
+
   NoteInfo noteInfo;
   if (argc > 1) {
     noteInfo.setNotePath(QString::fromLocal8Bit(argv[1]));

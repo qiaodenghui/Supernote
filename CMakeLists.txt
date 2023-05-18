@@ -24,23 +24,19 @@ set(Docx_INCLUDES ./library/Docx/include)
 set(include_files
     ./include/utils.h
     ./include/export.h
-    ./include/check.h
     ./include/FontMetricsProvider.h
     ./include/noteview.h
     ./include/noteinfo.h
     ./include/MyCertificate.h
-    ./include/FontMetricsProvider.h
     ./include/RendererListener.h
     ./include/EditorListener.h
 )
 set(src_files
     ./src/utils.cpp
     ./src/export.cpp
-    ./src/check.cpp
     ./src/FontMetricsProvider.cpp
     ./src/noteview.cpp
     ./src/noteinfo.cpp
-    ./src/FontMetricsProvider.cpp
     ./src/main.cpp
 )
 include_directories(
