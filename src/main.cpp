@@ -2,15 +2,39 @@
 #include <QIcon>
 #include <QLocale>
 #include <QQmlApplicationEngine>
+#include <QSettings>
 #include <QTranslator>
 #include "noteinfo.h"
 #include "noteview.h"
+
+void checUpdate(){
+    QSettings settings("./config.ini", QSettings::IniFormat);
+    QString tagName = settings.value(QString("tag_name")).toString();
+    bool hasNewVersion = settings.value(QString("has_new_version")).toBool();
+
+    qDebug()<<"tagName:"<<tagName;
+    qDebug()<<"hasNewVersion:"<<hasNewVersion;
+    if(!hasNewVersion){
+        QStringList args;
+        args.append("background");
+        if(QProcess::startDetached("./update.exe",args)){
+            qDebug()<<"start update sucess!";
+        }else{
+            qDebug()<<"start update error!";
+        }
+    }else{
+
+    }
+}
 
 int main(int argc, char *argv[]) {
 
   // 防止拖动时闪烁
   QCoreApplication::setAttribute(Qt::AA_UseSoftwareOpenGL);
   QGuiApplication app(argc, argv);
+
+  //check update
+  checUpdate();
 
   // set ICON
   app.setWindowIcon(QIcon(":images/sn_icon.png"));

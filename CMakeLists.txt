@@ -44,12 +44,8 @@ include_directories(
 )
 
 set(qml_files
-    ./layout/main.qml
-    ./layout/FirstView.qml
-    ./layout/SecondView.qml
     ./layout/NoteWindow.qml
     ./layout/FooterView.qml
-    ./layout/HeaderView.qml
     ./layout/NoteMenuBar.qml
     ./layout/ExportView.qml
     ./layout/LangModel.qml
