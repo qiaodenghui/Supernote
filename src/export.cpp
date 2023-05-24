@@ -18,7 +18,7 @@
 
 #include "FontMetricsProvider.h"
 #include "MyCertificate.h"
-
+#include <QCoreApplication>
 Export::Export(const QString format, const QString lang, QObject *parent)
     : format(format), lang(lang) {
   init();
@@ -145,7 +145,8 @@ void Export::init() {
   } else {
     qDebug() << "init ok";
   }
-  QString confDirString = QDir::currentPath() + "/recognition-assets/conf";
+ QString confDirString=QCoreApplication::applicationDirPath()+ "/recognition-assets/conf";
+//  QString confDirString = QDir::currentPath() + "/recognition-assets/conf";
   engine->getConfiguration()->setStringArray(
       "configuration-manager.search-path", {confDirString.toStdString()});
   QString tmp(QDir::currentPath() + "/tmp");
@@ -228,7 +229,7 @@ QString Export::createDocx(const QString &notePath) {
   qDebug() << "createDocx";
 
   // 获取当前程序路径
-  QString currentPath = QDir::currentPath();
+  QString currentPath = QCoreApplication::applicationDirPath();
 
   // 创建tmp文件夹
   QDir dir(currentPath + "/tmp");
@@ -260,7 +261,7 @@ QString Export::createTxt(const QString &notePath) {
   qDebug() << "createTxt";
 
   // 获取当前程序路径
-  QString currentPath = QDir::currentPath();
+  QString currentPath = QCoreApplication::applicationDirPath();
 
   // 创建tmp文件夹
   QDir dir(currentPath + "/tmp");
@@ -290,7 +291,7 @@ bool Export::removeDocx(const QString &docxPath) {
   QString name = QFileInfo(docxPath).fileName();
 
   // 获取当前程序路径
-  QString currentPath = QDir::currentPath();
+  QString currentPath = QCoreApplication::applicationDirPath();
 
   // 创建export文件夹
   QDir dir(currentPath + "/export");
