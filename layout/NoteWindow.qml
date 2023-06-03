@@ -15,6 +15,14 @@ ApplicationWindow {
     NoteInfo {
         id: noteInfo
     }
+
+    Connections {
+        target: noteInfo
+        function onHasNewVversion() {
+            console.log("Connections onHasNewVversion" )
+
+        }
+    }
     menuBar: NoteMenuBar {}
 
     ExportView {
@@ -57,9 +65,6 @@ ApplicationWindow {
                     pageIndex: index + 1
                     notePath: noteInfo.notePath
                     anchors.centerIn: parent
-                    onPageIndexChanged: {
-                        toolBar.index = index + 1
-                    }
                 }
             }
             spacing: 20
@@ -72,7 +77,7 @@ ApplicationWindow {
         width: parent.width
         height: 32
         FooterView {
-            pageInfo: "" + (listView.currentIndex+1) + " / " + noteInfo.totalPage
+            pageInfo: "" + (listView.currentIndex + 1) + " / " + noteInfo.totalPage
             height: parent.height
             id: footerView
             onLastPage: {
@@ -133,11 +138,11 @@ ApplicationWindow {
         onDropped: function droppedOpen(drop) {
             if (drop.hasUrls) {
                 for (var i = 0; i < drop.urls.length; i++) {
-                    var str=drop.urls[i].toString().slice(8);
-                    if(str.toLowerCase().endsWith(".note")){
-                        console.log(str);
-                         noteInfo.notePath=str;
-                        break;
+                    var str = drop.urls[i].toString().slice(8)
+                    if (str.toLowerCase().endsWith(".note")) {
+                        console.log(str)
+                        noteInfo.notePath = str
+                        break
                     }
                 }
             }

@@ -27,6 +27,7 @@ class NoteInfo : public QObject {
  public slots:
   void startExport(const QString format,const QString pageRanges,const QString lang);
   void openExplorer(const QString path);
+  void test();
 
  signals:
   void totalPageChanged();
@@ -35,6 +36,8 @@ class NoteInfo : public QObject {
   void progress(const int page);
   void result(const bool ret,const QString path);
   void pageInfo(const int firstPage,const int allPage);
+  void hasNewVversion();
+  void updateVersion();
 
  private:
   static int mTotalPage;

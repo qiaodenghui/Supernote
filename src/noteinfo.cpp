@@ -22,6 +22,12 @@ NoteInfo::~NoteInfo() {
   m_thread->wait();
 }
 
+void NoteInfo::test(){
+  qDebug()<<"test";
+  emit hasNewVversion();
+  emit notePathChanged();
+  emit totalPageChanged();
+}
 int NoteInfo::getTotalPage() { return mTotalPage; }
 
 void NoteInfo::setTotalPage(const int &page) { mTotalPage = page; }

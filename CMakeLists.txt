@@ -14,14 +14,23 @@ link_directories(CMAKE_CURRENT_SOURCE_DIR
     ./library/Myscript/lib/win-x64/
     ./library/Note/lib/
     ./library/Docx/lib/
+    ./library/zlib/lib/
 )
 
 #指定库的头文件路径
-set(IINK_INCLUDES   ./library/Myscript/include)
+set(IINK_INCLUDES ./library/Myscript/include)
 set(Note_INCLUDES ./library/Note/include)
 set(Docx_INCLUDES ./library/Docx/include)
+set(Zlib_INCLUDES ./library/Zlib/include)
 
 set(include_files
+    ./include/update.h
+    ./include/download.h
+    ./include/versioninfo.h
+    ./include/unzip.h
+    ./include/ioapi.h
+    ./include/ziphelper.h
+    ./include/getversion.h
     ./include/utils.h
     ./include/export.h
     ./include/FontMetricsProvider.h
@@ -37,6 +46,13 @@ set(src_files
     ./src/FontMetricsProvider.cpp
     ./src/noteview.cpp
     ./src/noteinfo.cpp
+    ./src/update.cpp
+    ./src/download.cpp
+    ./src/versioninfo.cpp
+    ./src/unzip.c
+    ./src/ioapi.c
+    ./src/ziphelper.cpp
+    ./src/getversion.cpp
     ./src/main.cpp
 )
 include_directories(
@@ -88,6 +104,7 @@ target_include_directories(Supernote
     ${Docx_INCLUDES}
     ${Note_INCLUDES}
     ${IINK_INCLUDES}
+    ${Zlib_INCLUDES}
 )
 
 set_target_properties(Supernote PROPERTIES
@@ -104,6 +121,7 @@ target_link_libraries(Supernote
     PRIVATE Note
     PRIVATE Docx
     PRIVATE iink
+    PRIVATE zlib
 )
 
 install(TARGETS Supernote

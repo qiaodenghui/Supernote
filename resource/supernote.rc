@@ -19,7 +19,7 @@ BEGIN
             VALUE "FileDescription", "Supernote"
             VALUE "FileVersion", "1.0.0.0"
             VALUE "LegalCopyright", "Copyright © 2023 Ratta Supernote Company Ltd."
-            VALUE "InternalName", "Assistant"
+            VALUE "InternalName", "Supernote"
             VALUE "OriginalFilename", "Spernote.exe"
             VALUE "ProductName", "Supernote"
             VALUE "ProductVersion", "1.0.0.0"
