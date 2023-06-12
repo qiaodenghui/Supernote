@@ -83,13 +83,6 @@ int main(int argc, char *argv[]) {
 
   // set ICON
   app.setWindowIcon(QIcon(":images/sn_icon.png"));
-  QTranslator translator;
-
-  QString langPath =
-      QCoreApplication::applicationDirPath() + "/translations/zh_CN.qm";
-  qDebug() << langPath;
-  bool ret = translator.load(langPath);
-  app.installTranslator(&translator);
 
   QQmlApplicationEngine engine;
   AppManager appManager(app, engine);

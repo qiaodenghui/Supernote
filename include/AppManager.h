@@ -36,6 +36,7 @@ class AppManager : public QObject {
   QThread *m_thread = nullptr;
   QGuiApplication *m_app;
   QQmlApplicationEngine *m_engine;
+  QTranslator m_translator;
 };
 
 #endif  // APPMANAGER_H

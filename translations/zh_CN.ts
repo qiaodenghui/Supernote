@@ -6,37 +6,37 @@
     <message>
         <location filename="../layout/ExportSetting.qml" line="20"/>
         <source>Export Setting</source>
-        <translation type="unfinished"></translation>
+        <translation>导出设置</translation>
     </message>
     <message>
         <location filename="../layout/ExportSetting.qml" line="31"/>
         <source>language</source>
-        <translation type="unfinished"></translation>
+        <translation>语言</translation>
     </message>
     <message>
         <location filename="../layout/ExportSetting.qml" line="123"/>
         <source>TXT</source>
-        <translation type="unfinished"></translation>
+        <translation>TXT</translation>
     </message>
     <message>
         <location filename="../layout/ExportSetting.qml" line="132"/>
         <source>WORD</source>
-        <translation type="unfinished"></translation>
+        <translation>WORD</translation>
     </message>
     <message>
         <location filename="../layout/ExportSetting.qml" line="158"/>
         <source>Input page number,such as：1-10</source>
-        <translation type="unfinished"></translation>
+        <translation>输入页码，例如：1,2,3  2-5  1-N</translation>
     </message>
     <message>
         <location filename="../layout/ExportSetting.qml" line="191"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../layout/ExportSetting.qml" line="224"/>
         <source>Confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>确定</translation>
     </message>
 </context>
 <context>
@@ -44,12 +44,12 @@
     <message>
         <location filename="../layout/ExportView.qml" line="135"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <location filename="../layout/ExportView.qml" line="167"/>
         <source>Confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>确定</translation>
     </message>
 </context>
 <context>
@@ -67,42 +67,42 @@
     <message>
         <location filename="../layout/NoteMenuBar.qml" line="23"/>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>导出</translation>
     </message>
     <message>
         <location filename="../layout/NoteMenuBar.qml" line="31"/>
         <source>Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>工具</translation>
     </message>
     <message>
         <location filename="../layout/NoteMenuBar.qml" line="33"/>
         <source>Update Note</source>
-        <translation type="unfinished"></translation>
+        <translation>升级笔记</translation>
     </message>
     <message>
         <location filename="../layout/NoteMenuBar.qml" line="39"/>
         <source>Convert to Rel-note</source>
-        <translation type="unfinished"></translation>
+        <translation>转换为识别笔记</translation>
     </message>
     <message>
         <location filename="../layout/NoteMenuBar.qml" line="49"/>
         <source>language</source>
-        <translation type="unfinished"></translation>
+        <translation>语言</translation>
     </message>
     <message>
         <location filename="../layout/NoteMenuBar.qml" line="81"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>帮助</translation>
     </message>
     <message>
         <location filename="../layout/NoteMenuBar.qml" line="83"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>关于</translation>
     </message>
     <message>
         <location filename="../layout/NoteMenuBar.qml" line="87"/>
         <source>change log</source>
-        <translation type="unfinished"></translation>
+        <translation>更新日志</translation>
     </message>
 </context>
 <context>
@@ -110,13 +110,13 @@
     <message>
         <location filename="../layout/NoteWindow.qml" line="13"/>
         <source>Supernote</source>
-        <translation type="unfinished"></translation>
+        <translation>Supernote</translation>
     </message>
     <message>
         <location filename="../layout/NoteWindow.qml" line="130"/>
         <location filename="../layout/NoteWindow.qml" line="177"/>
         <source>this is Note APP version is 1.0.0</source>
-        <translation type="unfinished"></translation>
+        <translation>this is Note APP version is 1.0.0</translation>
     </message>
 </context>
 <context>
@@ -124,28 +124,28 @@
     <message>
         <location filename="../layout/UpdateWindow.qml" line="6"/>
         <source>update</source>
-        <translation type="unfinished"></translation>
+        <translation>升级</translation>
     </message>
     <message>
         <location filename="../layout/UpdateWindow.qml" line="60"/>
         <source>New version detected, whether to update immediately?</source>
-        <translation type="unfinished"></translation>
+        <translation>检测到新的版本，是否立即升级？</translation>
     </message>
     <message>
         <location filename="../layout/UpdateWindow.qml" line="83"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <location filename="../layout/UpdateWindow.qml" line="115"/>
         <location filename="../layout/UpdateWindow.qml" line="186"/>
         <source>Confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>确定</translation>
     </message>
     <message>
         <location filename="../layout/UpdateWindow.qml" line="219"/>
         <source>downloading</source>
-        <translation type="unfinished"></translation>
+        <translation>正在下载安装包......</translation>
     </message>
 </context>
 </TS>
