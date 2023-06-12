@@ -1,5 +1,5 @@
 
-#include "versioninfo.h"
+#include "VersionInfo.h"
 
 VersionInfo::VersionInfo()
 {

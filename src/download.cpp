@@ -1,5 +1,5 @@
 
-#include "download.h"
+#include "Download.h"
 
 #include <QDir>
 #include <QFile>
@@ -15,7 +15,7 @@ void Download::setDownInto(const bool breakPoint) { m_breakPoint = breakPoint; }
 
 // 下载进度信息;
 void Download::onDownloadProgress(int bytesReceived, int bytesTotal) {
-//  qDebug() << "onDownloadProgress";
+
   if (!m_isStop) {
     m_bytesReceived = bytesReceived;
     m_bytesTotal = bytesTotal;
@@ -64,7 +64,7 @@ void Download::onError(QNetworkReply::NetworkError code) {
   qDebug() << "__________" + strError;
 
   closeDownload();
-  emit downloadError();
+  emit downloadError("download error");
 }
 
 // 停止下载工作;

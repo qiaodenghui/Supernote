@@ -1,4 +1,4 @@
-#include "noteview.h"
+#include "NoteView.h"
 #include <QImage>
 #include <QPixmap>
 #include "SnDataLoad.h"

@@ -1,5 +1,5 @@
 
-#include "export.h"
+#include "Export.h"
 
 #include <SnDataLoad.h>
 #include <iink/Configuration.h>
@@ -8,6 +8,7 @@
 #include <iink/Editor.h>
 #include <sndataoperationfile.h>
 
+#include <QCoreApplication>
 #include <QDebug>
 #include <QDir>
 #include <QElapsedTimer>
@@ -18,7 +19,6 @@
 
 #include "FontMetricsProvider.h"
 #include "MyCertificate.h"
-#include <QCoreApplication>
 Export::Export(const QString format, const QString lang, QObject *parent)
     : format(format), lang(lang) {
   init();
@@ -28,33 +28,34 @@ Export::~Export() {}
 
 QString Export::getExportDocxPath() const { return exportFilePath; }
 
-void Export::setLang(const QString &lang)
-{
+void Export::setLang(const QString &lang) {
   try {
-      // Create package and part
-      if(part!=nullptr){
+    // Create package and part
+    if (part != nullptr) {
       package->removePart(part);
-          part=nullptr;
-      }
-      mEditor->getConfiguration()->setString("lang", lang.toUtf8().data());
-      part = package->createPart("Text");
-      mEditor->setPart(part);
+      part = nullptr;
+    }
+    mEditor->getConfiguration()->setString("lang", lang.toUtf8().data());
+    part = package->createPart("Text");
+    mEditor->setPart(part);
   } catch (const std::exception &e) {
-      mEditor->setPart(nullptr);
-      qDebug() << "part error";
-      qDebug() << QString(e.what());
-      //        QString label("Failed to create new file (" + QString(e.what()) +
-      //        ")"); QMessageBox box(QMessageBox::Critical, "Error", label,
-      //        QMessageBox::NoButton, this); box.exec();
+    mEditor->setPart(nullptr);
+    qDebug() << "part error";
+    qDebug() << QString(e.what());
+    //        QString label("Failed to create new file (" + QString(e.what()) +
+    //        ")"); QMessageBox box(QMessageBox::Critical, "Error", label,
+    //        QMessageBox::NoButton, this); box.exec();
   }
 }
 
 void getPageData(vector<myscript::iink::PointerEvent> &data, const int &page,
                  const QString &path) {
+   qDebug() << "getPageData";
   SnDataLoad dataLoad;
   //    dataLoad.loadImageData(",",1,"");
   vector<TrailContainer> trailsContainer;
-  dataLoad.fetchNotePathFromFile(trailsContainer, path.toLocal8Bit().toStdString(), page);
+  dataLoad.fetchNotePathFromFile(trailsContainer,
+                                 path.toLocal8Bit().toStdString(), page);
 
   size_t endsite = trailsContainer.size();
   for (size_t i = 0; i < endsite; i++) {
@@ -137,16 +138,23 @@ void Export::init() {
     qDebug() << "init is null";
     return;
   }
-  engine =
-      myscript::iink::Engine::create(myCertificate.bytes, myCertificate.length);
+  try {
+    engine = myscript::iink::Engine::create(myCertificate.bytes,
+                                            myCertificate.length);
+
+  } catch (const std::exception &e) {
+    qDebug() << QString(e.what());
+    return;
+  }
   if (engine.get() == nullptr) {
     qDebug() << "init failed";
     return;
   } else {
     qDebug() << "init ok";
   }
- QString confDirString=QCoreApplication::applicationDirPath()+ "/recognition-assets/conf";
-//  QString confDirString = QDir::currentPath() + "/recognition-assets/conf";
+  QString confDirString =
+      QCoreApplication::applicationDirPath() + "/recognition-assets/conf";
+  //  QString confDirString = QDir::currentPath() + "/recognition-assets/conf";
   engine->getConfiguration()->setStringArray(
       "configuration-manager.search-path", {confDirString.toStdString()});
   QString tmp(QDir::currentPath() + "/tmp");
@@ -337,7 +345,7 @@ bool Export::removeTxt(const QString &txtPath) {
   qDebug() << "rename: " << ret;
   return ret;
 }
-void Export::startRecognition(QString notePath, vector<int> pages) {
+void Export::startRecognition(QString notePath, QVector<int> pages) {
   qDebug() << "startRecognition"
            << " tId" << QThread::currentThreadId();
   QString filePath;

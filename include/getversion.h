@@ -6,7 +6,7 @@
 #include <QNetworkRequest>
 #include <QObject>
 
-#include "versioninfo.h"
+#include "VersionInfo.h"
 
 class GetVersion : public QObject {
   Q_OBJECT

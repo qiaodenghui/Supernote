@@ -1,5 +1,5 @@
 
-#include "update.h"
+#include "Update.h"
 
 #include <QCoreApplication>
 #include <QDebug>
@@ -11,8 +11,6 @@
 #include <QProcess>
 #include <QSettings>
 
-#include "ziphelper.h"
-
 Update::Update(QObject *parent) : QObject{parent} {}
 
 Update::~Update() {
@@ -22,8 +20,8 @@ Update::~Update() {
   }
 }
 
-void Update::checkUpdate() {
-  qDebug() << "checkUpdate";
+void Update::checkVersion() {
+  qDebug() << "checkVersion";
   m_getVersion = new GetVersion;
   connect(m_getVersion, &GetVersion::onResult, this, &Update::dealVersionInfo);
   m_getVersion->getVersionInfo();
@@ -32,8 +30,10 @@ void Update::checkUpdate() {
 void initConfig() {
   if (!QFile::exists("./config.ini")) {
     QSettings settings("./config.ini", QSettings::IniFormat);
-    settings.setValue(QString("tag_name"), "v0.0.0");
-    settings.setValue("has_new_version", true);
+    settings.setValue("tag_name", "v0.0.0");
+    settings.setValue("app_name", "Supernote");
+    settings.setValue("platform", "windows");
+    settings.setValue("arch", "x64");
   }
 }
 void Update::dealVersionInfo(VersionInfo info) {
@@ -55,7 +55,6 @@ void Update::dealVersionInfo(VersionInfo info) {
     int b = list1.at(i).toInt();
     qDebug() << "a:" << a << " b:" << b;
     if (a < b) {
-      settings.setValue("has_new_version", QVariant(true));
       emit versionChanged();
       break;
     }
@@ -64,63 +63,33 @@ void Update::dealVersionInfo(VersionInfo info) {
 
 void Update::dealPackage(const int code) {
   qDebug() << "dealPackage";
-  ZipHelper helper;
-  QString path = QCoreApplication::applicationDirPath() + "/package";
-  QDir dir(path);
-  bool ret;
-  if (dir.exists()) {
-    ret = delDir(path);
-    if (!ret) {
-      qDebug() << "delDir path: " << path << " error!";
-    }
-  }
-  ret = dir.mkdir(path);
-  if (!ret) {
-    qDebug() << "mkdir path: " << path << " error!";
-  }
-  qDebug() << "unCompress m_zipFile:" << m_zipFile;
-  ret = helper.unCompress(path, m_zipFile);
-  if (!ret) {
-    qDebug() << "unCompress error";
-  } else {
-    qDebug() << "unCompress ok";
-  }
-  QString tmp(QCoreApplication::applicationDirPath() + "/tmp");
-  ret = delDir(tmp);
-  if (!ret) {
-    qDebug() << "delDir tmp: " << tmp << " error!";
-  } else {
-    qDebug() << "delDir tmp: " << tmp << " ok!";
-  }
-
-  // start Supernote.exe
-  //  QString mainAppName = QString::fromLocal8Bit(argv[1]);
-  //  QString packagePath = QString::fromLocal8Bit(argv[2]);
-  //  QString tagName = QString::fromLocal8Bit(argv[3]);
-  //  QString mainAppNamePath = QString::fromLocal8Bit(argv[4]);
-  //  QString configPath = QString::fromLocal8Bit(argv[5]);
-  //  QString cmd = "taskkill /F /IM Supernote.exe";
-  QStringList args;
-  args.append("Supernote.exe");
-  args.append(QCoreApplication::applicationDirPath() + "/package/Supernote");
-  args.append(m_versionInfo.tagName);
-  args.append(QCoreApplication::applicationDirPath());
-  args.append(QCoreApplication::applicationDirPath() + "/config.ini");
-  if (QProcess::startDetached(
-          QCoreApplication::applicationDirPath() + "/update/Update.exe",
-          args)) {
+  emit downloadFinished();
+  if (QProcess::startDetached(packageFile)) {
     qDebug() << "start Supernote sucess!";
   }
-  emit finished();
+  QString cmd = "taskkill /F /IM Supernote.exe";
+  system(cmd.toUtf8().data());
 }
 
 void Update::startDownload() {
   qDebug() << "startDownload";
+
+  QSettings settings("./config.ini", QSettings::IniFormat);
+  QString appMame = settings.value("app_name").toString();
+  QString platform = settings.value("platform").toString();
+  QString arch = settings.value("arch").toString();
+  QString tagName = m_versionInfo.tagName;
+  qDebug() << "tagName:" << tagName;
+  QString target =
+      QString("%1_%2_%3_%4.exe")
+          .arg(appMame, tagName.right(tagName.length() - 1), platform, arch);
+  qDebug() << "target:" << target;
   QStringList list = m_versionInfo.urlList;
   QString url;
   for (auto &u : list) {
-    if (u.endsWith("Supernote.zip")) {
+    if (u.endsWith(target)) {
       url = u;
+      break;
     }
     qDebug() << "url:" << u;
   }
@@ -138,16 +107,16 @@ void Update::startDownload() {
   if (!ret) {
     qDebug() << "mkdir path: " << path << " error!";
   }
-  m_zipFile = QString("%1/Supernote.zip").arg(path);
-  qDebug() << "m_zipFile:" << m_zipFile;
+  packageFile = QString("%1/%2").arg(path, target);
+  qDebug() << "packageFile:" << packageFile;
+
   // download
   m_download = new Download;
-  //  m_download->downloadPackage();
   connect(m_download, &Download::downloadProcess, this,
           &Update::downloadProcess);
   connect(m_download, &Download::downloadError, this, &Update::downloadError);
   connect(m_download, &Download::replyFinished, this, &Update::dealPackage);
-  m_download->downloadPackage(url, m_zipFile);
+  m_download->downloadPackage(url, packageFile);
 }
 
 bool Update::delDir(const QString &path) {

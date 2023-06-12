@@ -20,7 +20,7 @@ class Export : public QObject {
   QString getExportDocxPath() const;
   void setLang(const QString &lang);
  public slots:
-  void startRecognition(QString notePath, vector<int> pages);
+  void startRecognition(QString notePath, QVector<int> pages);
 
  signals:
   void exportEnd(const bool sucess);

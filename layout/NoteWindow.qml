@@ -12,17 +12,20 @@ ApplicationWindow {
     visible: true
     title: qsTr("Supernote")
     color: "lightgray"
-    NoteInfo {
-        id: noteInfo
-    }
-
     Connections {
-        target: noteInfo
-        function onHasNewVversion() {
-            console.log("Connections onHasNewVversion" )
-
+        target: appManager
+        function onVersionChanged() {
+            console.log("--Connections onVersionChanged" )
+            var component = Qt.createComponent("UpdateWindow.qml")
+            var window    = component.createObject(root)
+            window.show()
+        }
+       function onUpdateVersion(){
+             console.log("--Connections onUpdateVersion" )
         }
     }
+
+
     menuBar: NoteMenuBar {}
 
     ExportView {
@@ -43,13 +46,13 @@ ApplicationWindow {
             fill: parent
         }
         ListView {
-            property alias count: noteInfo.totalPage
+
             id: listView
             anchors {
                 fill: parent
                 margins: 20
             }
-            model: count
+            model: noteInfo.totalPage
             contentWidth: 1406
 
             // 去除回弹效果
@@ -159,5 +162,24 @@ ApplicationWindow {
 
         // 3.恢复动画
         listView.highlightMoveDuration = 400
+    }
+
+    Dialog {
+        id: updateDialog
+        closePolicy: Popup.NoAutoClose
+        anchors.centerIn: parent
+        width: 300
+        height: 150
+        modal: true
+        standardButtons: Dialog.Ok
+        Label {
+            anchors.centerIn: parent
+            text: qsTr("this is Note APP version is 1.0.0")
+        }
+        background: Rectangle {
+            border.width: 1 //border.color: "#B2B2B2"
+            radius: 4
+            anchors.fill: parent
+        }
     }
 }

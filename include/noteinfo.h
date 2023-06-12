@@ -5,7 +5,7 @@
 #include <QThread>
 #include <QtQml>
 
-#include "export.h"
+#include "Export.h"
 
 class NoteInfo : public QObject {
   Q_OBJECT
@@ -27,21 +27,17 @@ class NoteInfo : public QObject {
  public slots:
   void startExport(const QString format,const QString pageRanges,const QString lang);
   void openExplorer(const QString path);
-  void test();
 
  signals:
   void totalPageChanged();
   void notePathChanged();
-  void startThread(QString notePath, vector<int> pages);
   void progress(const int page);
   void result(const bool ret,const QString path);
   void pageInfo(const int firstPage,const int allPage);
-  void hasNewVversion();
-  void updateVersion();
 
  private:
-  static int mTotalPage;
-  static QString mNotePath;
+  int mTotalPage=0;
+  QString mNotePath=nullptr;
   Export *m_export = nullptr;
   QThread *m_thread = nullptr;
 };

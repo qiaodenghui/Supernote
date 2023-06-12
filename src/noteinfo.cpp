@@ -1,14 +1,14 @@
-#include "noteinfo.h"
+#include "NoteInfo.h"
 
 #include <QDesktopServices>
 #include <QUrl>
 
 #include "sndataoperationfile.h"
-#include "utils.h"
-int NoteInfo::mTotalPage = 0;
-QString NoteInfo::mNotePath = nullptr;
+#include "Utils.h"
 
-NoteInfo::NoteInfo(QObject *parent) {}
+NoteInfo::NoteInfo(QObject *parent) {
+    qDebug() << "NoteInfo init";
+}
 
 NoteInfo::NoteInfo(QString path, QObject *parent) {
   SnDataOperationFile opt;
@@ -18,16 +18,11 @@ NoteInfo::NoteInfo(QString path, QObject *parent) {
 }
 
 NoteInfo::~NoteInfo() {
+  qDebug() << "~NoteInfo";
   m_thread->quit();
   m_thread->wait();
 }
 
-void NoteInfo::test(){
-  qDebug()<<"test";
-  emit hasNewVversion();
-  emit notePathChanged();
-  emit totalPageChanged();
-}
 int NoteInfo::getTotalPage() { return mTotalPage; }
 
 void NoteInfo::setTotalPage(const int &page) { mTotalPage = page; }
@@ -39,10 +34,8 @@ void NoteInfo::setNotePath(const QString &path) {
   }
   SnDataOperationFile opt;
   mNotePath = path;
-  //  QTextCodec *code = QTextCodec::codecForName("GB2312");  //
-  //  解决中文路径问题
-  mTotalPage = opt.fetchTotalPageNumOfNote(
-      /*code->fromUnicode(path).data()*/ string(path.toLocal8Bit().data()));
+
+  mTotalPage = opt.fetchTotalPageNumOfNote(string(path.toLocal8Bit().data()));
   qDebug() << "notePath:" << mNotePath << "  totalPage:" << mTotalPage;
 
   mNotePath = path;
@@ -68,12 +61,11 @@ void NoteInfo::startExport(const QString format, const QString pageRanges,
       qDebug() << "value:" << value;
       emit progress(value);
     });
-    connect(this, &NoteInfo::startThread, m_export, &Export::startRecognition);
     m_thread->start();
   } else {
     m_export->setLang(lang);
   }
-  vector<int> tmp;
+  QVector<int> tmp;
   qDebug() << "mNotePath:" << mNotePath;
   qDebug() << "mTotalPage:" << mTotalPage;
 
@@ -105,10 +97,10 @@ void NoteInfo::startExport(const QString format, const QString pageRanges,
   //     m_export->startRecognition(mNotePath,tmp);
 
   // 这个OK
-  //    QMetaObject::invokeMethod(m_export, "startRecognition",Q_ARG(QString,
-  //    mNotePath),Q_ARG(vector<int>, tmp));
+  QMetaObject::invokeMethod(m_export, "startRecognition",
+                            Q_ARG(QString, mNotePath),
+                            Q_ARG(QVector<int>, tmp));
 
-  emit startThread(mNotePath, tmp);
   qDebug() << "startExport end"
            << " tId" << QThread::currentThreadId();
 }

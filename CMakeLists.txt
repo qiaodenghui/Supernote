@@ -5,7 +5,7 @@ project(Supernote VERSION 0.1 LANGUAGES CXX C)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(app_icon_resource_windows "${CMAKE_CURRENT_SOURCE_DIR}/resource/supernote.rc")
 
-find_package(Qt6 6.2 REQUIRED COMPONENTS Quick Network)
+find_package(Qt6 6.2 REQUIRED COMPONENTS Quick Network LinguistTools)
 
 qt_standard_project_setup()
 
@@ -21,39 +21,35 @@ link_directories(CMAKE_CURRENT_SOURCE_DIR
 set(IINK_INCLUDES ./library/Myscript/include)
 set(Note_INCLUDES ./library/Note/include)
 set(Docx_INCLUDES ./library/Docx/include)
-set(Zlib_INCLUDES ./library/Zlib/include)
 
 set(include_files
-    ./include/update.h
-    ./include/download.h
-    ./include/versioninfo.h
-    ./include/unzip.h
-    ./include/ioapi.h
-    ./include/ziphelper.h
-    ./include/getversion.h
-    ./include/utils.h
-    ./include/export.h
+    ./include/Update.h
+    ./include/Download.h
+    ./include/VersionInfo.h
+    ./include/GetVersion.h
+    ./include/Utils.h
+    ./include/Export.h
     ./include/FontMetricsProvider.h
-    ./include/noteview.h
-    ./include/noteinfo.h
+    ./include/NoteView.h
+    ./include/NoteInfo.h
     ./include/MyCertificate.h
     ./include/RendererListener.h
     ./include/EditorListener.h
+    ./include/AppManager.h
 )
 set(src_files
-    ./src/utils.cpp
-    ./src/export.cpp
+    ./src/Utils.cpp
+    ./src/Export.cpp
     ./src/FontMetricsProvider.cpp
-    ./src/noteview.cpp
-    ./src/noteinfo.cpp
-    ./src/update.cpp
-    ./src/download.cpp
-    ./src/versioninfo.cpp
-    ./src/unzip.c
-    ./src/ioapi.c
-    ./src/ziphelper.cpp
-    ./src/getversion.cpp
-    ./src/main.cpp
+    ./src/NoteView.cpp
+    ./src/NoteInfo.cpp
+    ./src/Update.cpp
+    ./src/Download.cpp
+    ./src/VersionInfo.cpp
+    ./src/GetVersion.cpp
+    ./src/Main.cpp
+    ./src/AppManager.cpp
+
 )
 include_directories(
     ./include
@@ -66,6 +62,8 @@ set(qml_files
     ./layout/ExportView.qml
     ./layout/LangModel.qml
     ./layout/ExportSetting.qml
+    ./layout/UpdateWindow.qml
+    ./layout/LanguageModel.qml
 )
 
 set(qml_resource_files
@@ -74,6 +72,12 @@ set(qml_resource_files
     ./images/arrow_right.png
     ./images/double_arrow_left.png
     ./images/double_arrow_right.png
+)
+set(ts_files
+    ./translations/zh_CN.ts
+    ./translations/en_US.ts
+    ./translations/zh_TW.ts
+    ./translations/ja_JP.ts
 )
 
 qt_add_executable(Supernote
@@ -91,12 +95,20 @@ qt_add_resources(Supernote "doc"
     images/sn_icon.png
 )
 
+
+qt_add_translations(Supernote
+    TS_FILES
+    ${ts_files}
+)
+
 qt_add_qml_module(Supernote
     URI Supernote
     VERSION 1.0
     QML_FILES ${qml_files}
     RESOURCES ${qml_resource_files}
 )
+
+
 
 #注意放置位置，靠前会报错要在qt_add_executable之后
 target_include_directories(Supernote
@@ -121,7 +133,6 @@ target_link_libraries(Supernote
     PRIVATE Note
     PRIVATE Docx
     PRIVATE iink
-    PRIVATE zlib
 )
 
 install(TARGETS Supernote

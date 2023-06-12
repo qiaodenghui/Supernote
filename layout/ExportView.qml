@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Dialogs
 import QtQuick.Controls
 import QtQuick.Layouts
+import Supernote 1.0
 
 Item {
     property int page: 0
@@ -54,7 +55,7 @@ Item {
                     font.bold: true
                     font.pixelSize: 15
                     width: 560
-                    text: qsTr("正在导出第" + page + "页")
+                    text: qsTr("Exporting page "+page)
                     horizontalAlignment: Text.AlignHCenter
                 }
                 spacing: 20
@@ -107,7 +108,7 @@ Item {
                     elide: Text.ElideMiddle
                     font.bold: true
                     font.pixelSize: 15
-                    text: qsTr("成功导出到:" + exportPath)
+                    text: qsTr("Successfully exported to " + exportPath)
                     horizontalAlignment: Text.AlignHCenter
                 }
                 Item {
@@ -115,9 +116,40 @@ Item {
                 }
                 RowLayout {
                     Layout.fillWidth: true
+                    Layout.margins: 20
+
+                    //close
+                    Rectangle {
+                        width: 200
+                        height: 30
+                        Layout.alignment: Qt.AlignCenter
+                        color: "gray"
+                        radius: 4
+                        Text {
+                            id: close
+                            width: parent.width
+                            height: 22
+                            color: "#FFFFFF"
+                            font.pixelSize: 16
+                            anchors.centerIn: parent
+                            text: qsTr("Close")
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            horizontalAlignment: Text.AlignHCenter
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                console.log("close end")
+                                progressDialog.close()
+                            }
+                        }
+                    }
+
                     Item {
                         Layout.fillWidth: true
                     }
+
                     //Confirm
                     Rectangle {
                         width: 200

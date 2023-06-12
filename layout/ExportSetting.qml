@@ -17,7 +17,7 @@ Item {
             font.bold: true
             font.pixelSize: 25
             Layout.fillWidth: true
-            text: "导出设置"
+            text: qsTr("Export Setting")
             horizontalAlignment: Text.Center
         }
 
@@ -28,7 +28,7 @@ Item {
             spacing: 10
             Text {
                 leftPadding: 20
-                text: "导出语言："
+                text: qsTr("language")
             }
 
             ComboBox {
@@ -155,7 +155,7 @@ Item {
             cursorVisible: false
             selectByMouse: true //是否可以选择文本
             selectionColor: "#FFFFFF" //选中背景颜色
-            placeholderText: qsTr("请输入页码例如：1-10")
+            placeholderText: qsTr("Input page number,such as：1-10")
             height: 40
             background: Rectangle {
                 border.width: 0 //border.color: "#B2B2B2"
@@ -221,7 +221,7 @@ Item {
                     font.pixelSize: 16
                     font.family: "微软雅黑"
                     anchors.centerIn: parent
-                    text: qsTr("确认")
+                    text: qsTr("Confirm")
                     anchors.horizontalCenter: parent.horizontalCenter
                     horizontalAlignment: Text.AlignHCenter
                 }

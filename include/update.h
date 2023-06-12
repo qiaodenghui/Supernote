@@ -7,9 +7,9 @@
 #include <QNetworkRequest>
 #include <QObject>
 
-#include "download.h"
-#include "getversion.h"
-#include "versioninfo.h"
+#include "Download.h"
+#include "GetVersion.h"
+#include "VersionInfo.h"
 
 class Update : public QObject {
   Q_OBJECT
@@ -18,14 +18,15 @@ class Update : public QObject {
   ~Update();
 
  signals:
-  void finished();
   void versionChanged();
-  void onResult(VersionInfo info);
+//  void onResult(VersionInfo info);
   void downloadProcess(int bytesReceived, int bytesTotal);
-  void downloadError();
+  void downloadError(QString msg);
+  void downloadFinished();
+
 
  public slots:
-  void checkUpdate();
+  void checkVersion();
   void startDownload();
 
  private slots:
@@ -41,7 +42,7 @@ class Update : public QObject {
   QNetworkAccessManager *m_networkAccessManager;
   GetVersion *m_getVersion = nullptr;
   Download *m_download = nullptr;
-  QString m_zipFile;
+  QString packageFile;
   VersionInfo m_versionInfo;
 };
 

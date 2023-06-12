@@ -27,7 +27,7 @@ class Download : public QObject {
  signals:
   void downloadProcess(int bytesReceived, int bytesTotal);
   void replyFinished(const int code);
-  void downloadError();
+  void downloadError(QString msg);
 
  public slots:
   void downloadPackage(const QString &url, const QString &fileName);

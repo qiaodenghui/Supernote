@@ -7,9 +7,9 @@
 #include <QThread>
 #include <QTranslator>
 
-#include "noteinfo.h"
-#include "noteview.h"
-#include "update.h"
+#include "AppManager.h"
+#include "NoteInfo.h"
+#include "NoteView.h"
 
 static QMutex qMutex;
 
@@ -71,25 +71,6 @@ void customMessageHandler(QtMsgType type, const QMessageLogContext &context,
 #define GBK(x) QString::fromLocal8Bit(x)
 #define GBK_LOG(x) QString::fromLocal8Bit(x).toUtf8().data()
 
-//void checUpdate() {
-//  QSettings settings("./config.ini", QSettings::IniFormat);
-//  QString tagName = settings.value(QString("tag_name")).toString();
-//  bool hasNewVersion = settings.value(QString("has_new_version")).toBool();
-
-//  qDebug() << "tagName:" << tagName;
-//  qDebug() << "hasNewVersion:" << hasNewVersion;
-//  if (!hasNewVersion) {
-//    QStringList args;
-//    args.append("background");
-//    if (QProcess::startDetached("./update.exe", args)) {
-//      qDebug() << "start update sucess!";
-//    } else {
-//      qDebug() << "start update error!";
-//    }
-//  } else {
-//  }
-//}
-
 int main(int argc, char *argv[]) {
   // 防止拖动时闪烁
   QCoreApplication::setAttribute(Qt::AA_UseSoftwareOpenGL);
@@ -103,51 +84,33 @@ int main(int argc, char *argv[]) {
   // set ICON
   app.setWindowIcon(QIcon(":images/sn_icon.png"));
   QTranslator translator;
-  const QStringList uiLanguages = QLocale::system().uiLanguages();
-  for (const QString &locale : uiLanguages) {
-    const QString baseName = "Supernote_" + QLocale(locale).name();
-    if (translator.load(":/i18n/" + baseName)) {
-      app.installTranslator(&translator);
-      break;
-    }
-  }
+
 
   QQmlApplicationEngine engine;
-
+  AppManager appManager(app, engine);
   NoteInfo noteInfo;
+
   if (argc > 1) {
     noteInfo.setNotePath(QString::fromLocal8Bit(argv[1]));
   } else {
     noteInfo.setNotePath(nullptr);
   }
-  engine.rootContext()->setContextProperty("NoteInfo", &noteInfo);
-  qmlRegisterType<NoteView>("NoteView", 1, 0, "NoteView");
 
+  engine.rootContext()->setContextProperty("noteInfo", &noteInfo);
+  engine.rootContext()->setContextProperty("appManager", &appManager);
+  qmlRegisterType<NoteView>("NoteView", 1, 0, "NoteView");
   const QUrl url(u"qrc:/Supernote/layout/NoteWindow.qml"_qs);
   QObject::connect(
       &engine, &QQmlApplicationEngine::objectCreated, &app,
-      [url,&noteInfo](QObject *obj, const QUrl &objUrl) {
-        if (!obj && url == objUrl) QCoreApplication::exit(-1);
-        qDebug()<<"end";
-//       QMetaObject::invokeMethod(&noteInfo, "test");
+      [url, &appManager](QObject *obj, const QUrl &objUrl) {
+        if (!obj && url == objUrl) {
+          QCoreApplication::exit(-1);
+        }
+        appManager.initLanguage();
+        appManager.updateCheck();
       },
       Qt::QueuedConnection);
   engine.load(url);
-
-
-  QThread *thread = new QThread;
-  Update *update = new Update;
-  update->moveToThread(thread);
-  QObject::connect(update,&Update::versionChanged,[&]{
-      qDebug()<<"versionChanged";
-     QMetaObject::invokeMethod(&noteInfo, "test");
-//      emit noteInfo.versionChanged();
-  });
-//  QObject::connect(&noteInfo,&NoteInfo::updateVersion,update,&Update::startDownload);
-  QObject::connect(update, &Update::finished, update, &QObject::deleteLater);
-  QObject::connect(thread, &QThread::finished, thread, &QObject::deleteLater);
-  thread->start();
-  QMetaObject::invokeMethod(update, "checkUpdate");
 
   return app.exec();
 }
