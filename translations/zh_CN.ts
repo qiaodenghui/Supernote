@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="zh_CN">
 <context>
     <name>ExportSetting</name>
     <message>
@@ -57,12 +57,12 @@
     <message>
         <location filename="../layout/NoteMenuBar.qml" line="14"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>文件</translation>
     </message>
     <message>
         <location filename="../layout/NoteMenuBar.qml" line="16"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>打开</translation>
     </message>
     <message>
         <location filename="../layout/NoteMenuBar.qml" line="23"/>

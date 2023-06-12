@@ -95,10 +95,24 @@ qt_add_resources(Supernote "doc"
     images/sn_icon.png
 )
 
+#set output path
+set_source_files_properties(${ts_files}
+    PROPERTIES OUTPUT_LOCATION "${CMAKE_CURRENT_BINARY_DIR}/translations")
 
 qt_add_translations(Supernote
     TS_FILES
     ${ts_files}
+    QM_FILES_OUTPUT_VARIABLE qm_files
+)
+
+#install qm
+install(FILES ${qm_files} DESTINATION "translations")
+
+#增加到资源文件
+qt_add_resources(Supernote "translations"
+    PREFIX "/"
+    BASE "${CMAKE_CURRENT_BINARY_DIR}/translations"
+    FILES "${qm_files}"
 )
 
 qt_add_qml_module(Supernote
