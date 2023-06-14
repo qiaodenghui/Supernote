@@ -6,6 +6,8 @@ import QtQuick.Layouts 1.3
 import QtQuick.Dialogs
 
 ApplicationWindow {
+    property real viewZoom: 1.0
+
     id: root
     width: 1400
     height: 900
@@ -15,16 +17,15 @@ ApplicationWindow {
     Connections {
         target: appManager
         function onVersionChanged() {
-            console.log("--Connections onVersionChanged" )
+            console.log("--Connections onVersionChanged")
             var component = Qt.createComponent("UpdateWindow.qml")
-            var window    = component.createObject(root)
+            var window = component.createObject(root)
             window.show()
         }
-       function onUpdateVersion(){
-             console.log("--Connections onUpdateVersion" )
+        function onUpdateVersion() {
+            console.log("--Connections onUpdateVersion")
         }
     }
-
 
     menuBar: NoteMenuBar {}
 
@@ -53,25 +54,55 @@ ApplicationWindow {
                 margins: 20
             }
             model: noteInfo.totalPage
-            contentWidth: 1406
+            contentWidth: 1406*viewZoom
 
             // 去除回弹效果
             boundsBehavior: Flickable.StopAtBounds
             delegate: Rectangle {
                 width: listView.width
-                height: 1874
+                height: 1874*viewZoom
                 color: "lightgray"
                 NoteView {
                     id: noteView
-                    width: 1406
-                    height: 1874
+                    width: 1404*viewZoom
+                    height: 1874*viewZoom
                     pageIndex: index + 1
                     notePath: noteInfo.notePath
                     anchors.centerIn: parent
+                    zoom: viewZoom
                 }
             }
             spacing: 20
             Layout.alignment: Qt.AlignHCenter
+        }
+
+        MouseArea {
+            id: mapMouseArea
+            anchors.fill: parent
+            preventStealing: false
+            hoverEnabled: false
+            onWheel: wheel => {
+                         if (wheel.modifiers & Qt.ControlModifier) {
+                             console.log("x:" + wheel.angleDelta.y)
+                             if (wheel.angleDelta.y < 0) {
+                                 console.log("sacle:" + viewZoom)
+                                 if (viewZoom > 0.3) {
+                                     viewZoom -= 0.1
+                                     console.log("sacle:" + viewZoom)
+                                 }
+                             } else {
+                                 if (viewZoom < 1.0) {
+                                     console.log("sacle:" + viewZoom)
+                                     viewZoom += 0.1
+                                     console.log("sacle:" + viewZoom)
+                                 }
+                             }
+                             wheel.accepted = true
+                         } else {
+                             wheel.accepted = false
+                             console.log("wheel.accepted=false")
+                         }
+                     }
         }
     }
 
