@@ -36,45 +36,43 @@ ApplicationWindow {
         anchors.centerIn: parent
     }
 
-    ScrollView {
-        ScrollBar.horizontal.policy: ScrollBar.AlwaysOn
-        ScrollBar.vertical.policy: ScrollBar.AlwaysOn
-        ScrollBar.horizontal.interactive: true
-        ScrollBar.vertical.interactive: true
-        width: parent.width
-        height: parent.height
+    ListView {
+
+        ScrollBar.horizontal: ScrollBar {
+            id: hbar
+            active: vbar.active
+            policy: ScrollBar.AlwaysOn
+        }
+        ScrollBar.vertical: ScrollBar {
+            id: vbar
+            active: hbar.active
+            policy: ScrollBar.AlwaysOn
+        }
+
+        id: listView
         anchors {
             fill: parent
+            //                margins: 20
         }
-        ListView {
+        model: noteInfo.totalPage
+        contentWidth: 1406 * viewZoom
 
-            id: listView
-            anchors {
-                fill: parent
-                margins: 20
+        // 去除回弹效果
+        boundsBehavior: Flickable.StopAtBounds
+        delegate: Item {
+            width: root.width
+            height: 1872 * viewZoom
+            NoteView {
+                id: noteView
+                width: 1404 * viewZoom
+                height: 1874 * viewZoom
+                pageIndex: index + 1
+                notePath: noteInfo.notePath
+                anchors.centerIn: parent
+                zoom: viewZoom
             }
-            model: noteInfo.totalPage
-            contentWidth: 1406*viewZoom
-
-            // 去除回弹效果
-            boundsBehavior: Flickable.StopAtBounds
-            delegate: Rectangle {
-                width: listView.width
-                height: 1874*viewZoom
-                color: "lightgray"
-                NoteView {
-                    id: noteView
-                    width: 1404*viewZoom
-                    height: 1874*viewZoom
-                    pageIndex: index + 1
-                    notePath: noteInfo.notePath
-                    anchors.centerIn: parent
-                    zoom: viewZoom
-                }
-            }
-            spacing: 20
-            Layout.alignment: Qt.AlignHCenter
         }
+        spacing: 20
 
         MouseArea {
             id: mapMouseArea
@@ -106,6 +104,7 @@ ApplicationWindow {
         }
     }
 
+    //    }
     footer: ToolBar {
         id: toolBar
         width: parent.width
