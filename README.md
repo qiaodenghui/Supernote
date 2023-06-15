@@ -12,18 +12,22 @@ This software is under development and may change.
 [Supernote Downloads](https://github.com/qiaodenghui/Supernote/releases)
 
 
-## Completed functions
+## Completed Features
 * Open the note file by dragging or double-clicking.
+* Export as TXT WORD after recognition.
 * Check the latest version online.
 * Support multiple languages.
 
 
-## Functions planned to be completed
+## Features in progress
 
-* Export as TXT WORD after recognition.
+* Support ctrl+wheel zoom page.
+
+
+## Features planned to be completed
+
 * Cross-platform, support windows ubuntu mac.
 * Support for displaying all layers.
-* Support ctrl+wheel zoom page.
 * Support to display handwriting in the form of vector graphics.
 * Support for converting normal notes to recognition notes.
 * Support downloading and installing more recognition language packs.
