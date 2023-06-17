@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.5
 
-Item {
+ToolBar {
     property string pageInfo: ""
     signal nextPage()
     signal lastPage()

@@ -130,7 +130,6 @@ target_include_directories(Supernote
     ${Docx_INCLUDES}
     ${Note_INCLUDES}
     ${IINK_INCLUDES}
-    ${Zlib_INCLUDES}
 )
 
 set_target_properties(Supernote PROPERTIES

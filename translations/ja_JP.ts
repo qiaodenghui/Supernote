@@ -109,13 +109,13 @@
 <context>
     <name>NoteWindow</name>
     <message>
-        <location filename="../layout/NoteWindow.qml" line="15"/>
+        <location filename="../layout/NoteWindow.qml" line="16"/>
         <source>Supernote</source>
         <translation>Supernote</translation>
     </message>
     <message>
-        <location filename="../layout/NoteWindow.qml" line="161"/>
         <location filename="../layout/NoteWindow.qml" line="208"/>
+        <location filename="../layout/NoteWindow.qml" line="243"/>
         <source>this is Note APP version is 1.0.0</source>
         <translation>this is Note APP version is 1.0.0</translation>
     </message>

@@ -7,7 +7,8 @@ import QtQuick.Dialogs
 
 ApplicationWindow {
     property real viewZoom: 1.0
-
+    property int currentPage: 0
+    property int y: 0
     id: root
     width: 1400
     height: 900
@@ -38,6 +39,66 @@ ApplicationWindow {
 
     ListView {
 
+        id: listView
+        anchors.fill: parent
+        model: noteInfo.totalPage
+        contentWidth: 1406 * viewZoom
+        highlightFollowsCurrentItem: true
+        highlightMoveDuration: 0
+        highlightMoveVelocity: -1
+        cacheBuffer: 0
+
+        Component.onCompleted: {
+            onContentItemChanged: {
+                console.log("onContentItemChanged")
+            }
+            onContentXChanged: {
+                console.log("onContentXChanged:" + contentX)
+            }
+        }
+
+        //        highlightRangeMode:ListView.ApplyRange
+        //                        highlightRangeMode: ListView.StrictlyEnforceRange
+
+        // 去除回弹效果
+        boundsBehavior: Flickable.StopAtBounds
+        delegate: Item {
+            width: root.width
+            height: 1872 * viewZoom
+
+            NoteView {
+                id: noteView
+                anchors.centerIn: parent
+                width: 1404 * viewZoom
+                height: 1874 * viewZoom
+                pageIndex: index + 1
+                notePath: noteInfo.notePath
+                //                    Layout.alignment: Qt.AlignHCenter
+                //                    anchors.centerIn: parent
+                zoom: viewZoom
+                onPageIndexChanged: {
+                    if (currentPage === 0) {
+                        currentPage = index + 1
+                    }
+                }
+            }
+        }
+        onContentYChanged: {
+            var t = indexAt(0, contentY)
+            if (t !== -1) {
+                currentPage = t + 1
+            }
+
+            console.log("onContentYChanged:" + contentY + " t:" + t)
+        }
+
+        reuseItems: false
+        onCurrentIndexChanged: {
+            console.log("current index = " + listView.currentIndex)
+        }
+        spacing: 20
+
+        flickableDirection: Flickable.AutoFlickIfNeeded
         ScrollBar.horizontal: ScrollBar {
             id: hbar
             active: vbar.active
@@ -48,32 +109,6 @@ ApplicationWindow {
             active: hbar.active
             policy: ScrollBar.AlwaysOn
         }
-
-        id: listView
-        anchors {
-            fill: parent
-            //                margins: 20
-        }
-        model: noteInfo.totalPage
-        contentWidth: 1406 * viewZoom
-
-        // 去除回弹效果
-        boundsBehavior: Flickable.StopAtBounds
-        delegate: Item {
-            width: root.width
-            height: 1872 * viewZoom
-            NoteView {
-                id: noteView
-                width: 1404 * viewZoom
-                height: 1874 * viewZoom
-                pageIndex: index + 1
-                notePath: noteInfo.notePath
-                anchors.centerIn: parent
-                zoom: viewZoom
-            }
-        }
-        spacing: 20
-
         MouseArea {
             id: mapMouseArea
             anchors.fill: parent
@@ -82,54 +117,67 @@ ApplicationWindow {
             onWheel: wheel => {
                          if (wheel.modifiers & Qt.ControlModifier) {
                              console.log("x:" + wheel.angleDelta.y)
-                             if (wheel.angleDelta.y < 0) {
-                                 console.log("sacle:" + viewZoom)
-                                 if (viewZoom > 0.3) {
-                                     viewZoom -= 0.1
-                                     console.log("sacle:" + viewZoom)
-                                 }
-                             } else {
-                                 if (viewZoom < 1.0) {
-                                     console.log("sacle:" + viewZoom)
-                                     viewZoom += 0.1
-                                     console.log("sacle:" + viewZoom)
-                                 }
-                             }
+//                             if (wheel.angleDelta.y < 0) {
+//                                 console.log("sacle:" + viewZoom)
+//                                 if (viewZoom > 0.3) {
+//                                     viewZoom -= 0.1
+//                                     console.log("sacle:" + viewZoom)
+//                                 }
+//                             } else {
+//                                 if (viewZoom < 1.0) {
+//                                     console.log("sacle:" + viewZoom)
+//                                     viewZoom += 0.1
+//                                     console.log("sacle:" + viewZoom)
+//                                 }
+//                             }
                              wheel.accepted = true
                          } else {
-                             wheel.accepted = false
-                             console.log("wheel.accepted=false")
+
+                             var value = 0
+                             if (wheel.angleDelta.y < 0) {
+                                 value = listView.contentY + 40
+                                 if (value + root.height > listView.contentHeight) {
+                                     value = listView.contentHeight - root.height
+                                 }
+                                 listView.contentY = value
+                             } else {
+                                 value = listView.contentY - 40
+                                 if (value < 0) {
+                                     value = 0
+                                 }
+                                 listView.contentY = value
+                             }
+                             wheel.accepted = true
                          }
                      }
         }
     }
-
-    //    }
     footer: ToolBar {
+
         id: toolBar
         width: parent.width
         height: 32
         FooterView {
-            pageInfo: "" + (listView.currentIndex + 1) + " / " + noteInfo.totalPage
+            pageInfo: "" + currentPage + " / " + noteInfo.totalPage
             height: parent.height
             id: footerView
             onLastPage: {
                 if (listView.currentIndex > 0) {
-                    changePage(listView.currentIndex - 1)
+                    listView.currentIndex = listView.currentIndex - 1
                 }
             }
             onNextPage: {
                 if (listView.currentIndex < noteInfo.totalPage - 1) {
-                    changePage(listView.currentIndex + 1)
+                    listView.currentIndex = listView.currentIndex + 1
                 }
             }
             onFirstPage: {
                 console.log("onFirstPage")
-                changePage(0)
+                listView.currentIndex = 0
             }
             onEndPage: {
                 console.log("onEndPage")
-                changePage(noteInfo.totalPage - 1)
+                listView.currentIndex = noteInfo.totalPage - 1
             }
         }
     }
@@ -180,18 +228,6 @@ ApplicationWindow {
                 }
             }
         }
-    }
-
-    function changePage(page) {
-
-        // 1.先取消动画
-        listView.highlightMoveDuration = 0
-
-        // 2.改变页码
-        listView.currentIndex = page
-
-        // 3.恢复动画
-        listView.highlightMoveDuration = 400
     }
 
     Dialog {

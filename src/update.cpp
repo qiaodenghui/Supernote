@@ -28,8 +28,8 @@ void Update::checkVersion() {
 }
 
 void initConfig() {
-  if (!QFile::exists("./config.ini")) {
-    QSettings settings("./config.ini", QSettings::IniFormat);
+  if (!QFile::exists(QCoreApplication::applicationDirPath()+"/config.ini")) {
+    QSettings settings(QCoreApplication::applicationDirPath()+"/config.ini", QSettings::IniFormat);
     settings.setValue("tag_name", "v0.0.0");
     settings.setValue("app_name", "Supernote");
     settings.setValue("platform", "windows");
@@ -39,7 +39,7 @@ void initConfig() {
 void Update::dealVersionInfo(VersionInfo info) {
   initConfig();
   m_versionInfo = info;
-  QSettings settings("./config.ini", QSettings::IniFormat);
+  QSettings settings(QCoreApplication::applicationDirPath()+"/config.ini", QSettings::IniFormat);
   QString tagName = settings.value(QString("tag_name")).toString();
   bool hasNewVersion = settings.value(QString("has_new_version")).toBool();
   qDebug() << "tagName:" << tagName;
@@ -74,7 +74,7 @@ void Update::dealPackage(const int code) {
 void Update::startDownload() {
   qDebug() << "startDownload";
 
-  QSettings settings("./config.ini", QSettings::IniFormat);
+  QSettings settings(QCoreApplication::applicationDirPath()+"/config.ini", QSettings::IniFormat);
   QString appMame = settings.value("app_name").toString();
   QString platform = settings.value("platform").toString();
   QString arch = settings.value("arch").toString();

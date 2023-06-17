@@ -38,13 +38,13 @@ void AppManager::setLanguage(const QString lang) {
 
   m_engine->retranslate();
   if (ret) {
-    QSettings settings("./config.ini", QSettings::IniFormat);
+    QSettings settings(QCoreApplication::applicationDirPath()+"/config.ini", QSettings::IniFormat);
     settings.setValue("language", lang);
   }
 }
 
 void AppManager::initLanguage() {
-  QSettings settings("./config.ini", QSettings::IniFormat);
+  QSettings settings(QCoreApplication::applicationDirPath()+"/config.ini", QSettings::IniFormat);
   QString lang = settings.value("language", "").toString();
 
   if (lang.length() == 0) {
