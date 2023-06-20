@@ -17,17 +17,15 @@ This software is under development and may change.
 * Export as TXT WORD after recognition.
 * Check the latest version online.
 * Support multiple languages.
-
+* Support ctrl+wheel zoom page.
 
 ## Features in progress
 
-* Support ctrl+wheel zoom page.
-
+* Support for displaying all layers.
+* Cross-platform, support windows ubuntu mac.
 
 ## Features planned to be completed
 
-* Cross-platform, support windows ubuntu mac.
-* Support for displaying all layers.
 * Support to display handwriting in the form of vector graphics.
 * Support for converting normal notes to recognition notes.
 * Support downloading and installing more recognition language packs.
@@ -35,6 +33,7 @@ This software is under development and may change.
 * Export notes as PDF.
 * Increase the input method to jump to the page number.
 * Write notes.
+
 
 ## Supporting files
 

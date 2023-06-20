@@ -8,7 +8,6 @@ import QtQuick.Dialogs
 ApplicationWindow {
     property real viewZoom: 1.0
     property int currentPage: 0
-    property int y: 0
     property bool isEditor: false
     id: root
     width: 1400
@@ -44,7 +43,6 @@ ApplicationWindow {
             width: root.width
             height: 1872 * viewZoom
             NoteView {
-                //                id: noteView
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.centerIn: parent
                 width: 1404 * viewZoom
@@ -89,7 +87,7 @@ ApplicationWindow {
             policy: ScrollBar.AlwaysOn
             size: listView.height / listView.contentHeight
 
-            stepSize: listView.height / listView.contentHeight * 0.3
+            stepSize: listView.height / listView.contentHeight * 0.2
             onPositionChanged: {
                 console.log("current position = " + position)
                 if (isEditor) {
@@ -153,8 +151,8 @@ ApplicationWindow {
             id: footerView
             onLastPage: {
                 if (currentPage > 1) {
-                      isEditor=true
-                    var value = vbar.position- (1.0 - vbar.size) / noteInfo.totalPage
+                    isEditor = true
+                    var value = vbar.position - (1.0 - vbar.size) / noteInfo.totalPage
                     if (value < 0) {
                         value = 0
                     }
@@ -164,7 +162,7 @@ ApplicationWindow {
             }
             onNextPage: {
                 if (currentPage < noteInfo.totalPage) {
-                    isEditor=true
+                    isEditor = true
                     var value = vbar.position + (1.0 - vbar.size) / noteInfo.totalPage
                     if (value + vbar.size > 1.0) {
                         value = 1.0 - vbar.size
@@ -175,12 +173,12 @@ ApplicationWindow {
             }
             onFirstPage: {
                 console.log("onFirstPage")
-                  isEditor=false
+                isEditor = false
                 vbar.position = 0
             }
             onEndPage: {
                 console.log("onEndPage")
-                  isEditor=false
+                isEditor = false
                 vbar.position = 1.0 - vbar.size
             }
         }

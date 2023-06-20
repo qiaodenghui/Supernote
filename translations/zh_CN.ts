@@ -113,8 +113,8 @@
         <translation>Supernote</translation>
     </message>
     <message>
-        <location filename="../layout/NoteWindow.qml" line="208"/>
-        <location filename="../layout/NoteWindow.qml" line="243"/>
+        <location filename="../layout/NoteWindow.qml" line="210"/>
+        <location filename="../layout/NoteWindow.qml" line="245"/>
         <source>this is Note APP version is 1.0.0</source>
         <translation>this is Note APP version is 1.0.0</translation>
     </message>
