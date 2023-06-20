@@ -1,13 +1,14 @@
 cmake_minimum_required(VERSION 3.16)
 
 project(Supernote VERSION 0.1 LANGUAGES CXX C)
-
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 set(app_icon_resource_windows "${CMAKE_CURRENT_SOURCE_DIR}/resource/supernote.rc")
 
 find_package(Qt6 6.2 REQUIRED COMPONENTS Quick Network LinguistTools)
-
-qt_standard_project_setup()
 
 #指定库的路径
 link_directories(CMAKE_CURRENT_SOURCE_DIR

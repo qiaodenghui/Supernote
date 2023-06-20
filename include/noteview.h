@@ -22,8 +22,8 @@ public:
 
 public slots:
 
-  protected:
-  void geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry) override;
+//  protected:
+//  void geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry) override;
 
 signals:
     void pageIndexChanged();

@@ -1,14 +1,15 @@
-import QtQuick
+import QtQuick 2.15
 import Supernote 1.0
 
-import QtQuick.Controls
-import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 2.15
 import QtQuick.Dialogs
 
 ApplicationWindow {
     property real viewZoom: 1.0
     property int currentPage: 0
     property int y: 0
+    property bool isEditor: false
     id: root
     width: 1400
     height: 900
@@ -36,66 +37,44 @@ ApplicationWindow {
         height: 300
         anchors.centerIn: parent
     }
-
-    ListView {
-
-        id: listView
-        anchors.fill: parent
-        model: noteInfo.totalPage
-        contentWidth: 1406 * viewZoom
-        highlightFollowsCurrentItem: true
-        highlightMoveDuration: 0
-        highlightMoveVelocity: -1
-        cacheBuffer: 0
-
-        Component.onCompleted: {
-            onContentItemChanged: {
-                console.log("onContentItemChanged")
-            }
-            onContentXChanged: {
-                console.log("onContentXChanged:" + contentX)
-            }
-        }
-
-        //        highlightRangeMode:ListView.ApplyRange
-        //                        highlightRangeMode: ListView.StrictlyEnforceRange
-
-        // 去除回弹效果
-        boundsBehavior: Flickable.StopAtBounds
-        delegate: Item {
+    Component {
+        id: noteViewDelegate
+        Item {
+            id: noteItem
             width: root.width
             height: 1872 * viewZoom
-
             NoteView {
-                id: noteView
+                //                id: noteView
+                anchors.horizontalCenter: parent.horizontalCenter
                 anchors.centerIn: parent
                 width: 1404 * viewZoom
                 height: 1874 * viewZoom
                 pageIndex: index + 1
                 notePath: noteInfo.notePath
-                //                    Layout.alignment: Qt.AlignHCenter
-                //                    anchors.centerIn: parent
                 zoom: viewZoom
                 onPageIndexChanged: {
                     if (currentPage === 0) {
-                        currentPage = index + 1
+                        currentPage = 1
                     }
                 }
             }
         }
-        onContentYChanged: {
-            var t = indexAt(0, contentY)
-            if (t !== -1) {
-                currentPage = t + 1
-            }
+    }
+    ListView {
 
-            console.log("onContentYChanged:" + contentY + " t:" + t)
-        }
+        id: listView
+        anchors.fill: parent
+        model: noteInfo.totalPage
+        contentWidth: 1404 * viewZoom
 
-        reuseItems: false
-        onCurrentIndexChanged: {
-            console.log("current index = " + listView.currentIndex)
-        }
+        snapMode: ListView.NoSnap
+        highlightMoveDuration: 0
+        highlightMoveVelocity: -1
+
+        // 去除回弹效果
+        boundsBehavior: Flickable.StopAtBounds
+        delegate: noteViewDelegate
+
         spacing: 20
 
         flickableDirection: Flickable.AutoFlickIfNeeded
@@ -108,6 +87,26 @@ ApplicationWindow {
             id: vbar
             active: hbar.active
             policy: ScrollBar.AlwaysOn
+            size: listView.height / listView.contentHeight
+
+            stepSize: listView.height / listView.contentHeight * 0.3
+            onPositionChanged: {
+                console.log("current position = " + position)
+                if (isEditor) {
+                    console.log("---isEditor--- ")
+                    return
+                }
+                var value = position * noteInfo.totalPage / (1.0 - size)
+
+                console.log("value = " + value)
+                var p = value.toFixed(0)
+                currentPage = Number(p) + 1
+                if (currentPage > noteInfo.totalPage) {
+                    currentPage = noteInfo.totalPage
+                }
+
+                console.log("currentPage = " + currentPage)
+            }
         }
         MouseArea {
             id: mapMouseArea
@@ -117,35 +116,26 @@ ApplicationWindow {
             onWheel: wheel => {
                          if (wheel.modifiers & Qt.ControlModifier) {
                              console.log("x:" + wheel.angleDelta.y)
-//                             if (wheel.angleDelta.y < 0) {
-//                                 console.log("sacle:" + viewZoom)
-//                                 if (viewZoom > 0.3) {
-//                                     viewZoom -= 0.1
-//                                     console.log("sacle:" + viewZoom)
-//                                 }
-//                             } else {
-//                                 if (viewZoom < 1.0) {
-//                                     console.log("sacle:" + viewZoom)
-//                                     viewZoom += 0.1
-//                                     console.log("sacle:" + viewZoom)
-//                                 }
-//                             }
-                             wheel.accepted = true
-                         } else {
-
-                             var value = 0
                              if (wheel.angleDelta.y < 0) {
-                                 value = listView.contentY + 40
-                                 if (value + root.height > listView.contentHeight) {
-                                     value = listView.contentHeight - root.height
+                                 console.log("sacle:" + viewZoom)
+                                 if (viewZoom > 0.3) {
+                                     viewZoom -= 0.1
+                                     console.log("sacle:" + viewZoom)
                                  }
-                                 listView.contentY = value
                              } else {
-                                 value = listView.contentY - 40
-                                 if (value < 0) {
-                                     value = 0
+                                 if (viewZoom < 1.0) {
+                                     console.log("sacle:" + viewZoom)
+                                     viewZoom += 0.1
+                                     console.log("sacle:" + viewZoom)
                                  }
-                                 listView.contentY = value
+                             }
+                         } else {
+                             isEditor = false
+                             if (wheel.angleDelta.y < 0) {
+
+                                 vbar.increase()
+                             } else {
+                                 vbar.decrease()
                              }
                              wheel.accepted = true
                          }
@@ -162,22 +152,36 @@ ApplicationWindow {
             height: parent.height
             id: footerView
             onLastPage: {
-                if (listView.currentIndex > 0) {
-                    listView.currentIndex = listView.currentIndex - 1
+                if (currentPage > 1) {
+                      isEditor=true
+                    var value = vbar.position- (1.0 - vbar.size) / noteInfo.totalPage
+                    if (value < 0) {
+                        value = 0
+                    }
+                    vbar.position = value
+                    --currentPage
                 }
             }
             onNextPage: {
-                if (listView.currentIndex < noteInfo.totalPage - 1) {
-                    listView.currentIndex = listView.currentIndex + 1
+                if (currentPage < noteInfo.totalPage) {
+                    isEditor=true
+                    var value = vbar.position + (1.0 - vbar.size) / noteInfo.totalPage
+                    if (value + vbar.size > 1.0) {
+                        value = 1.0 - vbar.size
+                    }
+                    vbar.position = value
+                    ++currentPage
                 }
             }
             onFirstPage: {
                 console.log("onFirstPage")
-                listView.currentIndex = 0
+                  isEditor=false
+                vbar.position = 0
             }
             onEndPage: {
                 console.log("onEndPage")
-                listView.currentIndex = noteInfo.totalPage - 1
+                  isEditor=false
+                vbar.position = 1.0 - vbar.size
             }
         }
     }

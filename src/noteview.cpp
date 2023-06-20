@@ -3,7 +3,7 @@
 #include <QImage>
 #include <QPixmap>
 #include <QRectF>
-#include <QSGClipNode>
+//#include <QSGClipNode>
 
 
 #include "SnDataLoad.h"
@@ -42,12 +42,12 @@ void NoteView::paint(QPainter *painter) {
   delete[] data;
 }
 
-void NoteView::geometryChange(const QRectF &newGeometry,
-                              const QRectF &oldGeometry) {
-  Q_UNUSED(oldGeometry)
-  //        setClipRect(newGeometry);
-  //        update();
-}
+//void NoteView::geometryChange(const QRectF &newGeometry,
+//                              const QRectF &oldGeometry) {
+//  Q_UNUSED(oldGeometry)
+//  //        setClipRect(newGeometry);
+//  //        update();
+//}
 
 int NoteView::getPageIndex() { return mPageIndex; }
 
