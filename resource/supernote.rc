@@ -3,8 +3,8 @@
 IDI_ICON1               ICON    "sn_icon.ico"
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,0,0
- PRODUCTVERSION 1,0,0,0
+ FILEVERSION 0,3,0
+ PRODUCTVERSION 0,3,0
  FILEFLAGS 0x0L
  FILEFLAGSMASK 0x3fL
  FILEOS 0x00040004L
@@ -17,12 +17,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Ratta Supernote Company Ltd."
             VALUE "FileDescription", "Supernote"
-            VALUE "FileVersion", "1.0.0.0"
+            VALUE "FileVersion", "0.3.0"
             VALUE "LegalCopyright", "Copyright © 2023 Ratta Supernote Company Ltd."
             VALUE "InternalName", "Supernote"
             VALUE "OriginalFilename", "Spernote.exe"
             VALUE "ProductName", "Supernote"
-            VALUE "ProductVersion", "1.0.0.0"
+            VALUE "ProductVersion", "0.3.0"
         END
     END
     BLOCK "VarFileInfo"

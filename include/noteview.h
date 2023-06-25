@@ -34,6 +34,7 @@ private:
     int mPageIndex=0;
     QString mNotePath;
     float m_zoom=1.0;
+    QStringList m_layers;
 };
 
 #endif // NOTEVIEW_H
