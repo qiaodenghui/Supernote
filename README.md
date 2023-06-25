@@ -18,10 +18,10 @@ This software is under development and may change.
 * Check the latest version online.
 * Support multiple languages.
 * Support ctrl+wheel zoom page.
+* Support for displaying all layers(The background layer is filtered out because it doesn't look good after zooming).
 
 ## Features in progress
 
-* Support for displaying all layers.
 * Cross-platform, support windows ubuntu mac.
 
 ## Features planned to be completed
