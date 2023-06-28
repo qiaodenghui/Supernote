@@ -6,7 +6,7 @@
 
 #include "SnDataLoad.h"
 NoteView::NoteView() {
-  m_layers /*<< "BGLAYER"*/
+  m_layers << "BGLAYER"
            << "MAINLAYER"
            << "LAYER1"
            << "LAYER2"
@@ -15,6 +15,7 @@ NoteView::NoteView() {
 
 void NoteView::paint(QPainter *painter) {
   qDebug() << "paint";
+  painter->setRenderHint(QPainter::SmoothPixmapTransform, true);
   painter->setPen(Qt::NoPen);
   painter->setBrush(Qt::white);
   painter->drawRect(0, 0, width(), height());
@@ -33,8 +34,9 @@ void NoteView::paint(QPainter *painter) {
       continue;
     }
     painter->setPen(Qt::NoPen);
+
     QImage image(data, 1404, 1872, QImage::Format_ARGB32);
-    image = image.scaled(1404 * m_zoom, 1872 * m_zoom);
+    image = image.scaled(1404 * m_zoom, 1872 * m_zoom,Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     painter->drawImage(0, 0, image);
     delete[] data;
   }
