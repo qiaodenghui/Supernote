@@ -12,12 +12,14 @@
 class AppManager : public QObject {
   Q_OBJECT
   QML_ELEMENT
+  Q_PROPERTY(bool exportStatus READ getExportStatus CONSTANT)
  public:
   explicit AppManager(QGuiApplication& app, QQmlApplicationEngine& engine,
                       QObject *parent = nullptr);
   ~AppManager();
   void initLanguage();
   void updateCheck();
+  bool getExportStatus();
  public slots:
   void updateNow();
   void setLanguage(const QString lang);
@@ -37,6 +39,7 @@ class AppManager : public QObject {
   QGuiApplication *m_app;
   QQmlApplicationEngine *m_engine;
   QTranslator m_translator;
+  bool m_exportStatus=false;
 };
 
 #endif  // APPMANAGER_H

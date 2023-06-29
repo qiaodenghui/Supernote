@@ -5,6 +5,9 @@ AppManager::AppManager(QGuiApplication &app, QQmlApplicationEngine &engine,
                        QObject *parent)
     : m_app{&app}, m_engine{&engine}, QObject{parent} {
   qDebug() << "AppManager";
+#ifdef _WIN32
+  m_exportStatus=true;
+#endif
   initLanguage();
 }
 
@@ -78,17 +81,15 @@ void AppManager::updateCheck() {
     delete m_update;
     m_update = nullptr;
   }
-  //  m_thread = new QThread;
   m_update = new Update;
-  //  m_update->moveToThread(m_thread);
   connect(m_update, &Update::versionChanged, this, [=] {
     qDebug() << "versionChanged";
     emit versionChanged();
-    //    m_thread->quit();
-    //    m_thread->deleteLater();
-    //    m_thread = nullptr;
   });
-  //  m_thread->start();
   m_update->checkVersion();
-  //  QMetaObject::invokeMethod(m_update, "checkVersion");
+}
+
+bool AppManager::getExportStatus()
+{
+  return m_exportStatus;
 }

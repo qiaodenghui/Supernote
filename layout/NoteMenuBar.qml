@@ -9,6 +9,26 @@ MenuBar {
     signal about
     signal changeLog
 
+    FileDialog {
+        id: fileDialog
+
+        title: "Please choose a file"
+        nameFilters: ["Note files (*.note)"]
+        onAccepted: {
+            noteInfo.notePath = urlToPath(fileDialog.selectedFile.toString())
+            console.log("You chose: " + noteInfo.notePath)
+        }
+        function urlToPath(urlString) {
+            var s
+            if (urlString.startsWith("file:///")) {
+                var k = urlString.charAt(9) === ':' ? 8 : 7
+                s = urlString.substring(k)
+            } else {
+                s = urlString
+            }
+            return decodeURIComponent(s);
+        }
+    }
     Menu {
         contentWidth: 200
         title: qsTr("File")
@@ -22,7 +42,7 @@ MenuBar {
         Action {
             text: qsTr("Export")
             onTriggered: exportView.showView()
-            enabled: noteInfo.totalPage > 0 ? true : false
+            enabled: (noteInfo.totalPage > 0 && appManager.getExportStatus)? true : false
         }
     }
     Menu {

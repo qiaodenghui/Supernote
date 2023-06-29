@@ -89,6 +89,7 @@ int main(int argc, char *argv[]) {
   NoteInfo noteInfo;
 
   if (argc > 1) {
+      qDebug()<<QString::fromLocal8Bit(argv[1]);
     noteInfo.setNotePath(QString::fromLocal8Bit(argv[1]));
   } else {
     noteInfo.setNotePath(nullptr);

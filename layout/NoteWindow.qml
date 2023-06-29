@@ -184,18 +184,7 @@ ApplicationWindow {
         }
     }
 
-    FileDialog {
-        id: fileDialog
 
-        title: "Please choose a file"
-        nameFilters: ["Note files (*.note)"]
-        onAccepted: {
-
-            noteInfo.notePath = fileDialog.selectedFile.toString().replace(
-                        /^(file:\/{3})|(qrc:\/{2})|(http:\/{2})/, "")
-            console.log("You chose: " + noteInfo.notePath)
-        }
-    }
     Dialog {
         id: dialog
         closePolicy: Popup.NoAutoClose
@@ -214,6 +203,7 @@ ApplicationWindow {
             radius: 4
             anchors.fill: parent
         }
+
     }
 
     DropArea {
@@ -221,7 +211,14 @@ ApplicationWindow {
         onDropped: function droppedOpen(drop) {
             if (drop.hasUrls) {
                 for (var i = 0; i < drop.urls.length; i++) {
-                    var str = drop.urls[i].toString().slice(8)
+                    var urlString=drop.urls[i].toString()
+                    var str;
+                    if (urlString.startsWith("file:///")) {
+                        var k = urlString.charAt(9) === ':' ? 8 : 7
+                        str=decodeURIComponent(urlString.substring(k))
+                    } else {
+                         str = decodeURIComponent(urlString);
+                    }
                     if (str.toLowerCase().endsWith(".note")) {
                         console.log(str)
                         noteInfo.notePath = str
