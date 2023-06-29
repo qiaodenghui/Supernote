@@ -2,10 +2,15 @@
 #include "Export.h"
 
 #include <SnDataLoad.h>
+
+#if defined(_MSC_VER) || defined(WIN64) || defined(_WIN64) || defined(__WIN64__) || defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+
 #include <iink/Configuration.h>
 #include <iink/ContentPackage.h>
 #include <iink/ContentPart.h>
 #include <iink/Editor.h>
+#include "FontMetricsProvider.h"
+#endif
 #include <sndataoperationfile.h>
 
 #include <QCoreApplication>
@@ -17,7 +22,6 @@
 #include <docx.hpp>
 #include <docxiterator.hpp>
 
-#include "FontMetricsProvider.h"
 #include "MyCertificate.h"
 Export::Export(const QString format, const QString lang, QObject *parent)
     : format(format), lang(lang) {
@@ -29,28 +33,36 @@ Export::~Export() {}
 QString Export::getExportDocxPath() const { return exportFilePath; }
 
 void Export::setLang(const QString &lang) {
+#if defined(_MSC_VER) || defined(WIN64) || defined(_WIN64) || defined(__WIN64__) || defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+
   try {
-    // Create package and part
-    if (part != nullptr) {
-      package->removePart(part);
-      part = nullptr;
-    }
-    mEditor->getConfiguration()->setString("lang", lang.toUtf8().data());
-    part = package->createPart("Text");
-    mEditor->setPart(part);
+      // Create package and part
+      if (part != nullptr) {
+          package->removePart(part);
+          part = nullptr;
+      }
+      mEditor->getConfiguration()->setString("lang", lang.toUtf8().data());
+      part = package->createPart("Text");
+      mEditor->setPart(part);
   } catch (const std::exception &e) {
-    mEditor->setPart(nullptr);
-    qDebug() << "part error";
-    qDebug() << QString(e.what());
-    //        QString label("Failed to create new file (" + QString(e.what()) +
-    //        ")"); QMessageBox box(QMessageBox::Critical, "Error", label,
-    //        QMessageBox::NoButton, this); box.exec();
+      mEditor->setPart(nullptr);
+      qDebug() << "part error";
+      qDebug() << QString(e.what());
+      //        QString label("Failed to create new file (" + QString(e.what()) +
+      //        ")"); QMessageBox box(QMessageBox::Critical, "Error", label,
+      //        QMessageBox::NoButton, this); box.exec();
   }
+#endif
+
 }
+
+#if defined(_MSC_VER) || defined(WIN64) || defined(_WIN64) || defined(__WIN64__) || defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
 
 void getPageData(vector<myscript::iink::PointerEvent> &data, const int &page,
                  const QString &path) {
    qDebug() << "getPageData";
+
+
   SnDataLoad dataLoad;
   //    dataLoad.loadImageData(",",1,"");
   vector<TrailContainer> trailsContainer;
@@ -131,9 +143,12 @@ void getPageData(vector<myscript::iink::PointerEvent> &data, const int &page,
     }
   }
 }
+#endif
 
 void Export::init() {
   qDebug() << "init";
+#if defined(_MSC_VER) || defined(WIN64) || defined(_WIN64) || defined(__WIN64__) || defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+
   if (engine != nullptr) {
     qDebug() << "init is null";
     return;
@@ -195,6 +210,7 @@ void Export::init() {
     //        ")"); QMessageBox box(QMessageBox::Critical, "Error", label,
     //        QMessageBox::NoButton, this); box.exec();
   }
+#endif
 }
 
 void Export::writeDocx(const QString &path, const string &text) {
@@ -346,6 +362,8 @@ bool Export::removeTxt(const QString &txtPath) {
   return ret;
 }
 void Export::startRecognition(QString notePath, QVector<int> pages) {
+#if defined(_MSC_VER) || defined(WIN64) || defined(_WIN64) || defined(__WIN64__) || defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+
   qDebug() << "startRecognition"
            << " tId" << QThread::currentThreadId();
   QString filePath;
@@ -397,4 +415,5 @@ void Export::startRecognition(QString notePath, QVector<int> pages) {
     ret = removeDocx(filePath);
   }
   emit exportEnd(ret);
+#endif
 }

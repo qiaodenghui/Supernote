@@ -6,7 +6,7 @@
 #ifndef SNDATAOPERATIONFILE_H
 #define SNDATAOPERATIONFILE_H
 
-#include "sndataload.h"
+#include "SnDataLoad.h"
 #include "note_global.h"
 class NOTE_EXPORT SnDataOperationFile {
 private:

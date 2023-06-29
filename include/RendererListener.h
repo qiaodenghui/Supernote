@@ -4,7 +4,7 @@
 
 #include <QtCore/QObject>
 
-#include <iink/Renderer.h>
+#include <./library/Myscript/include/iink/Renderer.h>
 #include <iink/IRendererListener.h>
 
 namespace myscript {

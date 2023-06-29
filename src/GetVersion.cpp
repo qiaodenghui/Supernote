@@ -1,4 +1,4 @@
-#include "getversion.h"
+#include "GetVersion.h"
 
 #include <QDebug>
 #include <QJsonArray>

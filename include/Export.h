@@ -2,11 +2,13 @@
 #ifndef EXPORT_H
 #define EXPORT_H
 
+#if defined(_MSC_VER) || defined(WIN64) || defined(_WIN64) || defined(__WIN64__) || defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+
 #include <EditorListener.h>
 #include <RendererListener.h>
 #include <iink/ContentPackage.h>
 #include <iink/Engine.h>
-
+#endif
 #include <QObject>
 #include <QThread>
 #include <iostream>
@@ -36,6 +38,8 @@ class Export : public QObject {
   bool removeTxt(const QString &txtPath);
 
  private:
+#if defined(_MSC_VER) || defined(WIN64) || defined(_WIN64) || defined(__WIN64__) || defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+
   std::shared_ptr<myscript::iink::Engine> engine = nullptr;
   std::shared_ptr<myscript::iink::Renderer> renderer;
   std::shared_ptr<myscript::iink::Editor> mEditor;
@@ -45,6 +49,7 @@ class Export : public QObject {
       mEditorListener;
   std::shared_ptr<myscript::iink::uireferenceimplementation::RendererListener>
       mRendererListener;
+#endif
   QString exportFilePath;
   QString format;
   QString lang;

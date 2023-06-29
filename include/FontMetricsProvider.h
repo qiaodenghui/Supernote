@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include <iink/text/IFontMetricsProvider.h>
+#include <./library/Myscript/include/iink/text/IFontMetricsProvider.h>
 #include <QtGui/QFont>
 #include <utility>
 #include <unordered_map>
