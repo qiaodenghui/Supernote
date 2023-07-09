@@ -6,7 +6,9 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+if(WIN32)
 set(app_icon_resource_windows "${CMAKE_CURRENT_SOURCE_DIR}/resource/supernote.rc")
+endif()
 
 find_package(Qt6 6.5 REQUIRED COMPONENTS Quick Network LinguistTools)
 qt_standard_project_setup(REQUIRES 6.5)
@@ -123,10 +125,15 @@ set(ts_files
 )
 
 qt_add_executable(SupernoteApp
-    ${app_icon_resource_windows}
     ${include_files}
     ${src_files}
 )
+
+if(WIN32)
+qt_add_executable(SupernoteApp
+    ${app_icon_resource_windows}
+)
+endif()
 
 #这里添加可以在C++中使用
 qt_add_resources(SupernoteApp "doc"
@@ -206,19 +213,19 @@ install(TARGETS SupernoteApp
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-qt6_generate_deploy_qml_app_script(
-    TARGET SupernoteApp
-    OUTPUT_SCRIPT deploy_script
-    NO_UNSUPPORTED_PLATFORM_ERROR
-)
-install(SCRIPT ${deploy_script})
-set(CMAKE_INSTALL_PREFIX "/home/ubuntu/work/build")
-set(CPACK_PACKAGE_NAME SupernoteApp)
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "My amazing application")
-set(CPACK_PACKAGE_VENDOR "My Company")
-set(CPACK_PACKAGE_INSTALL_DIRECTORY ${CPACK_PACKAGE_NAME})
-set(CPACK_VERBATIM_VARIABLES ON)
-set(CPACK_PACKAGING_INSTALL_PREFIX "/home/ubuntu/work/build")
-set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Manfred Maintainer <mm@example.com>")
-#set(CPACK_DEBIAN_PACKAGE_DEPENDS libc6 libstdc++6 libgcc-s1)
-include(CPack)
+#qt6_generate_deploy_qml_app_script(
+#    TARGET SupernoteApp
+#    OUTPUT_SCRIPT deploy_script
+#    NO_UNSUPPORTED_PLATFORM_ERROR
+#)
+#install(SCRIPT ${deploy_script})
+#set(CMAKE_INSTALL_PREFIX "/home/ubuntu/work/build")
+#set(CPACK_PACKAGE_NAME SupernoteApp)
+#set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "My amazing application")
+#set(CPACK_PACKAGE_VENDOR "My Company")
+#set(CPACK_PACKAGE_INSTALL_DIRECTORY ${CPACK_PACKAGE_NAME})
+#set(CPACK_VERBATIM_VARIABLES ON)
+#set(CPACK_PACKAGING_INSTALL_PREFIX "/home/ubuntu/work/build")
+#set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Manfred Maintainer <mm@example.com>")
+##set(CPACK_DEBIAN_PACKAGE_DEPENDS libc6 libstdc++6 libgcc-s1)
+#include(CPack)

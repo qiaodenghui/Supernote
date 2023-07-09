@@ -98,18 +98,21 @@ int main(int argc, char *argv[]) {
   engine.rootContext()->setContextProperty("noteInfo", &noteInfo);
   engine.rootContext()->setContextProperty("appManager", &appManager);
   qmlRegisterType<NoteView>("NoteView", 1, 0, "NoteView");
-  const QUrl url(u"qrc:/Supernote/layout/NoteWindow.qml"_qs);
+
+  QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed,
+      &app, []() { QCoreApplication::exit(-1); },
+      Qt::QueuedConnection);
+
   QObject::connect(
       &engine, &QQmlApplicationEngine::objectCreated, &app,
-      [url, &appManager](QObject *obj, const QUrl &objUrl) {
-        if (!obj && url == objUrl) {
+      [ &appManager](QObject *obj) {
+        if (!obj) {
           QCoreApplication::exit(-1);
         }
-        //        appManager.initLanguage();
         appManager.updateCheck();
       },
       Qt::QueuedConnection);
-  engine.load(url);
+   engine.loadFromModule("Supernote", "NoteWindow");
 
   return app.exec();
 }

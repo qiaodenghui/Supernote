@@ -1,5 +1,5 @@
-import QtQuick 2.15
-import Supernote 1.0
+import QtQuick
+import Supernote
 
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 2.15

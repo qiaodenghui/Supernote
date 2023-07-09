@@ -2,7 +2,6 @@ import QtQuick
 import QtQuick.Dialogs
 import QtQuick.Controls
 import QtQuick.Layouts
-import Supernote 1.0
 
 Item {
     property int page: 0

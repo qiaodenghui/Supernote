@@ -1,6 +1,6 @@
 import QtQuick
-import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.5
+import QtQuick.Layouts
+import QtQuick.Controls
 
 ToolBar {
     property string pageInfo: ""
